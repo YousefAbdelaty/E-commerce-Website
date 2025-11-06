@@ -1,0 +1,138 @@
+/* Sale section */
+
+.saleSection {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+}
+
+.saleSection p.saleP {
+    margin: 0;
+    
+}
+
+.saleSection p {
+    color: white;
+    font-weight: 200;
+    text-align: center;
+    font-size: 14px;
+}
+
+.saleSection p span{
+    font-weight: 700;
+    text-decoration: underline;
+    margin-left: 0.5rem;
+}
+
+
+.saleSection .languageSwitch {
+    position: absolute;
+    right: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    
+}
+.saleSection .languageSwitch button{
+    background-color:black;
+    color:white;
+    border: none;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.saleSection .languageSwitch i{
+    font-size: 12px;
+}
+
+
+/* Main nav */
+
+.mainNav{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.mainNav .container{
+    display: flex;
+    align-items: center;
+    padding-top: 2rem ;
+    padding-bottom: 0.3rem;
+    
+}
+
+
+.mainNav p.Logo{
+    font-size: 26px;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+.mainNav .links ul {
+    display: flex;
+    justify-content:center;
+    gap: 2.5rem;
+    /* margin-left: 10rem; */
+}
+
+.mainNav .links ul li{
+    list-style: none;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+}
+
+.mainNav .links ul li:hover{
+    color: #808080;
+}
+
+
+.mainNav .links ul li.active{
+    border-bottom: 1px solid #808080;
+}
+
+.mainNav .searchBar{
+    margin-top: -10px;
+    position: relative;
+    display: inline-block;
+}
+
+.mainNav .searchBar i{
+    position: absolute;
+    left: 13.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 16px;
+}
+
+.mainNav .searchBar input{
+    border-radius: 5px;
+    padding: 6px 10px;
+    background-color: #f5f5f5;
+    border-color: transparent;
+}
+
+.mainNav .searchBar input::placeholder{
+    font-size: 12px;
+
+}
+
+.mainNav .wishCart{
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 4rem;
+    margin-top: -10px;
+}
+.mainNav .wishCart i{
+    color: black;
+    font-size: 22px;
+    cursor: pointer;
+}
