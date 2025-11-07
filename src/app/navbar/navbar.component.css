@@ -1,19 +1,32 @@
 /* Sale section */
 
+
 .saleSection {
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: black;
-    width: 100%;
+    /* width: 100vw; */
     display: flex;
-    justify-content:center;
+    justify-content:flex-start;
     align-items: center;
-    position: relative;
+    /* gap: -20rem; */
+    /* position: relative; */
+    /* margin-left: calc(-50vw + 50%); */
+    /* position: relative; */
+    /* left: 50%; */
+    /* right: 50%; */
+    /* margin-left: 10vw; */
+    
+    width:100%;
+    
+   
 }
 
-.saleSection p.saleP {
-    margin: 0;
-    
+
+.saleSection .saleP {
+    /* margin: 0; */
+    /* text-align: center; */
+    margin: 0 auto;
 }
 
 .saleSection p {
@@ -31,12 +44,14 @@
 
 
 .saleSection .languageSwitch {
-    position: absolute;
-    right: 10rem;
+    /* position: absolute; */
+    right: 10vw;
+    /* margin-right: 10rem; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
+    /* margin-left: auto; */
     
 }
 .saleSection .languageSwitch button{
@@ -56,6 +71,7 @@
 
 .mainNav{
     border-bottom: 1px solid #e0e0e0;
+    width: 100%;
 }
 
 .mainNav .container{
@@ -63,6 +79,8 @@
     align-items: center;
     padding-top: 2rem ;
     padding-bottom: 0.3rem;
+    /* justify-content: space-between; */
+    
     
 }
 
@@ -91,6 +109,10 @@
     color: #808080;
 }
 
+
+.mainNav .links ul li.inactive{
+    border-bottom: none;
+}
 
 .mainNav .links ul li.active{
     border-bottom: 1px solid #808080;
@@ -128,7 +150,7 @@
     /* justify-content: flex-start; */
     align-items: center;
     gap: 1.5rem;
-    margin-left: 4rem;
+    margin-left: 6rem;
     margin-top: -10px;
 }
 .mainNav .wishCart i{
@@ -136,3 +158,47 @@
     font-size: 22px;
     cursor: pointer;
 }
+
+.mainNav .dropdown{
+    margin-top: -0.5rem;
+}
+
+
+/* Media query */
+
+
+
+
+
+@media only screen and (max-width:991px){
+    .saleSection .languageSwitch {
+        right: 0rem;
+    }
+    .saleSection .saleP {
+        max-width: 50%;
+
+    }
+
+    .mainNav .container{
+        justify-content: space-between;
+    }
+
+    .mainNav .Logo {
+        flex: 1;
+        text-align: left;
+    }
+
+    .mainNav .wishCart {
+        flex: 1;
+        justify-content: center;
+        gap: 3rem;
+        margin-left: 2rem;
+    }
+
+    .mainNav .dropdown {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
