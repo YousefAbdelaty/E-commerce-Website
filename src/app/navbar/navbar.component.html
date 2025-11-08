@@ -25,17 +25,17 @@
 
     <div class="mainNav">
 
-        <div class="container">
+        <div class="container-md">
 
             <p class="Logo col-lg-2">Exclusive</p>
 
-            <div class="links col-lg-5">
+            <div class="links col-lg-5 col-md-7 d-none d-md-flex">
 
-                <ul class="d-none d-lg-flex">
-                    <li class="active">Home</li>
-                    <li>Contact</li>
-                    <li>About</li>
-                    <li>Sign Up</li>
+                <ul id="linkList">
+                    <li class="active" id="link1">Home</li>
+                    <li id="link2">Contact</li>
+                    <li id="link3">About</li>
+                    <li id="link4">Sign Up</li>
                 </ul>
 
             </div>
@@ -45,25 +45,31 @@
                 <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
             </div>
 
-            <div class="wishCart col-lg-1">
-                <i class="fa-regular fa-heart"></i>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
+            <div class="wishCartDropWrapper ">
 
-            <div class="dropdown d-lg-none ms-auto">
-                <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Home</a></li>
-                    <li><a class="dropdown-item" href="#">Shop</a></li>
-                    <li><a class="dropdown-item" href="#">About</a></li>
-                    <li><a class="dropdown-item" href="#">Contact</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><input class="form-control" type="search" placeholder="Search..." /></li>
-                </ul>
+                <div class="wishCart col-lg-1">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <div class="dropdown d-lg-none ms-auto ">
+                    <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end  ">
+                        <li><a class="dropdown-item d-md-none" href="#">Home</a></li>
+                        <li><a class="dropdown-item d-md-none" href="#">Shop</a></li>
+                        <li><a class="dropdown-item d-md-none" href="#">About</a></li>
+                        <li><a class="dropdown-item d-md-none" href="#">Contact</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <input type="search" placeholder="What are you looking for?" />
+                            <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </div>

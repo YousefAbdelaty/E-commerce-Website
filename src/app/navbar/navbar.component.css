@@ -74,7 +74,7 @@
     width: 100%;
 }
 
-.mainNav .container{
+.mainNav .container-md{
     display: flex;
     align-items: center;
     padding-top: 2rem ;
@@ -149,7 +149,7 @@
     display: flex;
     /* justify-content: flex-start; */
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-left: 6rem;
     margin-top: -10px;
 }
@@ -171,34 +171,90 @@
 
 
 @media only screen and (max-width:991px){
+    
+    
+
     .saleSection .languageSwitch {
-        right: 0rem;
+        right: 1rem;
     }
     .saleSection .saleP {
         max-width: 50%;
-
+        
     }
 
-    .mainNav .container{
+    .mainNav .wishCartDropWrapper{
+        display: flex;
         justify-content: space-between;
+        gap: 1rem;
+        margin-left: -1rem;
     }
-
+    
+    .mainNav .container-md{
+        justify-content: space-between;
+        
+    }
+    
     .mainNav .Logo {
         flex: 1;
         text-align: left;
     }
-
+    
     .mainNav .wishCart {
         flex: 1;
-        justify-content: center;
-        gap: 3rem;
-        margin-left: 2rem;
+        justify-content: flex-end;
+        gap: 1rem;
+        /* margin-left: 15rem; */
     }
-
+    
+    .mainNav .dropdown .dropdown-menu{
+        padding: 0.5rem;
+    }
     .mainNav .dropdown {
         flex: 1;
         display: flex;
         justify-content: flex-end;
+        
     }
+    
+    .mainNav .dropdown li{
+        position: relative;
+    }
+    .mainNav .dropdown li i{
+        position: absolute;
+        top: 1.2rem;
+        font-size: 14px;
+        right: 0.5rem;
+        
+    }
+    
+    .mainNav .dropdown li input{
+        border-radius: 5px;
+        padding: 6px 10px;
+        background-color: #f5f5f5;
+        border-color: transparent;
+    }
+    
+    .mainNav .dropdown li input::placeholder{
+        font-size: 12px;
+        
+    }
+     .mainNav .container-md {
+        /* justify-content: flex-end; */
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    
+    
 }
 
+
+@media only screen and (max-width:768px){
+
+     .mainNav .container-md {
+        /* justify-content: flex-end; */
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    
+
+}
