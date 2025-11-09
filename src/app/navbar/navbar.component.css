@@ -159,7 +159,7 @@
 }
 
 .mainNav .dropdown{
-    margin-top: -0.5rem;
+    margin-top: -0.8rem;
 }
 
 
@@ -185,7 +185,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
-        margin-left: -1rem;
+        margin-left: -4rem;
     }
     
     .mainNav .container-md{

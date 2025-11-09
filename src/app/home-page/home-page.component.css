@@ -5,7 +5,7 @@
 }
 
 .hero aside {
-    width: 16vw;
+    width: 20%;
 }
 
 .hero aside ul li{
@@ -43,9 +43,29 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: black; /* inactive color */
+  background-color: black; 
 }
 
 .imgCarousel .carousel-indicators .active {
-  background-color: #000; /* active (filled) color */
+  background-color: #000; 
 }
+
+
+
+
+/* Media query */
+
+@media only screen and (max-width:1200px){
+    
+    .hero aside {
+        width: 25%;
+    }
+    
+}
+
+/* @media only screen and (max-width:992px){
+    .hero aside {
+        width: 30%;
+    }
+
+} */
