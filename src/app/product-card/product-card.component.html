@@ -1,0 +1,23 @@
+<div class="cardWrapper">
+
+
+    <div class="card" style="width: 14rem;">
+        <img [src]="product.image" class="card-img-top" alt="{{product.name}}">
+        <button class="addCart">Add To Cart</button>
+        <button class="addWhishlist"><i class="fa-regular fa-heart" style="color: #000000;"></i></button>
+        <button class="eye"><i class="fa-solid fa-eye" style="color: #000000;"></i></button>
+        <p class="discount">{{product.discount}}</p>
+        <div class="reviews"></div>
+    </div>
+    <div class="card-body">
+        <h4>{{product.title}}</h4>
+        <div class="priceWrapper">
+
+            <p class="card-text">${{product.price}}</p>
+            <p class="priceBefore">${{product.prevPrice}}</p>
+
+        </div>
+    </div>
+
+
+</div>
