@@ -1,4 +1,13 @@
+/* Generals */
+
+.splitter p{
+    border-bottom: 2px solid #e0e0e0;
+}
+
+
+
 /* Hero section */
+
 
 .hero{
     display: flex;
@@ -116,11 +125,13 @@
 }
 
 
+.categories .container .categoriesWrapper,
 .flashSales .container .dateWrapper{
     display: flex;
     align-items: center;
 }
 
+.categories .container .categoriesWrapper .categoriesShape,
 .flashSales .container .dateWrapper .dateShape{
     height: 35px;
     width: 15px;
@@ -129,10 +140,12 @@
     
 }
    
+.categories .container .categoriesWrapper p#categories,
 .flashSales .container .dateWrapper p#date{
     color: #db4444;
     font-size: 14px;
     padding-left: 15px;
+    font-weight: 700;
     
 }
 
@@ -142,6 +155,7 @@
     align-items: center;
 }
 
+.categories .categoriesHeader h3,
 .flashSales .flashTimer h3{
     font-weight: 700;
     letter-spacing: 1px;
@@ -176,16 +190,20 @@
 
 }
 
+.categories .container .categoryArrowsWrapper,
 .flashSales .container .timerArrowsWrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+.categories .container .categoryArrowsWrapper .arrows,
 .flashSales .container .timerArrowsWrapper .arrows{
     margin-right: 4rem;
     display: flex;
     gap: 10px;
 }
+.categories .container .categoryArrowsWrapper .arrows button,
 .flashSales .container .timerArrowsWrapper .arrows button{
     border: none;
     border-radius:50%;
@@ -194,8 +212,12 @@
 }
 
 
-.flashSales .productCardsWrapper .container{
-    /* margin-right: 0; */
+.flashSales .productCardsWrapper .viewProductsButton button{
+    transition: all 0.2s ease-in-out;
+}
+
+.flashSales .productCardsWrapper .viewProductsButton button:hover{
+    transform: scale(1.04);
 }
 
 .flashSales .productCardsWrapper{
@@ -208,7 +230,7 @@
     gap: 1.5rem;
     align-items: center;
     flex-direction: row;
-    overflow:scroll;
+    overflow:hidden;
     margin-bottom: 2rem;
   
 }
@@ -229,13 +251,69 @@
 }
 
 
-.splitter p{
-    border-bottom: 2px solid #e0e0e0;
+
+/* Categories section */
+
+.categories .container{
+    margin-top: 4rem;
+}
+.categories .categoriesBoxesWrapper{
+    display: flex;
+    gap: 1rem;
+    /* justify-content: center; */
+    margin-top:2rem ;
+    margin-bottom:2rem ;
+    overflow: hidden;
+}
+.categories .categoriesBoxesWrapper .categoryItem{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
+    min-width: 12rem;
+    height: 9rem;
+    border: 2px solid #ececec;
+    cursor: pointer;
+    position: relative;
 }
 
+.categories .categoriesBoxesWrapper .categoryItem::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #db4444;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
 
+/* On hover: fill from bottom to top */
+.categories .categoriesBoxesWrapper .categoryItem:hover::before {
+  height: 100%;
+}
 
+/* .categories .categoriesBoxesWrapper .categoryItem:hover{
+    background-color: #db4444;
+} */
+.categories .categoriesBoxesWrapper .categoryItem:hover p,
+.categories .categoriesBoxesWrapper .categoryItem:hover i{
+    color: white;
+}  
 
+.categories .categoriesBoxesWrapper .categoryItem p{
+    font-size: 16px;
+    font-weight: 500;
+
+}
+.categories .categoriesBoxesWrapper .categoryItem i{
+    font-size: 32px;
+    margin-top: 1rem;
+    color: #000000;
+}
 
 
 
@@ -277,15 +355,20 @@
 
     .flashSales .container .timerArrowsWrapper{
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 1rem;
+       
     }
 
-    .flashSales .flashTimer{
+    .flashSales .flashTimer {
         flex-direction: column;
         gap: 1rem;
-        align-items: center;
-        justify-content: center;
+        /* justify-content: center !important; */
+      
+    }
+
+    .flashSales .container .timerArrowsWrapper .arrows{
+        margin-left: 25rem;
     }
 }
 
@@ -308,6 +391,18 @@
 
     .hero .smallAside:hover {
         left: -25px;
+    }
+
+    .flashSales .container .timerArrowsWrapper .arrows{
+        margin: 0;
+    }
+    .categories .container .categoryArrowsWrapper{
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .categories .container .categoryArrowsWrapper .arrows{
+        margin-right: 0;
     }
 
 }

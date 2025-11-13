@@ -138,15 +138,17 @@
             </div>
 
             <div class="arrows">
-                <button><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
-                <button><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
+                <button id="flashScrollLeftButton"><i class="fa-solid fa-arrow-left"
+                        style="color: #000000;"></i></button>
+                <button id="flashScrollRightButton"><i class="fa-solid fa-arrow-right"
+                        style="color: #000000;"></i></button>
             </div>
         </div>
     </div>
 
 
     <div class="productCardsWrapper">
-        <div class="product-container container">
+        <div class="product-container container" id="productsContainer">
             <app-product-card *ngFor="let item of products" [product]="item">
             </app-product-card>
 
@@ -159,6 +161,70 @@
 
 
 </section>
+
+<div class="splitter container">
+    <p style="color:white;">fdsfdsfdsf</p>
+</div>
+
+
+<section class="categories">
+
+    <div class="container">
+
+        <div class="categoriesWrapper">
+            <p class="categoriesShape"></p>
+            <p id="categories">categories</p>
+        </div>
+
+        <div class="categoryArrowsWrapper">
+
+
+            <div class="categoriesHeader">
+                <h3 class="mt-3">Browse By Category</h3>
+            </div>
+
+            <div class="arrows">
+                <button id="categoryScrollLeftButton"><i class="fa-solid fa-arrow-left"
+                        style="color: #000000;"></i></button>
+                <button id="categoryScrollRightButton"><i class="fa-solid fa-arrow-right"
+                        style="color: #000000;"></i></button>
+            </div>
+        </div>
+
+        <div class="categoriesBoxesWrapper" id="categoriesBoxesWrapper">
+
+            <div class="categoryItem">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <p>Phones</p>
+            </div>
+            <div class="categoryItem">
+                <i class="fa-solid fa-desktop"></i>
+                <p>Computers</p>
+            </div>
+            <div class="categoryItem">
+                <i class="fa-regular fa-clock"></i>
+                <p>SmartWatch</p>
+            </div>
+            <div class="categoryItem">
+                <i class="fa-solid fa-camera"></i>
+                <p>Camera</p>
+            </div>
+            <div class="categoryItem">
+                <i class="fa-solid fa-headphones"></i>
+                <p>HeadPhones</p>
+            </div>
+            <div class="categoryItem">
+                <i class="fa-solid fa-gamepad"></i>
+                <p>Gaming</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 
 <div class="splitter container">
     <p style="color:white;">fdsfdsfdsf</p>
