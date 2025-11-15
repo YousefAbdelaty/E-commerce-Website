@@ -1,3 +1,4 @@
+
 /* Sale section */
 
 
@@ -72,6 +73,10 @@
 .mainNav{
     border-bottom: 2px solid #e0e0e0;
     width: 100%;
+    position:sticky;
+    top: 0;
+    background-color: white;
+    z-index: 2;
 }
 
 .mainNav .container-md{

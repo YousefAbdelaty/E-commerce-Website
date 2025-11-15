@@ -229,3 +229,55 @@
 <div class="splitter container">
     <p style="color:white;">fdsfdsfdsf</p>
 </div>
+
+
+
+<section class="bestSelling">
+
+    <div class="container">
+
+        <div class="dateWrapper">
+
+            <p class="dateShape"></p>
+            <p id="date">This Month</p>
+
+        </div>
+
+        <div class="timerArrowsWrapper">
+
+
+            <div class="bestSellingHeader">
+                <h3 class="mt-3">Best Selling Products</h3>
+            </div>
+
+            <div class="arrows">
+                <button id="bestSellingScrollLeftButton"><i class="fa-solid fa-arrow-left"
+                        style="color: #000000;"></i></button>
+                <button id="bestSellingScrollRightButton"><i class="fa-solid fa-arrow-right"
+                        style="color: #000000;"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="productCardsWrapper">
+        <div class="product-container container" id="BestProductsContainer">
+            <app-product-card *ngFor="let item of products | slice:0:5" [product]="item">
+            </app-product-card>
+
+        </div>
+        <div class="viewProductsButton">
+            <button>View All Products</button>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="jblWrapper">
+    <div class="container mb-5">
+
+        <img src="/assets/images/Home Page/General images/JBL.jpg" alt="">
+        <!-- <button>Buy Now!</button> -->
+    </div>
+</section>
