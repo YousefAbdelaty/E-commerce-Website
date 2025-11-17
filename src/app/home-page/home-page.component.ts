@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { NgFor, NgForOfContext } from '@angular/common';
 import { SlicePipe } from '@angular/common';
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -116,6 +117,7 @@ export class HomePageComponent {
     this.scrollHandler("categoryScrollRightButton","categoryScrollLeftButton","categoriesBoxesWrapper");
     this.scrollHandler("flashScrollRightButton","flashScrollLeftButton","productsContainer");
     this.scrollHandler("bestSellingScrollRightButton","bestSellingScrollLeftButton","BestProductsContainer");
+    this.scrollHandler("exploreScrollRightButton","exploreScrollLeftButton","exploreProductsContainer");
  
   }
 }

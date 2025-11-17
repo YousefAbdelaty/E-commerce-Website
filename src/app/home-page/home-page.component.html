@@ -281,3 +281,98 @@
         <!-- <button>Buy Now!</button> -->
     </div>
 </section>
+
+
+<section class="exploreProducts">
+
+    <div class="container">
+
+        <div class="dateWrapper">
+
+            <p class="dateShape"></p>
+            <p id="date">Our Products</p>
+
+        </div>
+
+        <div class="timerArrowsWrapper">
+
+
+            <div class="productsHeader">
+
+                <h3 class="mt-3">Explore Our Products</h3>
+
+            </div>
+
+            <div class="arrows">
+                <button id="exploreScrollLeftButton"><i class="fa-solid fa-arrow-left"
+                        style="color: #000000;"></i></button>
+                <button id="exploreScrollRightButton"><i class="fa-solid fa-arrow-right"
+                        style="color: #000000;"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="productCardsWrapper">
+        <div class="product-container container" id="exploreProductsContainer">
+            <app-product-card *ngFor="let item of products " [product]="item">
+            </app-product-card>
+
+        </div>
+
+        <div class="viewProductsButton">
+            <button>View All Products</button>
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+<section class="featured">
+    <div class="container">
+
+        <div class="dateWrapper">
+
+            <p class="dateShape"></p>
+            <p id="date">Featured</p>
+
+        </div>
+
+        <div class="timerArrowsWrapper">
+
+
+            <div class="productsHeader">
+
+                <h3 class="mt-3">New Arrival</h3>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="imgsWrapper">
+
+
+            <div class="leftImg">
+                <img src="/assets/images/Home Page/General images/ps5.jpg" alt="">
+            </div>
+
+            <div class="rightImg">
+                <div class="topImg">
+                    <img src="/assets/images/Home Page/General images/women's collection.jpg" alt="">
+                </div>
+                <div class="bottomImgs">
+                    <img src="/assets/images/Home Page/General images/speakers.jpg" alt="">
+                    <img src="/assets/images/Home Page/General images/perfume.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
