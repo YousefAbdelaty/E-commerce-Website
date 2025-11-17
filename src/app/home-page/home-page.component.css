@@ -413,13 +413,13 @@
 }
 
 .featured .imgsWrapper .leftImg img{
-    height: 90vh;
+    height: 38rem;
 }
 
 .featured .imgsWrapper .rightImg{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 .featured .imgsWrapper .rightImg .bottomImgs{
     display: flex;
@@ -427,12 +427,12 @@
 }
 
 .featured .imgsWrapper .rightImg .topImg img{
-    height: 45vh;
+    height: 19.5rem;
     width: 93%;
 }
 
 .featured .imgsWrapper .rightImg .bottomImgs img{
-    height: 40vh;
+    height: 17.35rem;
 }
 
 
@@ -449,7 +449,7 @@
     }
 
     .featured .imgsWrapper .rightImg .bottomImgs img{
-        height: 33vh;
+        height: 16rem;
     }
 
 
@@ -459,11 +459,12 @@
     }
 
     .featured .imgsWrapper .leftImg img{
-        height: 80vh;
+        height: 35rem;
     }
 
     .featured .imgsWrapper .rightImg .topImg img{
         width: 100%;
+        height: 18rem;
     }
     .featured .imgsWrapper .rightImg{
         gap: 1rem;
@@ -478,20 +479,23 @@
         width: 25%;
     }
     .featured .imgsWrapper .leftImg img{
-        height: 70vh;
+        height: 32rem;
     }
 
     .featured .imgsWrapper .rightImg .topImg img{
-        height: 35vh;
+        height: 16rem;
         width: 100%;
     }
 
     .featured .imgsWrapper .rightImg .bottomImgs img{
-        height: 33vh;
+        height: 15rem;
     }
 
+    .featured .imgsWrapper {
+        gap: 0.5rem;
+    }
     .featured .imgsWrapper .rightImg .bottomImgs{
-        gap: 1.8rem;
+        gap: 0.5rem;
     }
 
 
@@ -509,23 +513,23 @@
     }
 
     .featured .imgsWrapper .leftImg img{
-        height: 54vh;
+        height: 23.8rem;
     }
 
     .featured .imgsWrapper .rightImg {
         gap: 0.7rem;
     }
     .featured .imgsWrapper .rightImg .topImg img{
-        height: 28vh;
+        height: 12rem;
         width: 100%;
     }
     
     .featured .imgsWrapper .rightImg .bottomImgs {
-        gap: 0.7rem;
+        gap: 0.5rem;
  
     }
     .featured .imgsWrapper .rightImg .bottomImgs img{
-        height: 24.5vh;
+        height: 11rem;
     }     
 }
 
@@ -563,17 +567,23 @@
         width: 85vw;
     }    
       
+    .featured .imgsWrapper {
+        gap: 0.5rem;
+    }
     .featured .imgsWrapper .leftImg img{
-        height: 40vh;
+        height: 18rem;
     }
 
     .featured .imgsWrapper .rightImg .topImg img{
-        height: 19vh;
+        height: 8.6rem;
         width: 100%;
     }
 
+    .featured .imgsWrapper .rightImg .bottomImgs {
+        gap: 0.5rem;
+    }
     .featured .imgsWrapper .rightImg .bottomImgs img{
-        height: 19vh;
+        height: 8.4rem;
     }    
     
 
@@ -583,29 +593,29 @@
     .hero .smallAside .offcanvas {
         width: 80vw;
     }
-
-    .hero .smallAside  button:first-child{
     
+    .hero .smallAside  button:first-child{
+        
         height: 3vh;
         width: 70px;
         font-size: 10px;
-       
+        
     }
-
+    
     .hero .smallAside  {
         left: -30px;
     }
-
+    
     .hero .smallAside:hover {
         left: -25px;
     }
-
+    
     .exploreProducts .container .timerArrowsWrapper .arrows,
     .bestSelling .container .timerArrowsWrapper .arrows,
     .flashSales .container .timerArrowsWrapper .arrows{
         margin: 0;
     }
-
+    
     .exploreProducts .container .timerArrowsWrapper,
     .bestSelling .container .timerArrowsWrapper,
     .categories .container .categoryArrowsWrapper{
@@ -616,28 +626,37 @@
     .categories .container .categoryArrowsWrapper .arrows{
         margin-right: 0;
     }
-
+    
     .jblWrapper .container img{
         width: 90vw;
     }
-
+    
     .featured .imgsWrapper {
         justify-content: center;
+        gap: 0.2rem;
     }
     .featured .imgsWrapper .leftImg img{
-        height: 25vh;
+        height: 11rem;
     }
-
+    
+    .featured .imgsWrapper .rightImg{
+        gap: 0.2rem;
+    }
     .featured .imgsWrapper .rightImg .topImg img{
-        height: 12vh;
-        width: 98%;
+        height: 5.7rem;
+        width: 93%;
     }
-
+    
+    .featured .imgsWrapper .rightImg .bottomImgs {
+        gap: 0.9rem;
+    }
+    .featured .imgsWrapper .rightImg .bottomImgs img{
+        height: 5.1rem;
+    }    
+    
+}
+@media only screen and (max-width:380px){
     .featured .imgsWrapper .rightImg .bottomImgs {
         gap: 0.7rem;
     }
-    .featured .imgsWrapper .rightImg .bottomImgs img{
-        height: 11.5vh;
-    }    
-
 }
