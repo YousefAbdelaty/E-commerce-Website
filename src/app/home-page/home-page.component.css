@@ -4,6 +4,22 @@
     border-bottom: 2px solid #e0e0e0;
 }
 
+.homePageWrapper{
+    position: relative;
+}
+
+.homePageWrapper .goUpBtn{
+    position: absolute;
+    bottom: -90px;
+    right: 80px;
+    border: none;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    padding: 8px 12px;
+    
+}
+
+
 
 
 /* Hero section */
@@ -441,6 +457,44 @@
 
 
 
+/* Icons section */
+
+
+
+.icons{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+.icons .container{
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+}
+
+.icons .container .iconWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 0.5rem; */
+}
+.icons .container .iconWrapper h5{
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.icons .container .iconWrapper p{
+    font-size: 12px;
+    text-align: center;
+}
+
+.icons .container .iconWrapper img{
+    height: 4rem;
+    margin-bottom: 1rem;
+}
+
+
 /* Media query */
 
 @media only screen and (max-width:1400px){
@@ -531,6 +585,28 @@
     .featured .imgsWrapper .rightImg .bottomImgs img{
         height: 11rem;
     }     
+
+
+
+    .icons .container .iconWrapper h5{
+        font-size: 14px;
+       
+    }
+
+    .icons .container .iconWrapper p{
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .icons .container .iconWrapper img{
+        height: 3rem;
+    }
+
+    .icons .container{
+        gap: 4rem;
+    }
+
+
 }
 
 
@@ -585,8 +661,26 @@
     .featured .imgsWrapper .rightImg .bottomImgs img{
         height: 8.4rem;
     }    
-    
 
+    .icons .container {
+        gap: 3rem;
+
+    }
+
+    .icons .container{
+        gap: 1.3rem;
+    }    
+
+    .icons .container .iconWrapper h5{
+        font-size: 12px;
+    }
+
+    .icons .container .iconWrapper p{
+        font-size: 9px;
+    }
+    .icons .container .iconWrapper img{
+        height: 2.5rem;
+    }
 }
 
 @media only screen and (max-width:576px){
@@ -653,6 +747,21 @@
     .featured .imgsWrapper .rightImg .bottomImgs img{
         height: 5.1rem;
     }    
+
+    .icons{
+        margin-top: 4rem;
+    }
+
+    .icons .container{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .homePageWrapper .goUpBtn{
+        bottom: -30px;
+        right: 50px;
+    }
+
     
 }
 @media only screen and (max-width:380px){
