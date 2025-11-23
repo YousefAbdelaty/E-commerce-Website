@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent  {
+  constructor(public router: Router){}
 
     linkList! :HTMLElement;
     homeLink! :HTMLElement;
@@ -50,6 +52,12 @@ ngAfterViewInit(): void {
     }
 
 
-
-   
+      
+  
+  signUpRoute():void{
+    this.router.navigate(['/signup']);
   }
+   
+
+
+}

@@ -4,6 +4,7 @@ import { NgFor, NgForOfContext } from '@angular/common';
 import { SlicePipe } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -12,14 +13,12 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
+
 export class HomePageComponent {
-  
+
+
   goUpBtn!:HTMLButtonElement;
-  
-  
-  
-  
-  
+
   
   scrollHandler(rightScrollerID:string ,leftScrollerID:string , containerID:string ):any{
     
@@ -63,7 +62,7 @@ export class HomePageComponent {
       window.scrollTo({top:0,behavior:'smooth'});
     });
   }
-  
+
   
   
   

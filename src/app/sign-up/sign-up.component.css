@@ -1,0 +1,31 @@
+.signUpWrapper {
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10rem;
+    align-items: center;
+}
+.signUpWrapper .imgWrapper img{
+    height: 600px;
+}
+.signUpWrapper .formWrapper{
+    /* margin-right: 5rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+}
+.signUpWrapper .formWrapper form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.signUpWrapper .formWrapper form input{
+    border: none;
+    border-bottom: #cfcfcf 2px solid;
+}
+.signUpWrapper .formWrapper form input::placeholder{
+    font-size: 12px;
+    opacity: 80%;
+}
