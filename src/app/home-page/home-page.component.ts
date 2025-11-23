@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { NgFor, NgForOfContext } from '@angular/common';
 import { SlicePipe } from '@angular/common';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [ProductCardComponent ,NgFor ,SlicePipe ],
+  imports: [ProductCardComponent,FooterComponent, NavbarComponent ,NgFor ,SlicePipe ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
