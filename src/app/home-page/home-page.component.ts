@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 
 export class HomePageComponent {
 
+  constructor(public router:Router){}
 
   goUpBtn!:HTMLButtonElement;
 
@@ -48,6 +49,9 @@ export class HomePageComponent {
       
     });
   }
+
+
+
   
   
   ngAfterViewInit(): void {

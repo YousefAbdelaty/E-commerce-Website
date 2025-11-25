@@ -1,42 +1,44 @@
-.signUpWrapper {
+.loginWrapper {
     margin-top: 5rem;
     margin-bottom: 7rem;
     display: flex;
-    /* justify-content: flex-start; */
-    /* gap: 10rem; */
     justify-content: space-evenly;
     align-items: center;
     margin-right: 5rem;
 }
-.signUpWrapper .imgWrapper img{
+
+.loginWrapper .imgWrapper img{
     height: 600px;
 }
-.signUpWrapper .formWrapper{
+
+.loginWrapper .formWrapper{
     /* margin-right: 5rem; */
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.signUpWrapper .formWrapper h1{
+.loginWrapper .formWrapper h1{
     letter-spacing: 1px;
     font-weight: 700;
 }
 
 
-.signUpWrapper .formWrapper form{
+.loginWrapper .formWrapper form{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.signUpWrapper .formWrapper form .passwordWrapper{
+.loginWrapper .formWrapper form .passwordWrapper{
     position: relative;
 }
-.signUpWrapper .formWrapper form .passwordWrapper input{
+
+.loginWrapper .formWrapper form .passwordWrapper input{
     width: 100%;
 }
-.signUpWrapper .formWrapper form .passwordWrapper i{
+
+.loginWrapper .formWrapper form .passwordWrapper i{
     position: absolute;
     right: 10px;
     top: 5px;
@@ -45,68 +47,51 @@
     transition: all ease-in-out 0.3s;
 }
 
-.signUpWrapper .formWrapper form .passwordWrapper i:active{
+.loginWrapper .formWrapper form .passwordWrapper i:active{
     transform: scale(0.95);
     opacity: 80%;
 }
 
-.signUpWrapper .formWrapper form input{
+.loginWrapper .formWrapper form input{
     border: none;
     border-bottom: #cfcfcf 2px solid;
     transition: all ease-in-out 0.3s;
 }
 
-.signUpWrapper .formWrapper form input::placeholder{
+.loginWrapper .formWrapper form input::placeholder{
     font-size: 12px;
     opacity: 80%;
 }
 
 
-.signUpWrapper .formWrapper button.createAccBtn{
+.loginWrapper .formWrapper button.loginBtn{
     border: none;
     background-color: #db4444;
     color: white;
-}
-.signUpWrapper .formWrapper button.googleBtn{
-    border: #d4d4d4 2px solid;
-    background-color: white ;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.7rem;
-}
-.signUpWrapper .formWrapper button.googleBtn,
-.signUpWrapper .formWrapper button.createAccBtn{
     padding: 0.7rem 3rem;
     font-size: 16px;
     border-radius: 3px;
     transition: all ease-in-out 0.3s;
 }
 
-.signUpWrapper .formWrapper button.googleBtn:hover,
-.signUpWrapper .formWrapper button.createAccBtn:hover{
+.loginWrapper .formWrapper button.loginBtn:hover{
     transform: scale(1.04);
 }
-.signUpWrapper .formWrapper p#alreadyHaveAcc{
+
+.loginWrapper .formWrapper p#forgetPassword{
     text-align: center;
     font-size: 16px;
-    opacity: 80%;
-}
-.signUpWrapper .formWrapper p#alreadyHaveAcc span{
-    margin-left: 0.5rem;
-    border-bottom: #d4d4d4 2px solid;
-    padding-bottom: 0.25rem;
-    cursor: pointer;
+    color: #e98e8e;
 }
 
-.signUpWrapper .formWrapper form input:focus{
+
+.loginWrapper .formWrapper form input:focus{
     background-color: #f6f6f6;
     padding: 0.4rem;
     outline: none;
 }
 
-.signUpWrapper .formWrapper form .passwordWrapper:focus-within i{
+.loginWrapper .formWrapper form .passwordWrapper:focus-within i{
     top: 13px;
 }
 
@@ -117,13 +102,13 @@
 /* Media query */
 
 @media only screen and (max-width:1200px) {
-    .signUpWrapper {
+    .loginWrapper {
         justify-content: flex-start;
         gap: 5rem;
         margin-right: 0;
     }
     
-    .signUpWrapper .imgWrapper img {
+    .loginWrapper .imgWrapper img {
         height: auto;
         width: 500px;
     }
@@ -131,45 +116,45 @@
 }
 
 @media only screen and (max-width:992px) {
-    .signUpWrapper .imgWrapper img {
+    .loginWrapper .imgWrapper img {
         height: auto;
         width: 450px;
     }
-    .signUpWrapper .formWrapper h1{
+    .loginWrapper .formWrapper h1{
         font-size: 28px;
     }
-    .signUpWrapper .formWrapper{
+    .loginWrapper .formWrapper{
         gap: 0.6rem;
     }
-    .signUpWrapper .formWrapper button.googleBtn,
-    .signUpWrapper .formWrapper button.createAccBtn{
+ 
+    .loginWrapper .formWrapper button.loginBtn{
         padding: 0.5rem 2rem;
         font-size: 14px;
     }
-    .signUpWrapper {
+    .loginWrapper {
         gap: 3rem;
     }
     
 }
 @media only screen and (max-width:768px) {
-    .signUpWrapper{
+    .loginWrapper{
         flex-direction: column;
         margin-top: 1rem;
     }
 
-    .signUpWrapper .imgWrapper img{
+    .loginWrapper .imgWrapper img{
         width: 100vw;
         height: 280px;
         object-fit: cover;
         border-radius: 5px;
     }
 
-    .signUpWrapper .formWrapper{
+    .loginWrapper .formWrapper{
         width: 90vw;
         padding: 2rem ;
     }
-    .signUpWrapper .formWrapper h1,
-    .signUpWrapper .formWrapper p{
+    .loginWrapper .formWrapper h1,
+    .loginWrapper .formWrapper p{
         text-align: center;
     }
 }

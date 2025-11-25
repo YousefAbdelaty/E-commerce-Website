@@ -3,11 +3,13 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HomePageComponent } from './home-page/home-page.component';
+import { LoginComponent } from './login/login.component';
 
 
 export const routes: Routes = [
     {path:'home' , component:HomePageComponent},
     {path:'signup' , component:SignUpComponent},
+    {path:'login' , component:LoginComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

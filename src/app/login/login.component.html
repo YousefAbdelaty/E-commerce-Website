@@ -1,27 +1,23 @@
 <app-navbar></app-navbar>
 
-<div class="signUpWrapper">
+<div class="loginWrapper">
 
     <div class="imgWrapper">
         <img src="/assets/images/login and signup/67b2c7d6-0137-4420-bbe2-c2d2c844dc4a.jpg" alt="">
     </div>
 
     <div class="formWrapper ">
-        <h1>Create an account</h1>
+        <h1>Login to Exclusive</h1>
         <p>Enter your details below</p>
         <form action="">
-            <input type="text" name="" id="" placeholder="Name">
             <input type="text" name="" id="" placeholder="Email or Phone Number">
             <div class="passwordWrapper">
                 <input type="password" name="" id="passwordInput" placeholder="Password">
                 <i class="fa-solid fa-eye " style="color: #847171;" (click)="togglePassword()"></i>
             </div>
         </form>
-        <button class="createAccBtn">Create Account</button>
-        <button class="googleBtn"><img src="/assets/images/login and signup/Google__G__logo.svg.webp" alt=""
-                style="height: 20px;"> Sign up
-            with Google</button>
-        <p (click)="loginNavigate()" id="alreadyHaveAcc">Already have account ? <span>Log in</span></p>
+        <button class="loginBtn">Log in</button>
+        <p id="forgetPassword">Forget Password ?</p>
     </div>
 </div>
 

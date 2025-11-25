@@ -18,6 +18,9 @@ export class NavbarComponent  {
     signLink! :HTMLElement;
     navContainer! : HTMLElement;
 
+
+
+
 ngAfterViewInit(): void {
 
       this.homeLink = document.getElementById('link1') as HTMLElement;
@@ -51,12 +54,17 @@ ngAfterViewInit(): void {
         });
     }
 
+    
+    signUpNavigate():void{
+      this.router.navigate(['/signup']);
+    }
+    homeNavigate(){
+      this.router.navigate(['/home']);
+    }
+
 
       
   
-  signUpRoute():void{
-    this.router.navigate(['/signup']);
-  }
    
 
 

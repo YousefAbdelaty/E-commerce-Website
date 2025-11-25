@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { Router } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
+
+
 
 @Component({
-  selector: 'app-sign-up',
+  selector: 'app-login',
   standalone: true,
-  imports: [NavbarComponent , FooterComponent],
-  templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css'
+  imports: [FooterComponent,NavbarComponent],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class SignUpComponent {
-
-  constructor(public router: Router){}
-
+export class LoginComponent {
   passwordInput! : HTMLInputElement;
   
   togglePassword():any{
@@ -25,9 +23,7 @@ export class SignUpComponent {
     
   }
 
-  loginNavigate(){
-    this.router.navigate(['/login']);
-  }
+  
 
   ngAfterViewInit(): void {
     this.passwordInput=document.getElementById('passwordInput') as HTMLInputElement;
