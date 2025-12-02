@@ -15,7 +15,8 @@
     /* margin-right: 5rem; */
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
+    /* width: 25vw; */
 }
 .signUpWrapper .formWrapper h1{
     letter-spacing: 1px;
@@ -26,8 +27,9 @@
 .signUpWrapper .formWrapper form{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
     margin-bottom: 1rem;
+    margin-top: -1rem;
 }
 
 .signUpWrapper .formWrapper form .passwordWrapper{
@@ -109,6 +111,33 @@
 .signUpWrapper .formWrapper form .passwordWrapper:focus-within i{
     top: 13px;
 }
+
+.signUpWrapper .formWrapper form p.errors{
+    font-size: 12px;
+    color: darkred;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    visibility: hidden;
+    max-width: 30vw;
+    text-align: left;
+}
+
+.signUpWrapper .formWrapper form p.visible-error{
+    visibility: visible;
+}
+
+.signUpWrapper .formWrapper form .buttonsWrapper p,
+.signUpWrapper .formWrapper form .buttonsWrapper button{
+    width: 100%;
+}
+
+.signUpWrapper .formWrapper form .buttonsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
 
 
 

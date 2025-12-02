@@ -7,21 +7,39 @@
     </div>
 
     <div class="formWrapper ">
+
         <h1>Create an account</h1>
         <p>Enter your details below</p>
-        <form action="">
-            <input type="text" name="" id="" placeholder="Name">
-            <input type="text" name="" id="" placeholder="Email or Phone Number">
+
+        <form action="" [formGroup]="userForm" (ngSubmit)="formSubmit()">
+            <p id="nameError" class="errors"
+                [ngClass]="{ 'visible-error': userForm.controls['userName'].invalid && userForm.controls['userName'].touched }">
+                Please fill the Name correctly </p>
+            <input type="text" name="" id="" placeholder="Name (minimmum 5 characters)" formControlName="userName">
+
+            <p id="emailError" class="errors"
+                [ngClass]="{ 'visible-error': userForm.controls['email'].invalid && userForm.controls['email'].touched }">
+                Please fill the email correctly</p>
+            <input type="text" name="" id="" placeholder="Email or Phone Number" formControlName="email">
+
+            <p id="passError" class="errors"
+                [ngClass]="{ 'visible-error': userForm.controls['password'].invalid && userForm.controls['password'].touched }">
+                Please fill the passwrod correctly </p>
             <div class="passwordWrapper">
-                <input type="password" name="" id="passwordInput" placeholder="Password">
+                <input type="password" name="" id="passwordInput" placeholder="Password" formControlName="password">
                 <i class="fa-solid fa-eye " style="color: #847171;" (click)="togglePassword()"></i>
             </div>
+
+            <div class="buttonsWrapper">
+
+                <button class="createAccBtn mb-2" type="submit">Create Account</button>
+                <button class="googleBtn"><img src="/assets/images/login and signup/Google__G__logo.svg.webp" alt=""
+                        style="height: 20px;"> Sign up
+                    with Google</button>
+                <p (click)="loginNavigate()" id="alreadyHaveAcc">Already have account ? <span>Log in</span></p>
+
+            </div>
         </form>
-        <button class="createAccBtn">Create Account</button>
-        <button class="googleBtn"><img src="/assets/images/login and signup/Google__G__logo.svg.webp" alt=""
-                style="height: 20px;"> Sign up
-            with Google</button>
-        <p (click)="loginNavigate()" id="alreadyHaveAcc">Already have account ? <span>Log in</span></p>
     </div>
 </div>
 
