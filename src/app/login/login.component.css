@@ -78,10 +78,23 @@
     transform: scale(1.04);
 }
 
+.loginWrapper .formWrapper p#noAcc{
+    text-align: center;
+    font-size: 16px;
+    margin-top: -1rem;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: #4d4d4d;
+}
+
+
 .loginWrapper .formWrapper p#forgetPassword{
     text-align: center;
     font-size: 16px;
     color: #e98e8e;
+    cursor: pointer;
 }
 
 
@@ -93,6 +106,16 @@
 
 .loginWrapper .formWrapper form .passwordWrapper:focus-within i{
     top: 13px;
+}
+
+.loginWrapper .formWrapper form .buttonsWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.loginWrapper .formWrapper form .buttonsWrapper button{
+    width: 100%;
 }
 
 

@@ -16,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
-
+  nameInput!:HTMLInputElement;
+  emailInput!:HTMLInputElement;
+  passwordInput! : HTMLInputElement;
 
   userForm!: FormGroup;
 
@@ -33,6 +35,10 @@ export class SignUpComponent {
       this.api.signup(this.userForm.value).subscribe({
         next: (res)=>{
           console.log(res);
+          this.router.navigate(['/home']);
+          // this.nameInput.value='';
+          // this.passwordInput.value='';
+          // this.emailInput.value='';
         },
         error:(err)=>{
           console.log(err);
@@ -43,7 +49,6 @@ export class SignUpComponent {
 
 
 
-  passwordInput! : HTMLInputElement;
   
   togglePassword():any{
     if(this.passwordInput.type==='password'){
@@ -60,6 +65,8 @@ export class SignUpComponent {
 
   ngAfterViewInit(): void {
     this.passwordInput=document.getElementById('passwordInput') as HTMLInputElement;
+    this.nameInput=document.getElementById('name') as HTMLInputElement;
+    this.emailInput=document.getElementById('email') as HTMLInputElement;
 
   }
 

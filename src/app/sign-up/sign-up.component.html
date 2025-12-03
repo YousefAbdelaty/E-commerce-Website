@@ -15,12 +15,12 @@
             <p id="nameError" class="errors"
                 [ngClass]="{ 'visible-error': userForm.controls['userName'].invalid && userForm.controls['userName'].touched }">
                 Please fill the Name correctly </p>
-            <input type="text" name="" id="" placeholder="Name (minimmum 5 characters)" formControlName="userName">
+            <input type="text" name="" id="name" placeholder="Name (minimmum 5 characters)" formControlName="userName">
 
             <p id="emailError" class="errors"
                 [ngClass]="{ 'visible-error': userForm.controls['email'].invalid && userForm.controls['email'].touched }">
                 Please fill the email correctly</p>
-            <input type="text" name="" id="" placeholder="Email or Phone Number" formControlName="email">
+            <input type="text" name="" id="email" placeholder="Email or Phone Number" formControlName="email">
 
             <p id="passError" class="errors"
                 [ngClass]="{ 'visible-error': userForm.controls['password'].invalid && userForm.controls['password'].touched }">

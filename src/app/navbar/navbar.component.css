@@ -154,9 +154,11 @@
     display: flex;
     /* justify-content: flex-start; */
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-left: 6rem;
     margin-top: -10px;
+    /* display: none; */
+    visibility: hidden;
 }
 .mainNav .wishCart i{
     color: black;
@@ -169,10 +171,54 @@
 }
 
 
+.profile-dropdown {
+    position: absolute;
+    top: 70px;
+    right: 80px;
+    background: white;
+    list-style: none;
+    padding: 10px 0;
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+    z-index: 10;
+}
+
+.profile-dropdown li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.profile-dropdown li:hover {
+    background: #f4f4f4;
+}
+
+/* When active */
+.profile-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
 /* Media query */
 
 
 
+
+
+@media only screen and (max-width:1200px){
+    .mainNav .links ul {
+        margin-left: -2rem;
+    }
+    .mainNav  .searchBar{
+        margin-left: -1.5rem;
+    }
+}
 
 
 @media only screen and (max-width:991px){
@@ -191,7 +237,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
-        margin-left: -4rem;
+        margin-left: -6rem;
     }
     
     .mainNav .container-md{
@@ -252,6 +298,12 @@
     
 }
 
+
+@media only screen and (max-width:792px){
+    .mainNav .wishCartDropWrapper{
+        margin-left: -7rem;
+    }
+}
 
 @media only screen and (max-width:768px){
 

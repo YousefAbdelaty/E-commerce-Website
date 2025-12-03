@@ -20,19 +20,12 @@
     </div>
 
 
-
-
-
-
-
-
 </nav>
 <div class="mainNav">
 
     <div class="container-md" id="navContainer">
 
         <p class="Logo col-lg-2">Exclusive</p>
-
         <div class="links col-lg-5 col-md-7 d-none d-md-flex ms-5">
 
             <ul id="linkList">
@@ -44,16 +37,24 @@
 
         </div>
 
-        <div class="searchBar col-lg-2 ms-4 d-none d-lg-flex">
+        <div class="searchBar col-lg-2 ms-xl-4 d-none d-lg-flex">
             <input type="search" placeholder="What are you looking for?" />
             <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
         </div>
 
         <div class="wishCartDropWrapper ">
 
-            <div class="wishCart col-lg-1">
+            <div class="wishCart col-lg-1" id="wishCart">
                 <i class="fa-regular fa-heart"></i>
                 <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-user" (click)="toggleDropdown()" style="color: #000000;"></i>
+
+
+                <ul class="profile-dropdown" [class.show]="showDropdown" id="profileDropdown">
+                    <li (click)="router.navigate(['/profile'])">Profile</li>
+                    <li (click)="router.navigate(['/orders'])">Orders</li>
+                    <li (click)="logout()">Logout</li>
+                </ul>
             </div>
 
             <div class="dropdown d-lg-none ms-auto ">

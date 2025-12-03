@@ -9,15 +9,18 @@
     <div class="formWrapper ">
         <h1>Login to Exclusive</h1>
         <p>Enter your details below</p>
-        <form action="">
-            <input type="text" name="" id="" placeholder="Email or Phone Number">
+        <form action="" [formGroup]="userForm">
+            <input type="text" name="" id="" placeholder="Email or Phone Number" formControlName="email">
             <div class="passwordWrapper">
-                <input type="password" name="" id="passwordInput" placeholder="Password">
+                <input type="password" name="" id="passwordInput" placeholder="Password" formControlName="password">
                 <i class="fa-solid fa-eye " style="color: #847171;" (click)="togglePassword()"></i>
             </div>
+            <div class="buttonsWrapper">
+                <button class="loginBtn" (click)="formSubmit()">Log in</button>
+                <p id="forgetPassword">Forget Password ?</p>
+                <p id="noAcc" (click)="signupNavigate()">Don't have an account ?</p>
+            </div>
         </form>
-        <button class="loginBtn">Log in</button>
-        <p id="forgetPassword">Forget Password ?</p>
     </div>
 </div>
 
