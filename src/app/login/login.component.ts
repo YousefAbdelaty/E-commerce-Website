@@ -31,6 +31,7 @@ export class LoginComponent {
         next:(res)=>{
           console.log(res);
           this.router.navigate(['/home']);
+          window.scrollTo({top:0 ,behavior:'smooth'});
         },
         error:(err)=>{
           console.log(err);

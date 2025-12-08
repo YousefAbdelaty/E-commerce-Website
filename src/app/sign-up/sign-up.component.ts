@@ -61,6 +61,7 @@ export class SignUpComponent {
 
   loginNavigate(){
     this.router.navigate(['/login']);
+    window.scrollTo({top:0 ,behavior:'smooth'});
   }
 
   ngAfterViewInit(): void {

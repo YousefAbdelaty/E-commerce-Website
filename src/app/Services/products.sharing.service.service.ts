@@ -1,24 +1,53 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsSharingServiceService {
 
-  constructor() { }
-  private wishCounter = new BehaviorSubject<number>(0);
-  wishCounter$ = this.wishCounter.asObservable();
+  private userId: string | null = null;
+  
+  
+  constructor() { 
+    this.userId = localStorage.getItem('userId');
+    if (this.userId) {
+      this.loadUserWishlist();
+    }
+  }
+  setUserId(userId: string) {
+    this.userId = userId;
+    localStorage.setItem('userId', userId);
+    this.loadUserWishlist();  
+  }
+
+  private loadUserWishlist() {
+    const products = JSON.parse(localStorage.getItem(`wishProducts_${this.userId}`) || '[]');
+    this.wishProducts.next(products);
+  }
+
+
 
   private wishProducts = new BehaviorSubject<any[]>([]);
   wishProducts$ = this.wishProducts.asObservable();
 
+  wishProductsLength$ = this.wishProducts$.pipe(
+    map(products => products.length)
+  );
+
 
   setWishProducts(product : any){
     const currentWishProducts = this.wishProducts.getValue();
+    
     if(!currentWishProducts.find(p => p.title === product.title && p.price === product.price)){
+      
       currentWishProducts.push(product);
       this.wishProducts.next(currentWishProducts);
+
+       if (this.userId) {
+        localStorage.setItem(`wishProducts_${this.userId}`, JSON.stringify(currentWishProducts));
+  
+      }
     }
   }
 
@@ -26,8 +55,10 @@ export class ProductsSharingServiceService {
     return this.wishProducts.getValue();
   }
 
-  increaseWishCounter():any{
-    const currentVal = this.wishCounter.getValue();
-    this.wishCounter.next(currentVal+1);
+  get wishListLength() {
+    return this.wishProducts.getValue().length;
   }
+
+
+
 }

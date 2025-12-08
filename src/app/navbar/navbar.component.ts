@@ -78,29 +78,39 @@ ngAfterViewInit(): void {
   })
   
 
-  this.productSharing.wishCounter$.subscribe({
-    next:(val)=>{
-     if(val>=1){
+  
+  this.productSharing.wishProductsLength$.subscribe(length =>{
+    if(length>=1 && this.auth.isLoggedIn){
       this.wishNumber.style.visibility="visible";
-      this.wishCounter=val;
-     }
+      this.wishCounter=length;
+      this.signLink.style.visibility='hidden';
+    }else {
+      this.wishNumber.style.visibility="hidden";
+      
     }
+    
   })
-
+  
 }
 
-    
-    signUpNavigate():void{
-      this.router.navigate(['/signup']);
-    }
-    homeNavigate(){
-      this.router.navigate(['/home']);
-    }
 
-    logout(){
-      this.auth.logout();
-      this.showDropdown=false;
-    }
+signUpNavigate():void{
+  this.router.navigate(['/signup']);
+  window.scrollTo({top:0 ,behavior:'smooth'});
+}
+homeNavigate(){
+  this.router.navigate(['/home']);
+  window.scrollTo({top:0 ,behavior:'smooth'});
+}
+
+logout(){
+  this.auth.logout();
+  this.showDropdown=false;
+  // this.productSharing.clearWishlistOnLogout();
+  this.wishNumber.style.visibility='hidden';
+  this.signLink.style.visibility='visible';
+  window.scrollTo({top:0 ,behavior:'smooth'});
+}
       
   
 showDropdown = false;

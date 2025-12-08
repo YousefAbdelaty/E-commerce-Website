@@ -14,18 +14,9 @@ export class ProductCardComponent {
 
   @ViewChild('addWishList') addWishList! : ElementRef<HTMLButtonElement>;
 
-  
 
-  wishProductsArr :any[]=[];
 
   addWishlistHandler(){
-
-    this.productSharing.increaseWishCounter();
-    const wishBtn = this.addWishList.nativeElement;
-    wishBtn.classList.add('fa-beat');
-    setTimeout(() => {
-      wishBtn.classList.remove('fa-beat');
-    }, 2000);
 
     const wishProd = {
       img : this.product.image,
@@ -34,6 +25,13 @@ export class ProductCardComponent {
       price : this.product.price,
       prevPrice : this.product.prevPrice
     }
+
+    const wishBtn = this.addWishList.nativeElement;
+    wishBtn.classList.add('fa-beat');
+    setTimeout(() => {
+      wishBtn.classList.remove('fa-beat');
+    }, 2000);
+
 
     this.productSharing.setWishProducts(wishProd);
   }

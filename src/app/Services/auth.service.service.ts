@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { ProductsSharingServiceService } from './products.sharing.service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthServiceService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient , private productSharing : ProductsSharingServiceService) {}
 
   private hasToken(): boolean {
     return !!localStorage.getItem('token');
@@ -36,7 +37,9 @@ export class AuthServiceService {
       expiresInMins: 30
     }).pipe(tap((res: any)=>{
       localStorage.setItem("token" , res.token);
+      localStorage.setItem("userId", res.id.toString());
       this.isLoggedInSubject.next(true);
+      this.productSharing.setUserId(res.id);
     }));
   }
 
@@ -51,6 +54,7 @@ export class AuthServiceService {
   logout() {
     localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
+    
   }
 
   get token(): string | null {
