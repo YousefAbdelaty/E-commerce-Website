@@ -4,7 +4,8 @@
     <div class="card" style="width: 14rem;">
         <img [src]="product.image" class="card-img-top" alt="{{product.name}}">
         <button class="addCart">Add To Cart</button>
-        <button class="addWhishlist"><i class="fa-regular fa-heart" style="color: #000000;"></i></button>
+        <button class="addWhishlist" #addWishList (click)="addWishlistHandler()"><i class="fa-regular fa-heart"
+                style="color: #000000;"></i></button>
         <button class="eye"><i class="fa-solid fa-eye" style="color: #000000;"></i></button>
         <p class="discount">{{product.discount}}</p>
 

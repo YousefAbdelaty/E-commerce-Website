@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../Services/auth.service.service';
+import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,15 +11,18 @@ import { AuthServiceService } from '../Services/auth.service.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent  {
-  constructor(public router: Router , private auth:AuthServiceService){}
+  constructor(public router: Router , private auth:AuthServiceService , private productSharing:ProductsSharingServiceService ){}
+  // @ViewChild("wishNumber") wishNumber!: HTMLParagraphElement;
 
-    wishCart!: HTMLDivElement;
-    linkList! :HTMLElement;
-    homeLink! :HTMLElement;
-    contactLink! :HTMLElement;
-    aboutLink! :HTMLElement;
-    signLink! :HTMLElement;
-    navContainer! : HTMLElement;
+  wishCart!: HTMLDivElement;
+  linkList! :HTMLElement;
+  homeLink! :HTMLElement;
+  contactLink! :HTMLElement;
+  aboutLink! :HTMLElement;
+  signLink! :HTMLElement;
+  navContainer! : HTMLElement;
+  wishCounter! : number;
+  wishNumber! : HTMLParagraphElement;
 
 
 ngOnInit(){
@@ -33,7 +37,7 @@ ngAfterViewInit(): void {
       this.signLink = document.getElementById('link4') as HTMLElement;
       this.linkList = document.getElementById('linkList') as HTMLElement;
       this.navContainer=document.getElementById('navContainer') as HTMLElement;
-
+      this.wishNumber = document.getElementById('wishNumber') as HTMLParagraphElement;
       this.linkList.addEventListener('click' ,(event : any) =>{
 
           if(event.target.tagName ==='LI'){
@@ -72,7 +76,18 @@ ngAfterViewInit(): void {
             this.wishCart.style.visibility="hidden";
           }
   })
+  
+
+  this.productSharing.wishCounter$.subscribe({
+    next:(val)=>{
+     if(val>=1){
+      this.wishNumber.style.visibility="visible";
+      this.wishCounter=val;
+     }
     }
+  })
+
+}
 
     
     signUpNavigate():void{

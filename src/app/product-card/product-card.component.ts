@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, viewChild } from '@angular/core';
+import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 
 @Component({
   selector: 'app-product-card',
@@ -9,4 +10,39 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductCardComponent {
   @Input() product: any;
+  constructor(private productSharing:ProductsSharingServiceService){}
+
+  @ViewChild('addWishList') addWishList! : ElementRef<HTMLButtonElement>;
+
+  
+
+  wishProductsArr :any[]=[];
+
+  addWishlistHandler(){
+
+    this.productSharing.increaseWishCounter();
+    const wishBtn = this.addWishList.nativeElement;
+    wishBtn.classList.add('fa-beat');
+    setTimeout(() => {
+      wishBtn.classList.remove('fa-beat');
+    }, 2000);
+
+    const wishProd = {
+      img : this.product.image,
+      discount : this.product.discount,
+      title : this.product.title,
+      price : this.product.price,
+      prevPrice : this.product.prevPrice
+    }
+
+    this.productSharing.setWishProducts(wishProd);
+  }
+
+  ngAfterViewInit(){
+    this.productSharing.wishProducts$.subscribe(products =>{
+      console.log(products);
+    })
+  }
+
+ 
 }

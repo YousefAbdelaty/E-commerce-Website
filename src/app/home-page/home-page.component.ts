@@ -68,77 +68,77 @@ export class HomePageComponent {
   }
 
   
-  
+
   
   products = [
     {
-      title: 'Smartphone X200',
+      title: 'HeadPhone X200',
       discount: '-30%',
       image: '/assets/images/Products/1.png',
       price: 699,
       prevPrice:800
     },
     {
-      title: 'Wireless Headphones',
+      title: 'Smartwatch Pro',
       discount: '-25%',
       image: '/assets/images/Products/2.png',
       price: 199,
       prevPrice:250
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'Abibas shoes',
       discount: '-40%',
       image: '/assets/images/Products/3.png',
-      price: 299,
+      price: 269,
       prevPrice:400
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'Neko T-shirt',
       discount: '-40%',
       image: '/assets/images/Products/4.png',
-      price: 299,
+      price: 239,
       prevPrice:400
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'BlueDragon keyboard',
       discount: '-50%',
       image: '/assets/images/Products/5.png',
-      price: 299,
+      price: 269,
       prevPrice:600
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'GayStation Gamepad',
       discount: '-40%',
       image: '/assets/images/Products/6.png',
-      price: 299,
+      price: 350,
       prevPrice:550
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'HD Laptop',
       discount: '-40%',
       image: '/assets/images/Products/7.png',
-      price: 299,
+      price: 450,
       prevPrice:550
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'Smart screen',
       discount: '-40%',
       image: '/assets/images/Products/8.png',
-      price: 299,
+      price: 399,
       prevPrice:550
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'Modern chair',
       discount: '-40%',
       image: '/assets/images/Products/9.png',
-      price: 299,
+      price: 500,
       prevPrice:550
     },
     {
-      title: 'Smartwatch Pro',
+      title: 'Modern couch',
       discount: '-40%',
       image: '/assets/images/Products/10.png',
-      price: 299,
+      price: 459,
       prevPrice:550
     }
   ];

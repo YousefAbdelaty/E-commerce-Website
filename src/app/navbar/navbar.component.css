@@ -155,10 +155,11 @@
     /* justify-content: flex-start; */
     align-items: center;
     gap: 1.5rem;
-    margin-left: 6rem;
+    margin-left: 5rem;
     margin-top: -10px;
     /* display: none; */
     visibility: hidden;
+    position: relative;
 }
 .mainNav .wishCart i{
     color: black;
@@ -173,8 +174,8 @@
 
 .profile-dropdown {
     position: absolute;
-    top: 70px;
-    right: 80px;
+    top: 30px;
+    right: -160px;
     background: white;
     list-style: none;
     padding: 10px 0;
@@ -197,10 +198,28 @@
     background: #f4f4f4;
 }
 
-/* When active */
+
 .profile-dropdown.show {
     opacity: 1;
     visibility: visible;
+}
+
+
+.mainNav .wishCartDropWrapper .wishCart p.wishNumber{
+    position: absolute;
+    /* display: none; */
+    visibility: hidden;
+    right: -14px;
+    background-color:#db4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 
@@ -214,6 +233,9 @@
 @media only screen and (max-width:1200px){
     .mainNav .links ul {
         margin-left: -2rem;
+    }
+    .mainNav .wishCartDropWrapper .wishCart{
+        margin-left: 6rem;
     }
     .mainNav  .searchBar{
         margin-left: -1.5rem;
@@ -237,7 +259,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
-        margin-left: -6rem;
+        margin-left: -7rem;
     }
     
     .mainNav .container-md{
@@ -293,6 +315,10 @@
         /* justify-content: flex-end; */
         padding-right: 1rem;
         padding-left: 1rem;
+    }
+
+    .mainNav .wishCartDropWrapper .wishCart p.wishNumber{
+       right: 68px; 
     }
     
     
