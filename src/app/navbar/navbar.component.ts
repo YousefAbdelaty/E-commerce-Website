@@ -102,6 +102,10 @@ homeNavigate(){
   this.router.navigate(['/home']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
+wishNavigate(){
+  this.router.navigate(['/wishlist']);
+  window.scrollTo({top:0 ,behavior:'smooth'});
+}
 
 logout(){
   this.auth.logout();
@@ -110,6 +114,7 @@ logout(){
   this.wishNumber.style.visibility='hidden';
   this.signLink.style.visibility='visible';
   window.scrollTo({top:0 ,behavior:'smooth'});
+  this.router.navigate(['/home'])
 }
       
   

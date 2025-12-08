@@ -1,1 +1,51 @@
-<p>wish-list works!</p>
+<app-navbar></app-navbar>
+
+<div class="wishListWrapper">
+    <div class="firstRow container">
+        <p>Wishlist ({{this.wishCounter}})</p>
+        <button>Move All To Bag</button>
+    </div>
+    <div class="wishProductsWrapper container mb-5">
+
+        <div class="cardWrapper col-auto" *ngFor="let product of wishListProducts">
+
+            <div class="card" style="width: 14rem;">
+                <img [src]="product.img" class="card-img-top" alt="{{product.name}}">
+                <button class="addCart"><i class="fa-solid fa-cart-shopping me-2" style="color: white;"></i>Add To
+                    Cart</button>
+                <button class="eye"><i class="fa-regular fa-trash-can" style="color: #000000;"></i></button>
+                <p class="discount">{{product.discount}}</p>
+
+            </div>
+            <div class="card-body">
+                <h4>{{product.title}}</h4>
+                <div class="priceWrapper">
+
+                    <p class="card-text">${{product.price}}</p>
+                    <p class="priceBefore">${{product.prevPrice}}</p>
+
+                </div>
+                <div class="reviews">
+
+                    <div class="stars">
+
+                        <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                        <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                        <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                        <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                        <i class="fa-solid fa-star" style="color: #bfbfbf;"></i>
+
+                    </div>
+                    <div class="reviewsCount">
+                        <p style="color: #bfbfbf;">(65)</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
