@@ -35,6 +35,16 @@ export class ProductsSharingServiceService {
     map(products => products.length)
   );
 
+  removeWishProduct(product : any){
+   let currentWishProducts = this.wishProducts.getValue();
+   currentWishProducts = currentWishProducts.filter(prod =>{
+    return prod.title !== product.title || prod.price !== product.price ;
+   })
+   this.wishProducts.next(currentWishProducts);
+   if (this.userId) {
+    localStorage.setItem(`wishProducts_${this.userId}`, JSON.stringify(currentWishProducts));
+   }
+  }
 
   setWishProducts(product : any){
     const currentWishProducts = this.wishProducts.getValue();

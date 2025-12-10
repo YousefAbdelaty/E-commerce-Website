@@ -85,9 +85,8 @@
     align-items: center;
     padding-top: 2rem ;
     padding-bottom: 0.3rem;
-    /* justify-content: space-between; */
-    
-    
+    justify-content: space-between;
+   
 }
 
 
@@ -95,6 +94,7 @@
     font-size: 26px;
     font-weight: 700;
     cursor: pointer;
+
 }
 
 .mainNav .links ul {
@@ -152,14 +152,15 @@
 
 .mainNav .wishCart{
     display: flex;
-    /* justify-content: flex-start; */
+    justify-content: flex-start;
     align-items: center;
     gap: 1.5rem;
-    margin-left: 5rem;
+    margin-left: 6rem;
     margin-top: -10px;
     /* display: none; */
-    visibility: hidden;
+    /* visibility: hidden; */
     position: relative;
+    /* display: none; */
 }
 .mainNav .wishCart i{
     color: black;
@@ -205,10 +206,11 @@
 }
 
 
+.mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper p.wishNumber,
 .mainNav .wishCartDropWrapper .wishCart p.wishNumber{
     position: absolute;
     /* display: none; */
-    visibility: hidden;
+    /* visibility: hidden; */
     right: -14px;
     background-color:#db4444;
     color: white;
@@ -230,15 +232,26 @@
 
 
 
+@media only screen and (max-width:1500px){
+    .mainNav  .wishCartDropWrapper {
+        margin-right: 2rem;
+    }
+    
+}
+
 @media only screen and (max-width:1200px){
+    .mainNav  .wishCartDropWrapper {
+        margin-right: 0;
+    }
     .mainNav .links ul {
-        margin-left: -2rem;
+        margin-left: -5rem;
     }
     .mainNav .wishCartDropWrapper .wishCart{
-        margin-left: 6rem;
+        margin-right: 3rem;
     }
     .mainNav  .searchBar{
-        margin-left: -1.5rem;
+        margin-left: -10rem;
+        /* display: none; */
     }
 }
 
@@ -259,7 +272,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
-        margin-left: -7rem;
+        /* margin-right:3rem; */
     }
     
     .mainNav .container-md{
@@ -320,6 +333,8 @@
     .mainNav .wishCartDropWrapper .wishCart p.wishNumber{
        right: 68px; 
     }
+
+    
     
     
 }
@@ -327,17 +342,40 @@
 
 @media only screen and (max-width:792px){
     .mainNav .wishCartDropWrapper{
-        margin-left: -7rem;
+        margin-right: 4rem;
+    }
+    .mainNav .wishCartDropWrapper .wishCart{
+        margin-right: 0;
     }
 }
 
 @media only screen and (max-width:768px){
-
-     .mainNav .container-md {
+    
+    .mainNav .container-md {
         /* justify-content: flex-end; */
         padding-right: 2rem;
         padding-left: 2rem;
     }
     
-
+    
 }
+@media only screen and (max-width:576px){
+    .mainNav .dropdown .dropdown-menu .wishCartInDropWrapper{
+        display: flex; 
+        justify-content: space-evenly;
+        padding: 0.5rem 0;
+    }
+    .mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper p.wishNumber{
+        right: 180px;
+    }
+    .mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper i{
+        font-size: 24px;
+    }
+    .mainNav .wishCart{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width:400px){
+}
+

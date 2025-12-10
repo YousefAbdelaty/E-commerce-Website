@@ -27,4 +27,8 @@ export class WishListComponent {
     })
     console.log(this.wishListProducts);
   }
+
+  removeProduct(product : any){
+    this.productsSharing.removeWishProduct(product);
+  }
 } 

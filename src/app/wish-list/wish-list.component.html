@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 
-<div class="wishListWrapper">
-    <div class="firstRow container">
+<div class="wishListWrapper container-xl">
+    <div class="firstRow ">
         <p>Wishlist ({{this.wishCounter}})</p>
         <button>Move All To Bag</button>
     </div>
-    <div class="wishProductsWrapper container mb-5">
+    <div class="wishProductsWrapper  mb-5">
 
         <div class="cardWrapper col-auto" *ngFor="let product of wishListProducts">
 
@@ -13,7 +13,8 @@
                 <img [src]="product.img" class="card-img-top" alt="{{product.name}}">
                 <button class="addCart"><i class="fa-solid fa-cart-shopping me-2" style="color: white;"></i>Add To
                     Cart</button>
-                <button class="eye"><i class="fa-regular fa-trash-can" style="color: #000000;"></i></button>
+                <button class="eye" (click)="removeProduct(product)"><i class="fa-regular fa-trash-can"
+                        style="color: #000000;"></i></button>
                 <p class="discount">{{product.discount}}</p>
 
             </div>

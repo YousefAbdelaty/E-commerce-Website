@@ -71,9 +71,10 @@ ngAfterViewInit(): void {
 
          this.auth.isLoggedIn$.subscribe(isLogged=>{
           if(isLogged){
-            this.wishCart.style.visibility="visible";
-          }else{
-            this.wishCart.style.visibility="hidden";
+            this.wishCart.style.display="flex";
+          }else if(!isLogged){
+            this.wishCart.style.display="none";
+            this.signLink.style.display="flex"
           }
   })
   
@@ -81,13 +82,11 @@ ngAfterViewInit(): void {
   
   this.productSharing.wishProductsLength$.subscribe(length =>{
     if(length>=1 && this.auth.isLoggedIn){
-      this.wishNumber.style.visibility="visible";
+      this.wishNumber.style.display="flex";
       this.wishCounter=length;
-      this.signLink.style.visibility='hidden';
-    }else {
-      this.wishNumber.style.visibility="hidden";
-      
+      this.signLink.style.display='none';
     }
+   
     
   })
   
@@ -111,7 +110,7 @@ logout(){
   this.auth.logout();
   this.showDropdown=false;
   // this.productSharing.clearWishlistOnLogout();
-  this.wishNumber.style.visibility='hidden';
+  this.wishNumber.style.display='none';
   this.signLink.style.visibility='visible';
   window.scrollTo({top:0 ,behavior:'smooth'});
   this.router.navigate(['/home'])

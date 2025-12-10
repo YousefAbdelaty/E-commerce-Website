@@ -26,7 +26,7 @@
     <div class="container-md" id="navContainer">
 
         <p class="Logo col-lg-2">Exclusive</p>
-        <div class="links col-lg-5 col-md-7 d-none d-md-flex ms-5">
+        <div class="links col-lg-5 col-md-7 d-none d-lg-flex ms-5">
 
             <ul id="linkList">
                 <li class="active" id="link1" (click)="homeNavigate()">Home</li>
@@ -45,10 +45,10 @@
         <div class="wishCartDropWrapper ">
 
             <div class="wishCart col-lg-1" id="wishCart">
-                <i class="fa-regular fa-heart" (click)="wishNavigate()"></i>
-                <p class="wishNumber" id='wishNumber' (click)="wishNavigate()">{{wishCounter}}</p>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-solid fa-user" (click)="toggleDropdown()" style="color: #000000;"></i>
+                <i class="fa-regular fa-heart d-none d-sm-flex" (click)="wishNavigate()"></i>
+                <p class="wishNumber d-none d-sm-flex" id='wishNumber' (click)="wishNavigate()">{{wishCounter}}</p>
+                <i class="fa-solid fa-cart-shopping d-none d-sm-flex"></i>
+                <i class="fa-solid fa-user " (click)="toggleDropdown()" style="color: #000000;"></i>
 
 
                 <ul class="profile-dropdown" [class.show]="showDropdown" id="profileDropdown">
@@ -63,10 +63,11 @@
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end  ">
-                    <li><a class="dropdown-item d-md-none" href="#">Home</a></li>
-                    <li><a class="dropdown-item d-md-none" href="#">Shop</a></li>
-                    <li><a class="dropdown-item d-md-none" href="#">About</a></li>
-                    <li><a class="dropdown-item d-md-none" href="#">Contact</a></li>
+                    <li><a class="dropdown-item d-lg-none" href="#">Home</a></li>
+                    <li><a class="dropdown-item d-lg-none" href="#">Shop</a></li>
+                    <li><a class="dropdown-item d-lg-none" href="#">About</a></li>
+                    <li><a class="dropdown-item d-lg-none" href="#">Contact</a></li>
+                    <li (click)="signUpNavigate()"><a class="dropdown-item d-lg-none">Sign Up</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -74,6 +75,16 @@
                         <input type="search" placeholder="What are you looking for?" />
                         <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
                     </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <div class="wishCartInDropWrapper">
+                        <i class="fa-regular fa-heart d-sm-none" (click)="wishNavigate()"></i>
+                        <p class="wishNumber d-sm-none" id='wishNumber' (click)="wishNavigate()">{{wishCounter}}</p>
+                        <i class="fa-solid fa-cart-shopping d-sm-none"></i>
+                        <!-- <i class="fa-solid fa-user d-sm-none" (click)="toggleDropdown()" style="color: #000000;"></i> -->
+                    </div>
+
                 </ul>
             </div>
         </div>

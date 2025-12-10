@@ -127,7 +127,7 @@ footer p#copyrights{
         padding-left: 1rem;
     }
     footer .colWrapper  input{
-        width: 97%;
+        /* width: 97%; */
     }
 }
 
@@ -139,7 +139,9 @@ footer p#copyrights{
     footer{
         padding-right: 2rem;
         padding-left: 2rem;
+     
     }
+    
 
    
 }
