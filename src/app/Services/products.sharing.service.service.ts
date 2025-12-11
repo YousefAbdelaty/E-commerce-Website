@@ -39,7 +39,7 @@ export class ProductsSharingServiceService {
   wishProducts$ = this.wishProducts.asObservable();
   
   private cartProducts = new BehaviorSubject<any[]>([]);
-  cartProducts$ = this.wishProducts.asObservable();
+  cartProducts$ = this.cartProducts.asObservable();
   
   wishProductsLength$ = this.wishProducts$.pipe(
     map(products => products.length)
@@ -48,6 +48,9 @@ export class ProductsSharingServiceService {
   cartProductsLength$ = this.cartProducts$.pipe(
     map(products => products.length)
   );
+
+  cartCounter = this.cartProductsLength$;
+ 
 
   removeWishProduct(product : any){
    let currentWishProducts = this.wishProducts.getValue();
@@ -69,28 +72,82 @@ export class ProductsSharingServiceService {
       currentWishProducts.push(product);
       this.wishProducts.next(currentWishProducts);
 
-       if (this.userId) {
+
+      if (this.userId) {
         localStorage.setItem(`wishProducts_${this.userId}`, JSON.stringify(currentWishProducts));
-  
       }
     }
   }
 
   setCartProducts(product : any){
     const currentCartProducts = this.cartProducts.getValue();
-
-    if(!currentCartProducts.find(p => p.title === product.title && p.price === product.price)){
-      
+    
+    const existing = currentCartProducts.find(p => p.title === product.title && p.price === product.price);
+    
+    if (existing) {
+      existing.quantity++;   
+    }else {
+      product.quantity = 1;  
       currentCartProducts.push(product);
-      this.cartProducts.next(currentCartProducts);
-      
+    }
+
+    this.cartProducts.next(currentCartProducts);
+    if (this.userId) {
+      localStorage.setItem(`cartProducts_${this.userId}`, JSON.stringify(currentCartProducts));     
+    }
+  }
+
+
+
+  increaseQuantity(product: any) {
+    const currentCart = this.cartProducts.getValue();
+
+    const item = currentCart.find(p => p.title === product.title);
+
+    if (item) {
+      item.quantity++;
+      this.cartProducts.next(currentCart);
+
       if (this.userId) {
-        localStorage.setItem(`cartProducts_${this.userId}`, JSON.stringify(currentCartProducts));
-        
+        localStorage.setItem(`cartProducts_${this.userId}`, JSON.stringify(currentCart));
       }
     }
-    
   }
+
+  decreaseQuantity(product: any) {
+    const currentCart = this.cartProducts.getValue();
+
+    const item = currentCart.find(p => p.title === product.title);
+
+    if (item) {
+      if (item.quantity > 1) {
+        item.quantity--;
+      } else {
+        const updatedCart = currentCart.filter(p => p.title !== product.title);
+        this.cartProducts.next(updatedCart);
+
+        if (this.userId) {
+          localStorage.setItem(`cartProducts_${this.userId}`, JSON.stringify(updatedCart));
+        }
+        return;
+      }
+
+      this.cartProducts.next(currentCart);
+      if (this.userId) {
+        localStorage.setItem(`cartProducts_${this.userId}`, JSON.stringify(currentCart));
+      }
+    }
+  }
+
+  getTotalCost() {
+    const currentCart = this.cartProducts.getValue();
+    return currentCart.reduce((total, product) => {
+      return total + (product.price * product.quantity);
+    }, 0);
+  }
+
+
+
 
   getWishProducts (){
     return this.wishProducts.getValue();

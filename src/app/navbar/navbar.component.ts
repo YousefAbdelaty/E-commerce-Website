@@ -22,7 +22,9 @@ export class NavbarComponent  {
   signLink! :HTMLElement;
   navContainer! : HTMLElement;
   wishCounter! : number;
+  cartCounter! : number;
   wishNumber! : HTMLParagraphElement;
+  cartNumber! : HTMLParagraphElement;
 
 
 ngOnInit(){
@@ -38,6 +40,7 @@ ngAfterViewInit(): void {
       this.linkList = document.getElementById('linkList') as HTMLElement;
       this.navContainer=document.getElementById('navContainer') as HTMLElement;
       this.wishNumber = document.getElementById('wishNumber') as HTMLParagraphElement;
+      this.cartNumber = document.getElementById('cartNumber') as HTMLParagraphElement;
       this.linkList.addEventListener('click' ,(event : any) =>{
 
           if(event.target.tagName ==='LI'){
@@ -88,9 +91,19 @@ ngAfterViewInit(): void {
       this.signLink.style.display='none';
     }else if(length<1){
       this.wishNumber.style.display='none';
+      
     }
    
-    
+  });
+
+  this.productSharing.cartProductsLength$.subscribe(length =>{
+    if(length>=1 && this.auth.isLoggedIn){
+      this.cartCounter=length;
+      this.cartNumber.style.display="flex";
+      console.log(this.cartCounter);
+    }else if(length<1){
+      this.cartNumber.style.display='none';
+    }
   })
   
 }
@@ -106,6 +119,10 @@ homeNavigate(){
 }
 wishNavigate(){
   this.router.navigate(['/wishlist']);
+  window.scrollTo({top:0 ,behavior:'smooth'});
+}
+cartNavigate(){
+  this.router.navigate(['/cart']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
 

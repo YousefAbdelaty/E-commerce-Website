@@ -206,7 +206,9 @@
 }
 
 
+
 .mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper p.wishNumber,
+.mainNav .wishCartDropWrapper .wishCart p.cartNumber,
 .mainNav .wishCartDropWrapper .wishCart p.wishNumber{
     position: absolute;
     /* display: none; */
@@ -224,6 +226,9 @@
     font-weight: 600;
 }
 
+.mainNav .wishCartDropWrapper .wishCart p.cartNumber{
+    right: -62px;
+}
 
 
 /* Media query */

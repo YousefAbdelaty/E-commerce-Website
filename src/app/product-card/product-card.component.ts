@@ -42,12 +42,18 @@ export class ProductCardComponent {
       title : this.product.title,
       price : this.product.price,
     }
-    this.productSharing.setWishProducts(cartProd);
+    this.productSharing.setCartProducts(cartProd);
   }
 
   ngAfterViewInit(){
-    this.productSharing.wishProducts$.subscribe(products =>{
-      console.log(products);
+    // this.productSharing.wishProducts$.subscribe(products =>{
+    //   console.log(products);
+    // });
+    this.productSharing.cartCounter.subscribe(length =>{
+      console.log(length);
+    })
+    this.productSharing.cartProducts$.subscribe(prods =>{
+      console.log(prods);
     })
   }
 
