@@ -72,6 +72,7 @@ ngAfterViewInit(): void {
          this.auth.isLoggedIn$.subscribe(isLogged=>{
           if(isLogged){
             this.wishCart.style.display="flex";
+            this.signLink.style.display="none"
           }else if(!isLogged){
             this.wishCart.style.display="none";
             this.signLink.style.display="flex"
@@ -85,6 +86,8 @@ ngAfterViewInit(): void {
       this.wishNumber.style.display="flex";
       this.wishCounter=length;
       this.signLink.style.display='none';
+    }else if(length<1){
+      this.wishNumber.style.display='none';
     }
    
     

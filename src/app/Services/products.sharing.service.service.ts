@@ -13,12 +13,14 @@ export class ProductsSharingServiceService {
     this.userId = localStorage.getItem('userId');
     if (this.userId) {
       this.loadUserWishlist();
+      this.loadUserCart();
     }
   }
   setUserId(userId: string) {
     this.userId = userId;
     localStorage.setItem('userId', userId);
     this.loadUserWishlist();  
+    this.loadUserCart();
   }
 
   private loadUserWishlist() {
@@ -26,12 +28,24 @@ export class ProductsSharingServiceService {
     this.wishProducts.next(products);
   }
 
+  private loadUserCart() {
+    const products = JSON.parse(localStorage.getItem(`cartProducts_${this.userId}`) || '[]');
+    this.cartProducts.next(products);
+  }
+
 
 
   private wishProducts = new BehaviorSubject<any[]>([]);
   wishProducts$ = this.wishProducts.asObservable();
-
+  
+  private cartProducts = new BehaviorSubject<any[]>([]);
+  cartProducts$ = this.wishProducts.asObservable();
+  
   wishProductsLength$ = this.wishProducts$.pipe(
+    map(products => products.length)
+  );
+  
+  cartProductsLength$ = this.cartProducts$.pipe(
     map(products => products.length)
   );
 
@@ -45,6 +59,7 @@ export class ProductsSharingServiceService {
     localStorage.setItem(`wishProducts_${this.userId}`, JSON.stringify(currentWishProducts));
    }
   }
+
 
   setWishProducts(product : any){
     const currentWishProducts = this.wishProducts.getValue();
@@ -61,13 +76,32 @@ export class ProductsSharingServiceService {
     }
   }
 
+  setCartProducts(product : any){
+    const currentCartProducts = this.cartProducts.getValue();
+
+    if(!currentCartProducts.find(p => p.title === product.title && p.price === product.price)){
+      
+      currentCartProducts.push(product);
+      this.cartProducts.next(currentCartProducts);
+      
+      if (this.userId) {
+        localStorage.setItem(`cartProducts_${this.userId}`, JSON.stringify(currentCartProducts));
+        
+      }
+    }
+    
+  }
+
   getWishProducts (){
     return this.wishProducts.getValue();
   }
-
-  get wishListLength() {
-    return this.wishProducts.getValue().length;
+  getCartProducts (){
+    return this.cartProducts.getValue();
   }
+
+  // get wishListLength() {
+  //   return this.wishProducts.getValue().length;
+  // }
 
 
 
