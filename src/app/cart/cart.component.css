@@ -1,3 +1,29 @@
+/* Generals */
+
+.col-product{ 
+    flex: 0.9; 
+}
+.col-price{ 
+    flex: 1; 
+}
+.col-quantity{ 
+    flex: 1; 
+}
+.col-subtotal{
+    flex: 1; 
+}
+
+.headers :not(.col-product){
+    display: flex;
+    justify-content: center;
+}
+
+.procuctsContainer :not(.col-product){
+    display: flex;
+    justify-content: center;
+}
+
+
 .cartWrapper{
     margin-top:5rem;
     margin-bottom: 5rem;
@@ -16,13 +42,14 @@
 
 .cartWrapper .headers{
     margin-top: 5rem;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
     
-    display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+    /* display: grid;
+    grid-template-columns: 2.5fr  1fr  1fr  1fr;
     gap: 18rem; 
+    align-items: center; */
 
     padding: 20px 35px;
     border-radius: 5px;
@@ -33,15 +60,17 @@
 .cartWrapper .procuctsContainer .product p,
 .cartWrapper .procuctsContainer .product h6{
     margin: 0;
+    text-align: center;
 }    
 
 .cartWrapper .procuctsContainer .product{
-    /* display: flex;
-    justify-content: space-between;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* display: grid;
+    grid-template-columns: 2.5fr  1fr  1fr  1fr;
+    gap: 18rem;
     align-items: center; */
-    display: grid;
-    grid-template-columns: repeat(4 , 1fr);
-    gap: 17rem;
     margin-top: 3rem;
     padding: 20px 35px;
     border-radius: 5px;
@@ -51,7 +80,26 @@
 .cartWrapper .procuctsContainer .product .productImgTitle{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.2rem;
+    /* justify-content: center; */
+    gap: 1rem;
     
+}
+
+.cartWrapper .procuctsContainer .product .col-quantity .quantityWrapper{
+    padding: 10px;
+    border: 2px #999999 solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 4px;
+}
+.cartWrapper .procuctsContainer .product .col-quantity .quantityArrows{
+    display: flex;
+    flex-direction: column;
+    /* gap:-10px; */
+}
+.cartWrapper .procuctsContainer .product .col-quantity .quantityArrows i{
+    font-size: 12px;
+    cursor: pointer;
 }
