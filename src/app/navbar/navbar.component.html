@@ -25,7 +25,7 @@
 
     <div class="container-md" id="navContainer">
 
-        <p class="Logo col-lg-2">Exclusive</p>
+        <p class="Logo col-lg-2" (click)="homeNavigate()">Exclusive</p>
         <div class="links col-lg-5 col-md-7 d-none d-lg-flex ms-5">
 
             <ul id="linkList">
@@ -48,7 +48,7 @@
                 <i class="fa-regular fa-heart d-none d-sm-flex" (click)="wishNavigate()"></i>
                 <p class="wishNumber d-none d-sm-flex" id='wishNumber' (click)="wishNavigate()">{{wishCounter}}</p>
                 <p class="cartNumber d-none d-sm-flex" id='cartNumber' (click)="cartNavigate()">{{cartCounter}}</p>
-                <i class="fa-solid fa-cart-shopping d-none d-sm-flex"></i>
+                <i class="fa-solid fa-cart-shopping d-none d-sm-flex" (click)="cartNavigate()"></i>
                 <i class="fa-solid fa-user " (click)="toggleDropdown()" style="color: #000000;"></i>
 
 
@@ -82,7 +82,9 @@
                     <div class="wishCartInDropWrapper">
                         <i class="fa-regular fa-heart d-sm-none" (click)="wishNavigate()"></i>
                         <p class="wishNumber d-sm-none" id='wishNumber' (click)="wishNavigate()">{{wishCounter}}</p>
-                        <i class="fa-solid fa-cart-shopping d-sm-none"></i>
+                        <i class="fa-solid fa-cart-shopping d-sm-none" (click)="cartNavigate()"></i>
+                        <p class="cartNumber d-sm-none" id='cartNumber' (click)="cartNavigate()">{{cartCounter}}
+                        </p>
                         <!-- <i class="fa-solid fa-user d-sm-none" (click)="toggleDropdown()" style="color: #000000;"></i> -->
                     </div>
 

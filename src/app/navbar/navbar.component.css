@@ -207,6 +207,7 @@
 
 
 
+.mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper p.cartNumber,
 .mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper p.wishNumber,
 .mainNav .wishCartDropWrapper .wishCart p.cartNumber,
 .mainNav .wishCartDropWrapper .wishCart p.wishNumber{
@@ -339,6 +340,10 @@
        right: 68px; 
     }
 
+    .mainNav .wishCartDropWrapper .wishCart p.cartNumber{
+        right: 25px;
+    }
+
     
     
     
@@ -371,7 +376,8 @@
         padding: 0.5rem 0;
     }
     .mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper p.wishNumber{
-        right: 180px;
+        right: 155px;
+        top: 245px;
     }
     .mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper i{
         font-size: 24px;
@@ -379,8 +385,9 @@
     .mainNav .wishCart{
         margin-left: 0;
     }
-}
 
-@media only screen and (max-width:400px){
+    .mainNav .wishCartDropWrapper .dropdown .dropdown-menu .wishCartInDropWrapper p.cartNumber{
+        right: 62px;
+        top: 245px;
+    }
 }
-

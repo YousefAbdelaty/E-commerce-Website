@@ -21,10 +21,12 @@ export class WishListComponent {
   ngOnInit(){
     this.productsSharing.wishProductsLength$.subscribe(length =>{
       this.wishCounter = length;
-    })
+    });
+
     this.productsSharing.wishProducts$.subscribe(products =>{
       this.wishListProducts=products;
-    })
+    });
+    
     console.log(this.wishListProducts);
   }
 
