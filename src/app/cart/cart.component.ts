@@ -13,14 +13,17 @@ import { CommonModule } from '@angular/common';
 })
 export class CartComponent {
 
-  constructor(private products:ProductsSharingServiceService){}
+  constructor(private products:ProductsSharingServiceService){
 
+  }
+
+  cartTotalCost! : number;
   cartCounter! : Number;
   prodQuantity! : HTMLParagraphElement;
   cartProducts! : any[];
 
   ngAfterViewInit(){
-
+    
     this.prodQuantity = document.getElementById ('prodQuantity') as HTMLParagraphElement;
   }
   ngOnInit(){
@@ -35,21 +38,25 @@ export class CartComponent {
 
   decreaseQuantity(product : any){
     this.products.decreaseQuantity(product);
-    //  if(product.quantity<=9){
-    //   this.prodQuantity.innerHTML=`0${product.quantity}`;
-    // }
   }
+  
   increaseQuantity(product : any){
     this.products.increaseQuantity(product);
-    // if(product.quantity>=10){
-
-    //   this.prodQuantity.innerHTML=`${product.quantity}`;
-    // }
   }
 
   subtotalCalc(quantity : any , price:any){
     return quantity * price ;
   }
 
+  cartTotal(products : any){
+    this.cartTotalCost = products.reduce((total : any , product : any) =>{
+      return total + (product.price * product.quantity)
+    },0);
+    this.products.setCartTotal(this.cartTotalCost);
+    return this.cartTotalCost;
+  }
 
+  
 }
+
+

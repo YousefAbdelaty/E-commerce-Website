@@ -50,6 +50,15 @@ export class ProductsSharingServiceService {
   );
 
   cartCounter = this.cartProductsLength$;
+  cartTotalCost = 0;
+
+  setCartTotal(total : number){
+    this.cartTotalCost = total;
+  }
+
+  getCartTotal(){
+    return this.cartTotalCost;
+  }
  
 
   removeWishProduct(product : any){

@@ -61,20 +61,25 @@
         <div class="totalWrapper">
             <h4>Cart Total</h4>
 
-            <div>
+            <div class="totalItem">
                 <p>Subtotal:</p>
-                <p></p>
+                <p>${{cartTotal(cartProducts)}}</p>
             </div>
 
-            <div>
+            <div class="divider"></div>
+
+            <div class="totalItem mt-3">
                 <p>Shipping:</p>
-                <p></p>
+                <p>$0</p>
             </div>
 
-            <div>
+            <div class="divider"></div>
+
+            <div class="totalItem mt-3">
                 <p>Total:</p>
-                <p></p>
+                <p>${{cartTotal(cartProducts)}}</p>
             </div>
+
 
             <button>Proceed to checkout</button>
         </div>

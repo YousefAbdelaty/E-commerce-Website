@@ -153,6 +153,8 @@
     margin-top: 4rem;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5rem;
 }
 
 .cartWrapper .couponTotalWrapper .couponWrapper{
@@ -163,7 +165,7 @@
 
 .cartWrapper .couponTotalWrapper .couponWrapper input{
     width: 300px;
-    height: 60px;
+    height: 50px;
     padding-left: 25px;
     border: 2px solid #848484;
     border-radius: 5px;
@@ -172,17 +174,19 @@
     position: relative;
     z-index: 1;
 }
+.cartWrapper .totalWrapper button,
 .cartWrapper .couponTotalWrapper .couponWrapper button{
     border: none;
     color: white;
     font-weight: 500;
     background-color: #db4444;  
     width: 225px;
-    height: 60px;
+    height: 50px;
     border-radius: 5px;
     transition: all ease-in-out 0.3s;
 }
 
+.cartWrapper .totalWrapper button:hover,
 .cartWrapper .couponTotalWrapper .couponWrapper button:hover{
     transform: scale(1.04);
 }
@@ -193,12 +197,52 @@
     flex-direction: column;
     /* align-items: flex-start; */
     /* justify-content: flex-start; */
+    border: 2px solid #242424;
+    width: 450px;
+    height: 330px;
+    padding: 30px;
 }
+
+.cartWrapper .totalWrapper h4{
+    font-weight: 600;
+    margin-bottom: 2rem;
+}   
+.cartWrapper .totalWrapper .totalItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartWrapper .totalWrapper .divider{
+    width: 100%;
+    /* background-color: #999999; */
+    /* height: 2px; */
+    border: 1px solid #999999;
+}
+
+.cartWrapper .totalWrapper button{
+    margin: 0 auto;
+}   
+
 
 
 
 
 /* Media queries */
+
+@media only screen and (max-width : 1200px){
+    .cartWrapper .couponTotalWrapper {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .cartWrapper .couponTotalWrapper .couponWrapper button{
+        width: 300px;
+    }
+}
+
+
 
 @media only screen and (max-width : 992px){
     .cartWrapper .scrollerWrapper{
@@ -211,17 +255,20 @@
         background: #ccc;
         border-radius: 4px;
     }
-    .cartWrapper .couponTotalWrapper {
-        justify-content: center;
-        flex-direction: column;
-    }
     .cartWrapper .couponTotalWrapper .couponWrapper{
         flex-direction: column;
         gap: 1rem;
     }
-    .cartWrapper .couponTotalWrapper .couponWrapper button{
-        width: 300px;
+    .cartWrapper .couponTotalWrapper .totalWrapper{
+        width: 70vw;
     }
+    .cartWrapper .couponTotalWrapper .couponWrapper button{
+        width: 48vw;
+    }
+    .cartWrapper .couponTotalWrapper .couponWrapper input{
+        width: 48vw;
+    }
+    
 }
 
 @media only screen and (max-width : 576px){
@@ -236,6 +283,10 @@
 
     .cartWrapper .cartBtns button#update{
         align-self: flex-end;
+    }
+
+    .cartWrapper .couponTotalWrapper button{
+        width: 50vw;
     }
 
     
