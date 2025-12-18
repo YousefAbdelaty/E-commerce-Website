@@ -156,10 +156,4 @@ export class ProductsSharingServiceService {
     return this.cartProducts.getValue();
   }
 
-  // get wishListLength() {
-  //   return this.wishProducts.getValue().length;
-  // }
-
-
-
 }
