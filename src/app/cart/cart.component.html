@@ -1,44 +1,49 @@
 <app-navbar></app-navbar>
 
-<div class="cartWrapper container">
+<div class="cartWrapper container-lg">
 
     <div class="location">
         <p><span>Home &nbsp; / &nbsp; </span> Cart</p>
     </div>
 
-    <div class="headers">
-        <p class="col-product">Product</p>
-        <p class="col-price">Price</p>
-        <p class="col-quantity">Quantity</p>
-        <p class="col-subtotal">Subtotal</p>
-    </div>
+    <div class="scrollerWrapper">
 
-    <div class="procuctsContainer" *ngFor="let product of cartProducts">
-
-        <div class="product">
-
-            <div class="productImgTitle col-product">
-                <img [src]="product.img" alt="" width="75px">
-                <h6>{{product.title}}</h6>
-            </div>
-
-            <p class="price col-price">${{product.price}}</p>
-
-            <div class="quantity col-quantity">
-                <div class="quantityWrapper">
-                    <p id="prodQuantity">{{product.quantity}}</p>
-                    <div class="quantityArrows">
-                        <i class="fa-solid fa-angle-up" style="color: black;" (click)="increaseQuantity(product)"></i>
-                        <i class="fa-solid fa-angle-down" style="color: black;" (click)="decreaseQuantity(product)"></i>
-                    </div>
-                </div>
-
-            </div>
-
-            <p class="subtotal col-subtotal">${{subtotalCalc(product.quantity , product.price)}}</p>
-
+        <div class="headers">
+            <p class="col-product">Product</p>
+            <p class="col-price">Price</p>
+            <p class="col-quantity">Quantity</p>
+            <p class="col-subtotal">Subtotal</p>
         </div>
 
+        <div class="procuctsContainer" *ngFor="let product of cartProducts">
+
+            <div class="product">
+
+                <div class="productImgTitle col-product">
+                    <img [src]="product.img" alt="" width="75px">
+                    <h6>{{product.title}}</h6>
+                </div>
+
+                <p class="price col-price">${{product.price}}</p>
+
+                <div class="quantity col-quantity">
+                    <div class="quantityWrapper">
+                        <p id="prodQuantity">{{product.quantity}}</p>
+                        <div class="quantityArrows">
+                            <i class="fa-solid fa-angle-up" style="color: black;"
+                                (click)="increaseQuantity(product)"></i>
+                            <i class="fa-solid fa-angle-down" style="color: black;"
+                                (click)="decreaseQuantity(product)"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="subtotal col-subtotal">${{subtotalCalc(product.quantity , product.price)}}</p>
+
+            </div>
+
+        </div>
     </div>
 
 </div>
