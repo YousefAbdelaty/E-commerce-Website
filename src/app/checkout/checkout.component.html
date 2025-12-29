@@ -14,38 +14,38 @@
         <div class="formWrapper">
 
             <div class="inputWrapper">
-                <label for="">First Name <span>*</span></label>
-                <input type="text">
+                <label for="name">First Name <span>*</span></label>
+                <input type="text" id="name">
             </div>
 
             <div class="inputWrapper">
-                <label for="">Company Name</label>
-                <input type="text">
+                <label for="company">Company Name</label>
+                <input type="text" id="company">
             </div>
 
             <div class="inputWrapper">
-                <label for="">Street Address <span>*</span></label>
-                <input type="text">
+                <label for="address">Street Address <span>*</span></label>
+                <input type="text" id="address">
             </div>
 
             <div class="inputWrapper">
-                <label for="">Apartment,floor,etc. (optional)</label>
-                <input type="text">
+                <label for="apartment">Apartment,floor,etc. (optional)</label>
+                <input type="text" id="apartment">
             </div>
 
             <div class="inputWrapper">
-                <label for="">Town/City <span>*</span></label>
-                <input type="text">
+                <label for="city">Town/City <span>*</span></label>
+                <input type="text" id="city">
             </div>
 
             <div class="inputWrapper">
-                <label for="">Phone Number <span>*</span></label>
-                <input type="text">
+                <label for="phone">Phone Number <span>*</span></label>
+                <input type="text" id="phone">
             </div>
 
             <div class="inputWrapper">
-                <label for="">Email Address <span>*</span></label>
-                <input type="text">
+                <label for="email">Email Address <span>*</span></label>
+                <input type="text" id="email">
             </div>
 
             <div class="checkWrapper">
@@ -63,8 +63,8 @@
 
                     <div class="product">
 
-                        <div class="productImgTitle col-product">
-                            <img [src]="product.img" alt="" width="75px">
+                        <div class="productImgTitle">
+                            <img [src]="product.img" alt="" width="55px">
                             <h6>{{product.title}}</h6>
                         </div>
 
@@ -96,6 +96,43 @@
                     <p>${{cartTotalCost}}</p>
                 </div>
             </div>
+
+            <div class="payMethod">
+
+                <div class="bankWrapper">
+
+                    <div class="radioWrapper">
+                        <input type="radio" id="bank" name="payment">
+                        <label for="bank">Bank</label>
+                    </div>
+
+                    <div class="bankImgs">
+                        <img src="/assets/images/CheckOut Page/41762e31-33c4-488f-8f8b-dac1497340ad.jpg" alt=""
+                            style="width: 25px;">
+                        <img src="/assets/images/CheckOut Page/985d40a1-3b1d-4242-bfd9-d1861b70a153.jpg" alt=""
+                            style="width: 25px;">
+                        <img src="/assets/images/CheckOut Page/c0a3d4d8-47c7-43e3-a6a8-40611a36c619.jpg" alt=""
+                            style="width: 25px;">
+                        <img src="/assets/images/CheckOut Page/d0ee130c-17a0-4867-ae3b-008d99f0b4b6.jpg" alt=""
+                            style="width: 25px;">
+                    </div>
+                </div>
+
+                <div class="cash">
+                    <div class="radioWrapper">
+                        <input type="radio" id="cash" name="payment">
+                        <label for="cash">Cash on Delivery</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="couponWrapper">
+                <input type="text" placeholder="Coupon Code">
+                <button><span>Apply Coupon</span></button>
+            </div>
+
+            <button id="placeOrder">Place Order</button>
 
         </div>
     </div>
