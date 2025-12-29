@@ -3,6 +3,7 @@ footer{
     background-color: black;
     min-width: 100%;
     position: relative;
+    margin:0;
 }
 
 footer .colWrapper#firstCol h6{

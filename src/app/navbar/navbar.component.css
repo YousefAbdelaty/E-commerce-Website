@@ -242,6 +242,10 @@
     .mainNav  .wishCartDropWrapper {
         margin-right: 2rem;
     }
+    .mainNav .wishCartDropWrapper,
+    .mainNav  .searchBar{
+        margin-left: -2rem;
+    }
     
 }
 

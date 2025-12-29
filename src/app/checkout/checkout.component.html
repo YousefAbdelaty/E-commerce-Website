@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+
+<div class="checkoutWrapper container-lg">
+
+    <div class="location">
+        <p><span>Account &nbsp; / &nbsp; My Account &nbsp; / &nbsp; Product &nbsp; / &nbsp; View Cart &nbsp; / &nbsp;
+            </span> CheckOut</p>
+    </div>
+
+    <h2>Billing Details</h2>
+
+    <div class="billingDetailsWrapper">
+
+        <div class="formWrapper">
+
+            <div class="inputWrapper">
+                <label for="">First Name <span>*</span></label>
+                <input type="text">
+            </div>
+
+            <div class="inputWrapper">
+                <label for="">Company Name</label>
+                <input type="text">
+            </div>
+
+            <div class="inputWrapper">
+                <label for="">Street Address <span>*</span></label>
+                <input type="text">
+            </div>
+
+            <div class="inputWrapper">
+                <label for="">Apartment,floor,etc. (optional)</label>
+                <input type="text">
+            </div>
+
+            <div class="inputWrapper">
+                <label for="">Town/City <span>*</span></label>
+                <input type="text">
+            </div>
+
+            <div class="inputWrapper">
+                <label for="">Phone Number <span>*</span></label>
+                <input type="text">
+            </div>
+
+            <div class="inputWrapper">
+                <label for="">Email Address <span>*</span></label>
+                <input type="text">
+            </div>
+
+            <div class="checkWrapper">
+                <input type="checkbox" id="check">
+                <label for="check">Save this information for faster check-out next time</label>
+            </div>
+
+
+        </div>
+
+        <div class="productsDetails">
+
+            <div class="productsList">
+                <div class="procuctsContainer" *ngFor="let product of cartProducts">
+
+                    <div class="product">
+
+                        <div class="productImgTitle col-product">
+                            <img [src]="product.img" alt="" width="75px">
+                            <h6>{{product.title}}</h6>
+                        </div>
+
+                        <p class="price col-price">${{product.price}}</p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="totalWrapper">
+
+                <div class="totalItem">
+                    <p>Subtotal:</p>
+                    <p>${{cartTotalCost}}</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="totalItem mt-3">
+                    <p>Shipping:</p>
+                    <p>$0</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="totalItem mt-3">
+                    <p>Total:</p>
+                    <p>${{cartTotalCost}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<app-footer></app-footer>

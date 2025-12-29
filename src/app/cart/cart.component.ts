@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 // import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CartComponent {
 
-  constructor(private products:ProductsSharingServiceService){
+  constructor(private products:ProductsSharingServiceService , public router:Router){
 
   }
 
@@ -25,6 +26,9 @@ export class CartComponent {
   ngAfterViewInit(){
     
     this.prodQuantity = document.getElementById ('prodQuantity') as HTMLParagraphElement;
+
+     
+    
   }
   ngOnInit(){
     this.products.cartProducts$.subscribe(prods =>{
@@ -53,9 +57,16 @@ export class CartComponent {
       return total + (product.price * product.quantity)
     },0);
     this.products.setCartTotal(this.cartTotalCost);
+    // console.log(this.cartTotalCost);
     return this.cartTotalCost;
   }
 
+ 
+  
+  checkoutNavigate(){
+    this.router.navigate(['/checkout']);
+    window.scrollTo({top:0 ,behavior:'smooth'});
+  }
   
 }
 

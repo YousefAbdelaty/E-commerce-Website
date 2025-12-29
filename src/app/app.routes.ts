@@ -6,6 +6,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 export const routes: Routes = [
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path:'wishlist' , component:WishListComponent},
     {path:'login' , component:LoginComponent},
     {path:'cart' , component:CartComponent},
+    {path:'checkout' , component:CheckoutComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

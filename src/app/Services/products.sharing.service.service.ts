@@ -35,6 +35,9 @@ export class ProductsSharingServiceService {
 
 
 
+  private cartTotalCost = new BehaviorSubject<number>(0);
+  cartTotalCost$ = this.cartTotalCost.asObservable();
+
   private wishProducts = new BehaviorSubject<any[]>([]);
   wishProducts$ = this.wishProducts.asObservable();
   
@@ -50,14 +53,14 @@ export class ProductsSharingServiceService {
   );
 
   cartCounter = this.cartProductsLength$;
-  cartTotalCost = 0;
+  // cartTotalCost :number = 0;
 
   setCartTotal(total : number){
-    this.cartTotalCost = total;
+    this.cartTotalCost.next(total);
   }
 
   getCartTotal(){
-    return this.cartTotalCost;
+    return this.cartTotalCost.getValue();
   }
  
 
