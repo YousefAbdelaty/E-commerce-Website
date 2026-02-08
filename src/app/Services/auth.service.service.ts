@@ -12,6 +12,13 @@ export class AuthServiceService {
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
+  
+  private username = new BehaviorSubject<string>(
+  localStorage.getItem('username') || ''
+  );
+  username$ = this.username.asObservable();
+
+
 
   constructor(private http:HttpClient , private productSharing : ProductsSharingServiceService) {}
 
@@ -40,6 +47,8 @@ export class AuthServiceService {
       localStorage.setItem("userId", res.id.toString());
       this.isLoggedInSubject.next(true);
       this.productSharing.setUserId(res.id);
+      this.username.next(res.username);
+      localStorage.setItem("username" , res.username);
     }));
   }
 

@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<div class="profileWrapper container-md">
+
+    <div class="headerWrapper">
+        <p><span>Home &nbsp; / &nbsp; </span> My Account</p>
+        <p id="username">Welcome! <span>{{username}}</span></p>
+    </div>
+
+    <div class="mainContent">
+
+        <div class="sideContent">
+            <p>Manage My Account</p>
+            <div class="textWrapper">
+                <p id="active">My Profile</p>
+                <p> Address Book</p>
+                <p>My Payment Options</p>
+            </div>
+
+            <p>My Orders</p>
+            <div class="textWrapper">
+                <p>My Returns</p>
+                <p>My Cancellations</p>
+            </div>
+
+            <p> My Wishlist</p>
+
+        </div>
+
+        <div class="boxContent">
+            <h3>Edit Your Profile</h3>
+
+            <div class="inputWrapper ">
+                <div class="inputBox">
+                    <label for="fName">First Name</label>
+                    <input type="text" id="fName" placeholder="First Name" readonly>
+                </div>
+
+                <div class="inputBox">
+                    <label for="lName">Last Name</label>
+                    <input type="text" id="lName" placeholder="Last Name" readonly>
+                </div>
+            </div>
+
+            <div class="inputWrapper">
+
+                <div class="inputBox">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" readonly>
+                </div>
+
+                <div class="inputBox">
+                    <label for="address">Address</label>
+                    <input type="text" id="Address" placeholder="Address" readonly>
+                </div>
+            </div>
+
+            <div class="passwordChange">
+                <label for="">Password Change</label>
+                <input type="password" placeholder="Current Password">
+                <input type="password" placeholder="New Password">
+                <input type="password" placeholder="Confirm New Password">
+            </div>
+
+            <div class="buttonWrapper">
+                <button id="cancel">Cancel</button>
+                <button id="save">Save Changes</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

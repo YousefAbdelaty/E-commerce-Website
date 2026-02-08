@@ -126,6 +126,7 @@ cartNavigate(){
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
 
+
 logout(){
   this.auth.logout();
   this.showDropdown=false;
