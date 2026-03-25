@@ -1,12 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthServiceService } from '../Services/auth.service.service';
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -123,6 +123,10 @@ wishNavigate(){
 }
 cartNavigate(){
   this.router.navigate(['/cart']);
+  window.scrollTo({top:0 ,behavior:'smooth'});
+}
+aboutNavigate(){
+  this.router.navigate(['/about']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
 

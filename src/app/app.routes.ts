@@ -8,6 +8,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './about/about.component';
 
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path:'cart' , component:CartComponent},
     {path:'checkout' , component:CheckoutComponent},
     {path:'profile' , component:ProfileComponent},
+    {path:'about' , component:AboutComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
