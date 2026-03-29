@@ -56,6 +56,87 @@
     </div>
 
 
+    <div class="sliderWrapper ">
+
+        <div id="teamCarousel" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner">
+
+                <!-- Slide 1 — group 3 members per slide -->
+                <div class="carousel-item active">
+                    <div class="row g-3">
+                        <div class="col-md-4" *ngFor="let member of slide1">
+                            <div class="team-card">
+                                <img [src]="member.photo" [alt]="member.name">
+                                <div class="team-card-body">
+                                    <h5>{{ member.name }}</h5>
+                                    <p>{{ member.role }}</p>
+                                    <div class="social-icons">
+                                        <a [href]="member.twitter">𝕏</a>
+                                        <a [href]="member.instagram"><i class="fa-brands fa-instagram"></i></a>
+                                        <a [href]="member.linkedin">in</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row g-3">
+                        <div class="col-md-4" *ngFor="let member of slide2">
+                            <div class="team-card">
+                                <img [src]="member.photo" [alt]="member.name">
+                                <div class="team-card-body">
+                                    <h5>{{ member.name }}</h5>
+                                    <p>{{ member.role }}</p>
+                                    <div class="social-icons">
+                                        <a [href]="member.twitter">𝕏</a>
+                                        <a [href]="member.instagram"><i class="fa-brands fa-instagram"></i></a>
+                                        <a [href]="member.linkedin">in</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dot indicators -->
+            <div class="carousel-indicators" style="position: static; margin-top: 3rem;">
+                <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="4"></button>
+                <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="5"></button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="icons">
+        <div class="container">
+            <div class="iconWrapper ">
+                <img src="/assets/images/Home Page/General images/icon1.jpg" alt="">
+                <h5>FREE AND FAST DELIVERY</h5>
+                <p>Free delivery for all orders over $140</p>
+            </div>
+            <div class="iconWrapper">
+                <img src="/assets/images/Home Page/General images/icon2.jpg" alt="">
+                <h5>24/7 CUSTOMER SERVICE</h5>
+                <p>Friendly 24/7 customer support</p>
+            </div>
+            <div class="iconWrapper">
+                <img src="/assets/images/Home Page/General images/icon3.jpg" alt="">
+                <h5>MONEY BACK GUARANTEE</h5>
+                <p>We return money within 30 days</p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
