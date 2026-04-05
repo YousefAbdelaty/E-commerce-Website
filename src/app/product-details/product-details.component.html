@@ -1,0 +1,21 @@
+<div class="productDetailsWrapper container">
+    <p id="location"><span>Account &nbsp; / &nbsp; Gaming &nbsp; / &nbsp;</span> {{productName}}</p>
+
+
+    <div class="productImagesWrapper">
+
+        <div class="thumbnails">
+            <img *ngFor="let img of product.moreImages" [src]="img" [class.active]="img === selectedImage"
+                (click)="selectImage(img)" />
+        </div>
+
+
+        <div class="mainImage">
+            <img [src]="selectedImage" [alt]="product.title" />
+        </div>
+
+    </div>
+
+    <div class="productDetailsWrapper"></div>
+
+</div>

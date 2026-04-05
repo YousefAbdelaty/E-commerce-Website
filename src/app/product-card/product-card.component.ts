@@ -1,5 +1,7 @@
 import { Component, ElementRef, Input, ViewChild, viewChild } from '@angular/core';
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
+import { HomePageComponent } from '../home-page/home-page.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -9,11 +11,15 @@ import { ProductsSharingServiceService } from '../Services/products.sharing.serv
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
+
   @Input() product: any;
-  constructor(private productSharing:ProductsSharingServiceService){}
+  constructor(private productSharing:ProductsSharingServiceService , public router:Router){}
 
   @ViewChild('addWishList') addWishList! : ElementRef<HTMLButtonElement>;
 
+  productNavigate(id:number){
+    this.router.navigate(['/product',id]);
+  }
 
 
   addWishlistHandler(){

@@ -1,0 +1,12 @@
+.productDetailsWrapper{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.productDetailsWrapper p#location span{
+    color: #9e9e9e;
+}
+
+.productDetailsWrapper .productImagesWrapper .mainImage img{
+    width: 40vw;
+}
