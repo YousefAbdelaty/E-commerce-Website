@@ -10,7 +10,7 @@ export class ProductsSharingServiceService {
 
   products = [
     {
-      id:1,
+      id:0,
       title: 'HeadPhone X200',
       discount: '-30%',
       mainImage: '/assets/images/Products/1.png',
@@ -19,7 +19,7 @@ export class ProductsSharingServiceService {
       prevPrice:800
     },
     {
-      id:2,
+      id:1,
       title: 'Smartwatch Pro',
       discount: '-25%',
       mainImage: '/assets/images/Products/2.png',
@@ -28,7 +28,7 @@ export class ProductsSharingServiceService {
       prevPrice:250
     },
     {
-      id:3,
+      id:2,
       title: 'Abibas shoes',
       discount: '-40%',
       mainImage: '/assets/images/Products/3.png',
@@ -37,7 +37,7 @@ export class ProductsSharingServiceService {
       prevPrice:400
     },
     {
-      id:4,
+      id:3,
       title: 'T-shirt',
       discount: '-40%',
       mainImage: '/assets/images/Products/4.png',
@@ -46,7 +46,7 @@ export class ProductsSharingServiceService {
       prevPrice:400
     },
     {
-      id:5,
+      id:4,
       title: 'BlueDragon keyboard',
       discount: '-50%',
       mainImage: '/assets/images/Products/5.png',
@@ -55,7 +55,7 @@ export class ProductsSharingServiceService {
       prevPrice:600
     },
     {
-      id:6,
+      id:5,
       title: 'Gamepad',
       discount: '-40%',
       mainImage: '/assets/images/Products/6.png',
@@ -64,7 +64,7 @@ export class ProductsSharingServiceService {
       prevPrice:550
     },
     {
-      id:7,
+      id:6,
       title: 'HD Laptop',
       discount: '-40%',
       mainImage: '/assets/images/Products/7.png',
@@ -73,7 +73,7 @@ export class ProductsSharingServiceService {
       prevPrice:550
     },
     {
-      id:8,
+      id:7,
       title: 'Smart screen',
       discount: '-40%',
       mainImage: '/assets/images/Products/8.png',
@@ -82,7 +82,7 @@ export class ProductsSharingServiceService {
       prevPrice:550
     },
     {
-      id:9,
+      id:8,
       title: 'Modern chair',
       discount: '-40%',
       mainImage: '/assets/images/Products/9.png',
@@ -91,7 +91,7 @@ export class ProductsSharingServiceService {
       prevPrice:550
     },
     {
-      id:10,
+      id:9,
       title: 'Modern couch',
       discount: '-40%',
       mainImage: '/assets/images/Products/10.png',

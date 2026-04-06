@@ -1,21 +1,65 @@
 <div class="productDetailsWrapper container">
     <p id="location"><span>Account &nbsp; / &nbsp; Gaming &nbsp; / &nbsp;</span> {{productName}}</p>
 
+    <div class="mainDetails">
 
-    <div class="productImagesWrapper">
+        <div class="productImagesWrapper">
 
-        <div class="thumbnails">
-            <img *ngFor="let img of product.moreImages" [src]="img" [class.active]="img === selectedImage"
-                (click)="selectImage(img)" />
+            <div class="thumbnails">
+                <img *ngFor="let img of product.moreImages" [src]="img" (click)="selectImage(img)"
+                    [class.active]="img === selectedImage" />
+            </div>
+
+
+            <div class="mainImage">
+                <img [src]="mainImage" [alt]="product.title" />
+            </div>
+
         </div>
 
+        <div class="productTextWrapper">
 
-        <div class="mainImage">
-            <img [src]="selectedImage" [alt]="product.title" />
+            <div class="productDetails">
+                <h2>{{product.title}}</h2>
+            </div>
+
+            <div class="reviews">
+
+                <div class="stars">
+
+                    <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                    <i class="fa-solid fa-star" style="color: #bfbfbf;"></i>
+
+                </div>
+                <div class="reviewsCount">
+                    <p style="color: #bfbfbf;">(65 Reviews)&nbsp; |</p>
+                </div>
+                <p id="stock">In Stock</p>
+            </div>
+
+            <div class="productPrice">
+                <p id="price">{{product.price | currency:'USD'}}</p>
+            </div>
+
+            <div class="productDescription">
+                <p>PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free
+                    install & mess free
+                    removal Pressure sensitive.</p>
+            </div>
+
+            <div class="divider mt-3"></div>
+
+            <div class="colors">
+                <p id="text" class="me-3">Colours:</p>
+                <p id="blue" [ngClass]="{'active' : BlueColorActive  }" (click)="blueColorActive()"></p>
+                <p id="red" [ngClass]="{'active' : redColorActive  }" (click)="redColorActivation()"></p>
+            </div>
+
         </div>
 
     </div>
-
-    <div class="productDetailsWrapper"></div>
 
 </div>

@@ -19,6 +19,7 @@ export class ProductCardComponent {
 
   productNavigate(id:number){
     this.router.navigate(['/product',id]);
+    window.scrollTo({top:0,behavior:'smooth'});
   }
 
 
