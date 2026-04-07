@@ -1,5 +1,5 @@
 .productDetailsWrapper{
-    margin-top: 5rem;
+    margin-top: 4rem;
     margin-bottom: 5rem;
    
 }
@@ -21,7 +21,7 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 3rem;
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 
 
@@ -64,7 +64,7 @@
 .productDetailsWrapper .mainDetails{
     display: flex;
     flex-direction: row;
-    gap: 5rem;
+    gap: 3rem;
     
 }
 
@@ -152,5 +152,137 @@
 
 
 .productTextWrapper .colors p.active{
-    border: black 2px solid;
+    outline: black 2px solid;
+    outline-offset: 2px;
+    transform: scale(0.85);
+}
+
+.productTextWrapper .size{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 1rem;
+}
+
+.productTextWrapper .size p:first-of-type{
+    font-size: 1.3rem;
+}
+
+.productTextWrapper .size .sizeSquare{
+    width: 10px;
+    height: 10px;
+    border: 1px solid #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.productTextWrapper .size .sizeSquare.active{
+    background-color: #db4444;
+    color: white;
+}
+
+.productTextWrapper .quantity{
+    display: flex;
+    align-items: center;
+    border: 1px solid #808080;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+
+.productTextWrapper .quantity span{
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    padding: 15px;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productTextWrapper .quantity button{
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    padding: 15px;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out 0.2s;
+    
+}
+.productTextWrapper .quantity button.decrease{
+    border-right: #808080 1px solid;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+}
+.productTextWrapper .quantity button.increase{
+    border-left: #808080 1px solid;
+    border-right: none;
+    border-bottom: none;
+    border-top: none;
+}
+
+.productTextWrapper .quantity button:hover{
+    background-color:#db4444;
+    color: white;
+}
+
+.productTextWrapper .quantityBuyWrapper{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.productTextWrapper .quantityBuyWrapper button#buyBtn span{
+    position: relative;
+    z-index: 1;
+}
+
+.productTextWrapper .quantityBuyWrapper button#buyBtn{
+    border: none;
+    color: white;
+    font-weight: 500;
+    background-color: #db4444;  
+    width: 175px;
+    height: 41px;
+    border-radius: 5px;
+    transition: all ease-in-out 0.3s;
+    margin-bottom: -9px;
+}
+
+.productTextWrapper .quantityBuyWrapper button#buyBtn:hover{
+    transform: scale(1.04);
+}
+
+
+.productTextWrapper .quantityBuyWrapper span#wishList{
+    font-size: 22px;
+    width:30px;
+    height: 30px;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+    padding: 20px;
+    margin-bottom: -9px;
+}
+
+.productTextWrapper .quantityBuyWrapper span#wishList.active{
+    background-color: #db4444;
+    color: white;
 }

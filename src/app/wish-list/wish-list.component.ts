@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 // import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wish-list',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './wish-list.component.css'
 })
 export class WishListComponent {
-  constructor(private productsSharing:ProductsSharingServiceService){}
+  constructor(private productsSharing:ProductsSharingServiceService , public router:Router){}
   
   wishCounter! : Number;
   wishListProducts! : any[];
@@ -33,4 +34,10 @@ export class WishListComponent {
   removeProduct(product : any){
     this.productsSharing.removeWishProduct(product);
   }
+  
+  productNavigate(id:number){
+    this.router.navigate(['/product',id]);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
 } 

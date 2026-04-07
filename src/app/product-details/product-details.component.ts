@@ -22,8 +22,9 @@ export class ProductDetailsComponent {
   products :any[]=[];
   mainImage:string='';
   id:number=0;
-  redColorActive:boolean=false;
-  BlueColorActive:boolean=false;
+  colorActvie:string='';
+  sizeActive:string='';
+  addedToWishlist:boolean=false;
 
   constructor(private prods:ProductsSharingServiceService , private route:ActivatedRoute){
     this.products = this.prods.getAllProducts();
@@ -53,14 +54,39 @@ export class ProductDetailsComponent {
   increment() { this.quantity++; }
   decrement() { if (this.quantity > 1) this.quantity--; }
 
-  blueColorActive(){
-    this.redColorActive = false;
-    this.BlueColorActive = true;
+  selectColor(color: string) {
+    this.colorActvie = color;
   }
-  
-  redColorActivation(){
-    this.redColorActive = true;
-    this.BlueColorActive = false;
+
+  selectSize(size: string) {
+    this.sizeActive = size;
   }
+
+  addToWishlist(){
+   
+    if(this.addedToWishlist){
+
+      this.addedToWishlist=false;
+      this.prods.removeWishProduct(this.product); 
+
+    }else if(!this.addedToWishlist){
+
+      this.addedToWishlist=true;
+
+      const wishProd = {
+      id: this.product.id,
+      mainImg : this.product.mainImage,
+      discount : this.product.discount,
+      title : this.product.title,
+      price : this.product.price,
+      prevPrice : this.product.prevPrice,
+      moreImages : this.product.moreImages
+      } 
+
+    this.prods.setWishProducts(wishProd);
+    }
+  }
+
+
  
 }

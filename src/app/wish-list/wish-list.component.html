@@ -10,7 +10,8 @@
         <div class="cardWrapper col-auto" *ngFor="let product of wishListProducts">
 
             <div class="card" style="width: 14rem;">
-                <img [src]="product.img" class="card-img-top" alt="{{product.name}}">
+                <img [src]="product.mainImg" class="card-img-top" (click)="productNavigate(product.id)"
+                    alt="{{product.name}}">
                 <button class="addCart"><i class="fa-solid fa-cart-shopping me-2" style="color: white;"></i>Add To
                     Cart</button>
                 <button class="eye" (click)="removeProduct(product)"><i class="fa-regular fa-trash-can"

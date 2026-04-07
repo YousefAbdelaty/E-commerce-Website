@@ -27,12 +27,12 @@ export class CartComponent {
     
     this.prodQuantity = document.getElementById ('prodQuantity') as HTMLParagraphElement;
 
-     
     
   }
   ngOnInit(){
     this.products.cartProducts$.subscribe(prods =>{
       this.cartProducts = prods;
+      console.log(this.cartProducts);
     });
 
     this.products.cartProductsLength$.subscribe(length =>{
@@ -66,6 +66,11 @@ export class CartComponent {
   checkoutNavigate(){
     this.router.navigate(['/checkout']);
     window.scrollTo({top:0 ,behavior:'smooth'});
+  }
+
+  productNavigate(id:number){
+    this.router.navigate(['/product',id]);
+    window.scrollTo({top:0,behavior:'smooth'});
   }
   
 }

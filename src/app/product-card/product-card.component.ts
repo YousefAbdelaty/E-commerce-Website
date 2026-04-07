@@ -26,11 +26,13 @@ export class ProductCardComponent {
   addWishlistHandler(){
 
     const wishProd = {
-      img : this.product.image,
+      id: this.product.id,
+      mainImg : this.product.mainImage,
       discount : this.product.discount,
       title : this.product.title,
       price : this.product.price,
-      prevPrice : this.product.prevPrice
+      prevPrice : this.product.prevPrice,
+      moreImages : this.product.moreImages
     }
 
     const wishBtn = this.addWishList.nativeElement;
@@ -45,9 +47,10 @@ export class ProductCardComponent {
 
   addCartHandler(){
     const cartProd = {
-      img : this.product.image,
+      img : this.product.mainImage,
       title : this.product.title,
       price : this.product.price,
+      id: this.product.id,
     }
     this.productSharing.setCartProducts(cartProd);
   }
@@ -62,6 +65,7 @@ export class ProductCardComponent {
     this.productSharing.cartProducts$.subscribe(prods =>{
       console.log(prods);
     })
+   console.log(this.productSharing.getCartProducts());
   }
 
  

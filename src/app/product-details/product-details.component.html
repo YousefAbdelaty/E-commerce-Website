@@ -1,9 +1,9 @@
 <div class="productDetailsWrapper container">
     <p id="location"><span>Account &nbsp; / &nbsp; Gaming &nbsp; / &nbsp;</span> {{productName}}</p>
 
-    <div class="mainDetails">
+    <div class="mainDetails row">
 
-        <div class="productImagesWrapper">
+        <div class="productImagesWrapper col">
 
             <div class="thumbnails">
                 <img *ngFor="let img of product.moreImages" [src]="img" (click)="selectImage(img)"
@@ -17,7 +17,7 @@
 
         </div>
 
-        <div class="productTextWrapper">
+        <div class="productTextWrapper col">
 
             <div class="productDetails">
                 <h2>{{product.title}}</h2>
@@ -54,10 +54,32 @@
 
             <div class="colors">
                 <p id="text" class="me-3">Colours:</p>
-                <p id="blue" [ngClass]="{'active' : BlueColorActive  }" (click)="blueColorActive()"></p>
-                <p id="red" [ngClass]="{'active' : redColorActive  }" (click)="redColorActivation()"></p>
+                <p id="blue" [ngClass]="{'active' : colorActvie === 'blue'  }" (click)="selectColor('blue')"></p>
+                <p id="red" [ngClass]="{'active' : colorActvie === 'red'  }" (click)="selectColor('red')"></p>
             </div>
 
+            <div class="size">
+                <p class="me-2">Size:</p>
+                <p class="sizeSquare" [ngClass]="{'active': sizeActive === 'XS'}" (click)="selectSize('XS')">XS</p>
+                <p class="sizeSquare" [ngClass]="{'active': sizeActive === 'S'}" (click)="selectSize('S')">S</p>
+                <p class="sizeSquare" [ngClass]="{'active': sizeActive === 'M'}" (click)="selectSize('M')">M</p>
+                <p class="sizeSquare" [ngClass]="{'active': sizeActive === 'L'}" (click)="selectSize('L')">L</p>
+                <p class="sizeSquare" [ngClass]="{'active': sizeActive === 'XL'}" (click)="selectSize('XL')">XL</p>
+            </div>
+
+            <div class="quantityBuyWrapper">
+
+                <div class="quantity mt-2">
+                    <button class="decrease" (click)="decrement()">-</button>
+                    <span class="quantityNumber">{{ quantity }}</span>
+                    <button class="increase" (click)="increment()">+</button>
+                </div>
+
+                <button id="buyBtn"><span>Buy Now</span></button>
+
+                <span id="wishList" (click)="addToWishlist()" [ngClass]="{'active' : addedToWishlist ===true}"><i
+                        class="fa-regular fa-heart"></i></span>
+            </div>
         </div>
 
     </div>

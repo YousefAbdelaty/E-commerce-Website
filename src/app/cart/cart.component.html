@@ -20,7 +20,7 @@
             <div class="product">
 
                 <div class="productImgTitle col-product">
-                    <img [src]="product.img" alt="" width="75px">
+                    <img [src]="product.img" alt="" width="75px" (click)="productNavigate(product.id)">
                     <h6>{{product.title}}</h6>
                 </div>
 
