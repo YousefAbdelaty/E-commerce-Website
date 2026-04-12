@@ -17,14 +17,19 @@ import { ProductsSharingServiceService } from '../Services/products.sharing.serv
 
 export class HomePageComponent {
 
-  products :any[];
-  constructor(public router:Router , private prods : ProductsSharingServiceService){
-    this.products = this.prods.getAllProducts();
-  }
+  products :any[] =[];
+  constructor(public router:Router , private prods : ProductsSharingServiceService){}
 
   goUpBtn!:HTMLButtonElement;
 
   
+  ngOnInit(){
+    this.prods.getAllProducts().subscribe({
+      next:(res)=>{
+        this.products=res;
+      }
+    });
+  }
   
   scrollHandler(rightScrollerID:string ,leftScrollerID:string , containerID:string ):any{
     

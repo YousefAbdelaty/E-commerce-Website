@@ -5,7 +5,7 @@
 
         <div class="productImagesWrapper col">
 
-            <div class="thumbnails">
+            <div class="thumbnails" *ngIf="product">
                 <img *ngFor="let img of product.moreImages" [src]="img" (click)="selectImage(img)"
                     [class.active]="img === selectedImage" />
             </div>
@@ -45,9 +45,7 @@
             </div>
 
             <div class="productDescription">
-                <p>PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free
-                    install & mess free
-                    removal Pressure sensitive.</p>
+                <p>{{description}}</p>
             </div>
 
             <div class="divider mt-3"></div>

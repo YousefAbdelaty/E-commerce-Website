@@ -17,7 +17,7 @@ export class ProductCardComponent {
 
   @ViewChild('addWishList') addWishList! : ElementRef<HTMLButtonElement>;
 
-  productNavigate(id:number){
+  productNavigate(id:string){
     this.router.navigate(['/product',id]);
     window.scrollTo({top:0,behavior:'smooth'});
   }

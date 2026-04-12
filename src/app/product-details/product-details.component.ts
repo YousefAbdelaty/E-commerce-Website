@@ -21,28 +21,28 @@ export class ProductDetailsComponent {
   quantity: number = 1;
   products :any[]=[];
   mainImage:string='';
+  description:string='';
   id:number=0;
   colorActvie:string='';
   sizeActive:string='';
   addedToWishlist:boolean=false;
 
-  constructor(private prods:ProductsSharingServiceService , private route:ActivatedRoute){
-    this.products = this.prods.getAllProducts();
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.mainImage=this.products[this.id].mainImage;
-  }
+  constructor(private prods:ProductsSharingServiceService , private route:ActivatedRoute){}
 
   
   ngOnInit(){
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = this.products.find(p => p.id === id);
-    if (this.product) {
-      this.selectedImage = this.product.moreImages[0];
-      this.relatedProducts = this.products.filter(p => p.id !== id);
-      this.productName = this.product.title;
-      console.log(this.selectedImage);
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id) {
+      this.prods.getById(id).subscribe(product => {
+        this.product = product;
+        this.description = product.description;
+        this.selectedImage = product.moreImages[0];
+        this.mainImage = product.mainImage;
+        this.productName = product.title;
+        this.relatedProducts = this.prods.getAllProductsSnapshot().filter((p:any) => p.id !== id);
+      });
     }
-    console.log(this.product);
     
   }
   
@@ -85,6 +85,16 @@ export class ProductDetailsComponent {
 
     this.prods.setWishProducts(wishProd);
     }
+  }
+
+  addCartHandler(){
+    const cartProd = {
+      img : this.product.mainImage,
+      title : this.product.title,
+      price : this.product.price,
+      id: this.product.id,
+    }
+    this.prods.setCartProducts(cartProd);
   }
 
 

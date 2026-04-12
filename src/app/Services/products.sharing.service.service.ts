@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,112 +8,152 @@ import { BehaviorSubject, map } from 'rxjs';
 export class ProductsSharingServiceService {
 
   private userId: string | null = null;
+  private apiUrl = 'https://ecommerce.routemisr.com/api/v1/products';
 
-  products = [
-    {
-      id:0,
-      title: 'HeadPhone X200',
-      discount: '-30%',
-      mainImage: '/assets/images/Products/1.png',
-      moreImages: ['/assets/images/Products/1.png','/assets/images/Products/2.png' ,'/assets/images/Products/3.png' , '/assets/images/Products/4.png' , '/assets/images/Products/5.png' ],
-      price: 699,
-      prevPrice:800
-    },
-    {
-      id:1,
-      title: 'Smartwatch Pro',
-      discount: '-25%',
-      mainImage: '/assets/images/Products/2.png',
-      moreImages: ['/assets/images/Products/2.png','/assets/images/Products/1.png' ,'/assets/images/Products/3.png' , '/assets/images/Products/4.png' , '/assets/images/Products/5.png' ],
-      price: 199,
-      prevPrice:250
-    },
-    {
-      id:2,
-      title: 'Abibas shoes',
-      discount: '-40%',
-      mainImage: '/assets/images/Products/3.png',
-      moreImages: ['/assets/images/Products/3.png','/assets/images/Products/4.png' ,'/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png' ],
-      price: 269,
-      prevPrice:400
-    },
-    {
-      id:3,
-      title: 'T-shirt',
-      discount: '-40%',
-      mainImage: '/assets/images/Products/4.png',
-      moreImages: ['/assets/images/Products/4.png','/assets/images/Products/3.png' ,'/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png' ],
-      price: 239,
-      prevPrice:400
-    },
-    {
-      id:4,
-      title: 'BlueDragon keyboard',
-      discount: '-50%',
-      mainImage: '/assets/images/Products/5.png',
-      moreImages: ['/assets/images/Products/5.png','/assets/images/Products/6.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
-      price: 269,
-      prevPrice:600
-    },
-    {
-      id:5,
-      title: 'Gamepad',
-      discount: '-40%',
-      mainImage: '/assets/images/Products/6.png',
-      moreImages: ['/assets/images/Products/6.png','/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/5.png' , '/assets/images/Products/7.png'],
-      price: 350,
-      prevPrice:550
-    },
-    {
-      id:6,
-      title: 'HD Laptop',
-      discount: '-40%',
-      mainImage: '/assets/images/Products/7.png',
-      moreImages: ['/assets/images/Products/7.png','/assets/images/Products/8.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
-      price: 450,
-      prevPrice:550
-    },
-    {
-      id:7,
-      title: 'Smart screen',
-      discount: '-40%',
-      mainImage: '/assets/images/Products/8.png',
-      moreImages: ['/assets/images/Products/8.png','/assets/images/Products/7.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
-      price: 399,
-      prevPrice:550
-    },
-    {
-      id:8,
-      title: 'Modern chair',
-      discount: '-40%',
-      mainImage: '/assets/images/Products/9.png',
-      moreImages: ['/assets/images/Products/9.png','/assets/images/Products/10.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
-      price: 500,
-      prevPrice:550
-    },
-    {
-      id:9,
-      title: 'Modern couch',
-      discount: '-40%',
-      mainImage: '/assets/images/Products/10.png',
-      moreImages: ['/assets/images/Products/10.png','/assets/images/Products/9.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
-      price: 459,
-      prevPrice:550
-    }
-  ];
+  // products = [
+  //   {
+  //     id:0,
+  //     title: 'HeadPhone X200',
+  //     discount: '-30%',
+  //     mainImage: '/assets/images/Products/1.png',
+  //     moreImages: ['/assets/images/Products/1.png','/assets/images/Products/2.png' ,'/assets/images/Products/3.png' , '/assets/images/Products/4.png' , '/assets/images/Products/5.png' ],
+  //     price: 699,
+  //     prevPrice:800
+  //   },
+  //   {
+  //     id:1,
+  //     title: 'Smartwatch Pro',
+  //     discount: '-25%',
+  //     mainImage: '/assets/images/Products/2.png',
+  //     moreImages: ['/assets/images/Products/2.png','/assets/images/Products/1.png' ,'/assets/images/Products/3.png' , '/assets/images/Products/4.png' , '/assets/images/Products/5.png' ],
+  //     price: 199,
+  //     prevPrice:250
+  //   },
+  //   {
+  //     id:2,
+  //     title: 'Abibas shoes',
+  //     discount: '-40%',
+  //     mainImage: '/assets/images/Products/3.png',
+  //     moreImages: ['/assets/images/Products/3.png','/assets/images/Products/4.png' ,'/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png' ],
+  //     price: 269,
+  //     prevPrice:400
+  //   },
+  //   {
+  //     id:3,
+  //     title: 'T-shirt',
+  //     discount: '-40%',
+  //     mainImage: '/assets/images/Products/4.png',
+  //     moreImages: ['/assets/images/Products/4.png','/assets/images/Products/3.png' ,'/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png' ],
+  //     price: 239,
+  //     prevPrice:400
+  //   },
+  //   {
+  //     id:4,
+  //     title: 'BlueDragon keyboard',
+  //     discount: '-50%',
+  //     mainImage: '/assets/images/Products/5.png',
+  //     moreImages: ['/assets/images/Products/5.png','/assets/images/Products/6.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
+  //     price: 269,
+  //     prevPrice:600
+  //   },
+  //   {
+  //     id:5,
+  //     title: 'Gamepad',
+  //     discount: '-40%',
+  //     mainImage: '/assets/images/Products/6.png',
+  //     moreImages: ['/assets/images/Products/6.png','/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/5.png' , '/assets/images/Products/7.png'],
+  //     price: 350,
+  //     prevPrice:550
+  //   },
+  //   {
+  //     id:6,
+  //     title: 'HD Laptop',
+  //     discount: '-40%',
+  //     mainImage: '/assets/images/Products/7.png',
+  //     moreImages: ['/assets/images/Products/7.png','/assets/images/Products/8.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
+  //     price: 450,
+  //     prevPrice:550
+  //   },
+  //   {
+  //     id:7,
+  //     title: 'Smart screen',
+  //     discount: '-40%',
+  //     mainImage: '/assets/images/Products/8.png',
+  //     moreImages: ['/assets/images/Products/8.png','/assets/images/Products/7.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
+  //     price: 399,
+  //     prevPrice:550
+  //   },
+  //   {
+  //     id:8,
+  //     title: 'Modern chair',
+  //     discount: '-40%',
+  //     mainImage: '/assets/images/Products/9.png',
+  //     moreImages: ['/assets/images/Products/9.png','/assets/images/Products/10.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
+  //     price: 500,
+  //     prevPrice:550
+  //   },
+  //   {
+  //     id:9,
+  //     title: 'Modern couch',
+  //     discount: '-40%',
+  //     mainImage: '/assets/images/Products/10.png',
+  //     moreImages: ['/assets/images/Products/10.png','/assets/images/Products/9.png' , '/assets/images/Products/5.png' , '/assets/images/Products/6.png' , '/assets/images/Products/7.png'],
+  //     price: 459,
+  //     prevPrice:550
+  //   }
+  // ];
+  private productsSnapshot: any[] = [];
 
-  getAllProducts(){
-    return this.products;
-  }
   
   
-  constructor() { 
+  
+  constructor( private http:HttpClient) { 
     this.userId = localStorage.getItem('userId');
     if (this.userId) {
       this.loadUserWishlist();
       this.loadUserCart();
     }
   }
+
+getAllProducts(): Observable<any[]> {
+  return this.http.get<any>(this.apiUrl).pipe(
+    map(response => response.data.map((item: any) => ({
+      id:        item._id,
+      title:     item.title,
+      discount:  `-${40}%`,
+      mainImage: item.imageCover,
+      moreImages: item.images as Array<any>,
+      price:     item.price,
+      prevPrice: item.price+(item.price * 0.4)
+    })))
+  );
+}
+
+
+
+  getById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
+      map(response => {
+        const item = response.data;
+        return {
+          id:         item._id,
+          title:      item.title,
+          discount:   `-${40}%`,
+          mainImage:  item.imageCover,
+          moreImages: item.images as Array<any>,
+          price:      item.price,
+          description:      item.description,
+          prevPrice:  item.price + (item.price * 0.4)
+        };
+      })
+    );
+  }
+
+  getAllProductsSnapshot(): any[] {
+    return this.productsSnapshot;
+  }
+
+
   setUserId(userId: string) {
     this.userId = userId;
     localStorage.setItem('userId', userId);
@@ -191,7 +232,7 @@ export class ProductsSharingServiceService {
   setCartProducts(product : any){
     const currentCartProducts = this.cartProducts.getValue();
     
-    const existing = currentCartProducts.find(p => p.title === product.title && p.price === product.price);
+    const existing = currentCartProducts.find(p => p.title === product.title && p.price === product.price && p.id === product.id  );
     
     if (existing) {
       existing.quantity++;   
