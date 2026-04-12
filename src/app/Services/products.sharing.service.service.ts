@@ -124,6 +124,9 @@ getAllProducts(): Observable<any[]> {
       mainImage: item.imageCover,
       moreImages: item.images as Array<any>,
       price:     item.price,
+      description:      item.description,
+      rating:      item.ratingsAverage,
+      ratingsQuantity:      item.ratingsQuantity,
       prevPrice: item.price+(item.price * 0.4)
     })))
   );
@@ -143,6 +146,8 @@ getAllProducts(): Observable<any[]> {
           moreImages: item.images as Array<any>,
           price:      item.price,
           description:      item.description,
+          rating:      item.ratingsAverage,
+          ratingsQuantity:      item.ratingsQuantity,
           prevPrice:  item.price + (item.price * 0.4)
         };
       })
@@ -205,7 +210,7 @@ getAllProducts(): Observable<any[]> {
   removeWishProduct(product : any){
    let currentWishProducts = this.wishProducts.getValue();
    currentWishProducts = currentWishProducts.filter(prod =>{
-    return prod.title !== product.title || prod.price !== product.price ;
+    return prod.title !== product.title || prod.price !== product.price || prod.id !== product.id;
    })
    this.wishProducts.next(currentWishProducts);
    if (this.userId) {
@@ -217,7 +222,7 @@ getAllProducts(): Observable<any[]> {
   setWishProducts(product : any){
     const currentWishProducts = this.wishProducts.getValue();
     
-    if(!currentWishProducts.find(p => p.title === product.title && p.price === product.price)){
+    if(!currentWishProducts.find(p => p.title === product.title && p.price === product.price && p.id === product.id)){
       
       currentWishProducts.push(product);
       this.wishProducts.next(currentWishProducts);
@@ -229,15 +234,15 @@ getAllProducts(): Observable<any[]> {
     }
   }
 
-  setCartProducts(product : any){
+  setCartProducts(product : any , quantity: number = 1){
     const currentCartProducts = this.cartProducts.getValue();
     
     const existing = currentCartProducts.find(p => p.title === product.title && p.price === product.price && p.id === product.id  );
     
     if (existing) {
-      existing.quantity++;   
+      existing.quantity += quantity;   
     }else {
-      product.quantity = 1;  
+      product.quantity = quantity;  
       currentCartProducts.push(product);
     }
 
@@ -267,13 +272,13 @@ getAllProducts(): Observable<any[]> {
   decreaseQuantity(product: any) {
     const currentCart = this.cartProducts.getValue();
 
-    const item = currentCart.find(p => p.title === product.title);
+    const item = currentCart.find(p => p.id === product.id);
 
     if (item) {
       if (item.quantity > 1) {
         item.quantity--;
       } else {
-        const updatedCart = currentCart.filter(p => p.title !== product.title);
+        const updatedCart = currentCart.filter(p => p.id !== product.id);
         this.cartProducts.next(updatedCart);
 
         if (this.userId) {

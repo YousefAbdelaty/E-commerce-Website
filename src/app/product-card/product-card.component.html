@@ -22,16 +22,20 @@
         <div class="reviews">
 
             <div class="stars">
-
+                @for (star of starsArray ; track $index) {
                 <i class="fa-solid fa-star" style="color: #ffad33;"></i>
-                <i class="fa-solid fa-star" style="color: #ffad33;"></i>
-                <i class="fa-solid fa-star" style="color: #ffad33;"></i>
-                <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                }
+                @for (star of emptyStarsArray ; track $index) {
                 <i class="fa-solid fa-star" style="color: #bfbfbf;"></i>
+                }
+                <!-- <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                <i class="fa-solid fa-star" style="color: #bfbfbf;"></i> -->
 
             </div>
             <div class="reviewsCount">
-                <p style="color: #bfbfbf;">(65)</p>
+                <p style="color: #bfbfbf;">( {{ratingsQuantity}} )</p>
             </div>
         </div>
     </div>

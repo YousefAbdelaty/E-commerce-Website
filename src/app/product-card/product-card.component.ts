@@ -2,17 +2,23 @@ import { Component, ElementRef, Input, ViewChild, viewChild } from '@angular/cor
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { Router } from '@angular/router';
+import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
 
   @Input() product: any;
+  rating: number = 1;
+  starsArray: any[]=[];
+  emptyStarsArray: any[] = [];
+  ratingsQuantity: any;
   constructor(private productSharing:ProductsSharingServiceService , public router:Router){}
 
   @ViewChild('addWishList') addWishList! : ElementRef<HTMLButtonElement>;
@@ -66,6 +72,12 @@ export class ProductCardComponent {
       console.log(prods);
     })
    console.log(this.productSharing.getCartProducts());
+
+   this.rating = Math.round(this.product.rating);
+   this.ratingsQuantity = this.product.ratingsQuantity;
+   this.starsArray = Array(this.rating).fill(0);
+   this.emptyStarsArray = Array(5 - this.rating).fill(0);
+  //  console.log(this.rating);
   }
 
  
