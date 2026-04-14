@@ -30,6 +30,9 @@
   display: flex;
   flex-direction: column;  
   gap: 12px;
+  max-height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .thumbnails img {
@@ -399,4 +402,25 @@
         overflow:scroll;
         overflow-y: hidden;
     }
+}
+
+@media only screen and (max-width: 1200px){
+    .productImagesWrapper{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    
+    .productImagesWrapper .mainImage img{
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .thumbnails {
+        flex-direction: row;
+        max-height: fit-content;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        max-width: 70vw;
+    }
+
 }

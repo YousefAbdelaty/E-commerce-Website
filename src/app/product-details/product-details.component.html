@@ -1,9 +1,9 @@
-<div class="productDetailsWrapper container">
-    <p id="location"><span>Account &nbsp; / &nbsp; Gaming &nbsp; / &nbsp;</span> {{productName}}</p>
+<div class="productDetailsWrapper container-lg">
+    <p id="location"><span>Account &nbsp; / &nbsp; {{category}} &nbsp; / &nbsp;</span> {{productName}}</p>
 
     <div class="mainDetails row">
 
-        <div class="productImagesWrapper col">
+        <div class="productImagesWrapper col ">
 
             <div class="thumbnails" *ngIf="product">
                 <img *ngFor="let img of product.moreImages" [src]="img" (click)="selectImage(img)"
@@ -17,7 +17,7 @@
 
         </div>
 
-        <div class="productTextWrapper col">
+        <div class="productTextWrapper col ">
 
             <div class="productDetails">
                 <h2>{{product.title}}</h2>

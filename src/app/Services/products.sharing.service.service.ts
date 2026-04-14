@@ -127,6 +127,7 @@ getAllProducts(): Observable<any[]> {
       description:      item.description,
       rating:      item.ratingsAverage,
       ratingsQuantity:      item.ratingsQuantity,
+      category : item.category.name,
       prevPrice: item.price+(item.price * 0.4)
     }))),tap(products => {
       this.productsSnapshot = products; // saved after map runs
@@ -150,6 +151,7 @@ getAllProducts(): Observable<any[]> {
           description:      item.description,
           rating:      item.ratingsAverage,
           ratingsQuantity:      item.ratingsQuantity,
+          category : item.category.name,
           prevPrice:  item.price + (item.price * 0.4)
         };
       })

@@ -31,6 +31,7 @@ export class ProductDetailsComponent {
   starsArray: any[]=[];
   emptyStarsArray: any[] = [];
   ratingsNum: number = 0;
+  category:string='';
 
   constructor(private prods:ProductsSharingServiceService , private route:ActivatedRoute , private router:Router){}
 
@@ -49,6 +50,7 @@ export class ProductDetailsComponent {
         this.description = product.description;
         this.selectedImage = product.moreImages[0];
         this.mainImage = product.mainImage;
+        this.category = product.category;
         this.productName = product.title;
         this.rating = Math.round(this.product.rating);
         this.starsArray = Array(this.rating).fill(0);
