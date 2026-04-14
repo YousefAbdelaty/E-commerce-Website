@@ -4,11 +4,12 @@ import { ProductsSharingServiceService } from '../Services/products.sharing.serv
 import { ActivatedRoute, Router } from '@angular/router';
 // import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from '@angular/common';
+import { ProductCardComponent } from '../product-card/product-card.component';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule , ProductCardComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
@@ -31,7 +32,7 @@ export class ProductDetailsComponent {
   emptyStarsArray: any[] = [];
   ratingsNum: number = 0;
 
-  constructor(private prods:ProductsSharingServiceService , private route:ActivatedRoute){}
+  constructor(private prods:ProductsSharingServiceService , private route:ActivatedRoute , private router:Router){}
 
   ngAfterViewInit(){
    
@@ -52,8 +53,17 @@ export class ProductDetailsComponent {
         this.rating = Math.round(this.product.rating);
         this.starsArray = Array(this.rating).fill(0);
         this.emptyStarsArray = Array(5 - this.rating).fill(0);
-        this.relatedProducts = this.prods.getAllProductsSnapshot().filter((p:any) => p.id !== id);
+        // this.relatedProducts = this.prods.getAllProductsSnapshot().filter((p:any) => p.id !== id);
+        // console.log(this.relatedProducts);
       });
+
+        if (this.prods.getAllProductsSnapshot().length > 0) {
+          this.relatedProducts = this.prods.getAllProductsSnapshot().filter(p => p.id !== id);
+        } else {
+          this.prods.getAllProducts().subscribe(products => {
+         this.relatedProducts = products.filter(p => p.id !== id);
+        });
+  }
     }
     
   }
@@ -100,7 +110,6 @@ export class ProductDetailsComponent {
   }
 
   addCartHandler(){
-    // for(let i=0 ; i<this.quantity ; i++){
 
       const cartProd = {
         img : this.product.mainImage,
@@ -109,7 +118,9 @@ export class ProductDetailsComponent {
         id: this.product.id,
       }
       this.prods.setCartProducts(cartProd , this.quantity);
-    // }
+      this.router.navigate(['/cart']);
+      window.scrollTo({top:0,behavior:'smooth'});
+
   }
 
 

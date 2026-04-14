@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -102,9 +102,6 @@ export class ProductsSharingServiceService {
   //     prevPrice:550
   //   }
   // ];
-  private productsSnapshot: any[] = [];
-
-  
   
   
   constructor( private http:HttpClient) { 
@@ -114,7 +111,10 @@ export class ProductsSharingServiceService {
       this.loadUserCart();
     }
   }
+  
+private productsSnapshot: any[] = [];
 
+  
 getAllProducts(): Observable<any[]> {
   return this.http.get<any>(this.apiUrl).pipe(
     map(response => response.data.map((item: any) => ({
@@ -128,7 +128,9 @@ getAllProducts(): Observable<any[]> {
       rating:      item.ratingsAverage,
       ratingsQuantity:      item.ratingsQuantity,
       prevPrice: item.price+(item.price * 0.4)
-    })))
+    }))),tap(products => {
+      this.productsSnapshot = products; // saved after map runs
+    })
   );
 }
 

@@ -113,7 +113,7 @@
 }
 
 .productTextWrapper .productDescription{
-    max-width: 27vw;
+    /* max-width: 27vw; */
 }
 
 .productTextWrapper .divider{
@@ -285,4 +285,118 @@
 .productTextWrapper .quantityBuyWrapper span#wishList.active{
     background-color: #db4444;
     color: white;
+}
+
+.productTextWrapper .info{
+    border: 1px solid #808080;
+    margin-top: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+
+.productTextWrapper .info .returnDelivery,
+.productTextWrapper .info .freeDelivery{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1.2rem;    
+}
+
+.productTextWrapper .info .returnDelivery i,
+.productTextWrapper .info .freeDelivery i{
+    font-size: 28px;
+    
+}
+.productTextWrapper .info .returnDelivery {
+    margin-bottom: 1.5rem;  
+}
+
+.productTextWrapper .info .freeDelivery{  
+    margin-top: 1.5rem;
+}
+
+.productTextWrapper .info .returnDelivery .returnText,
+.productTextWrapper .info .freeDelivery .freeText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.productTextWrapper .info .freeDelivery .freeText span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.productTextWrapper .info .returnDelivery .returnText span span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.productTextWrapper .info .returnDelivery .returnText span,
+.productTextWrapper .info .freeDelivery .freeText span{
+    font-size: 14px;
+    font-weight: 500;
+    
+}
+
+.productTextWrapper .info .returnDelivery .returnText h6,
+.productTextWrapper .info .freeDelivery .freeText h6{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.productTextWrapper .info div.splitter{
+    border-bottom: 1px solid #808080;
+
+}
+
+.relatedItems{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+}
+
+.relatedItems .relatedItemsHeader p.shape{
+    height: 35px;
+    width: 15px;
+    background-color: #db4444;
+    border-radius: 4px;
+}
+
+.relatedItems .relatedItemsHeader{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.relatedItems .relatedItemsHeader h6{
+    color: #db4444;
+    margin-top: -0.4rem;
+}
+
+.relatedItems .product-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 2rem;
+
+}
+
+
+
+
+/* Media Query */
+
+@media only screen and (max-width: 1400px){
+    .relatedItems .product-container {
+        overflow:scroll;
+        overflow-y: hidden;
+    }
 }

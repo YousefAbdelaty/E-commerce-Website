@@ -85,12 +85,12 @@ ngAfterViewInit(): void {
 
   
   this.productSharing.wishProductsLength$.subscribe(length =>{
-    if(length>=1 && this.auth.isLoggedIn){
-      this.wishNumber.style.display="flex";
+    if( this.auth.isLoggedIn && length>=1 ){
+      this.wishNumber.style.backgroundColor="#db4444";
       this.wishCounter=length;
       this.signLink.style.display='none';
     }else if(length<1){
-      this.wishNumber.style.display='none';
+      this.wishNumber.style.backgroundColor="transparent";
       
     }
    
@@ -99,10 +99,10 @@ ngAfterViewInit(): void {
   this.productSharing.cartProductsLength$.subscribe(length =>{
     if(length>=1 && this.auth.isLoggedIn){
       this.cartCounter=length;
-      this.cartNumber.style.display="flex";
+      this.cartNumber.style.backgroundColor="#db4444";;
       console.log(this.cartCounter);
     }else if(length<1){
-      this.cartNumber.style.display='none';
+      this.cartNumber.style.backgroundColor="transparent";
     }
   })
   

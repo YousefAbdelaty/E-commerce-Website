@@ -77,8 +77,50 @@
                 <span id="wishList" (click)="addToWishlist()" [ngClass]="{'active' : addedToWishlist ===true}"><i
                         class="fa-regular fa-heart"></i></span>
             </div>
+
+            <div class="info">
+                <div class="freeDelivery">
+
+                    <i class="fa-solid fa-truck-fast" style="color: rgb(0, 0, 0);"></i>
+
+                    <div class="freeText">
+                        <h6>Free Delivery</h6>
+                        <span>Enter your postal code for Delivery Availability</span>
+                    </div>
+
+                </div>
+
+                <div class="splitter"></div>
+
+                <div class="returnDelivery">
+
+                    <i class="fa-solid fa-arrows-rotate" style="color: rgb(0, 0, 0);"></i>
+
+                    <div class="returnText">
+                        <h6>Return Delivery</h6>
+                        <span>Free 30 Days Delivery Returns. <span>Details</span></span>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
+    </div>
+
+
+    <div class="relatedItems">
+
+        <div class="relatedItemsHeader">
+            <p class="shape"></p>
+            <h6>Related Items</h6>
+        </div>
+
+        <div class="product-container container " id="productsContainer">
+            <app-product-card *ngFor="let item of relatedProducts | slice:0:5" [product]="item">
+            </app-product-card>
+
+        </div>
     </div>
 
 </div>
