@@ -261,7 +261,7 @@ getAllProducts(): Observable<any[]> {
   increaseQuantity(product: any) {
     const currentCart = this.cartProducts.getValue();
 
-    const item = currentCart.find(p => p.title === product.title);
+    const item = currentCart.find(p => p.title === product.title && p.id === product.id);
 
     if (item) {
       item.quantity++;
@@ -276,7 +276,7 @@ getAllProducts(): Observable<any[]> {
   decreaseQuantity(product: any) {
     const currentCart = this.cartProducts.getValue();
 
-    const item = currentCart.find(p => p.id === product.id);
+    const item = currentCart.find(p => p.id === product.id && p.title === product.title && p.id === product.id);
 
     if (item) {
       if (item.quantity > 1) {

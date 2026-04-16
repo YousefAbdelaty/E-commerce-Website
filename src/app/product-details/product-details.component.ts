@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 // import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { ToastService } from '../Services/toast.service';
 
 @Component({
   selector: 'app-product-details',
@@ -33,7 +34,7 @@ export class ProductDetailsComponent {
   ratingsNum: number = 0;
   category:string='';
 
-  constructor(private prods:ProductsSharingServiceService , private route:ActivatedRoute , private router:Router){}
+  constructor(private toast: ToastService ,private prods:ProductsSharingServiceService , private route:ActivatedRoute , private router:Router){}
 
   ngAfterViewInit(){
    
@@ -92,22 +93,25 @@ export class ProductDetailsComponent {
 
       this.addedToWishlist=false;
       this.prods.removeWishProduct(this.product); 
-
+      this.toast.show('Product removed from wishlist!' , 'error');
     }else if(!this.addedToWishlist){
 
       this.addedToWishlist=true;
 
-      const wishProd = {
+    const wishProd = {
       id: this.product.id,
       mainImg : this.product.mainImage,
       discount : this.product.discount,
       title : this.product.title,
       price : this.product.price,
       prevPrice : this.product.prevPrice,
-      moreImages : this.product.moreImages
-      } 
+      moreImages : this.product.moreImages,
+      rating:          this.product.rating,  
+      ratingsQuantity: this.product.ratingsQuantity
+    } 
 
     this.prods.setWishProducts(wishProd);
+    this.toast.show('Product added to wishlist!');
     }
   }
 
@@ -120,9 +124,10 @@ export class ProductDetailsComponent {
         id: this.product.id,
       }
       this.prods.setCartProducts(cartProd , this.quantity);
+      this.toast.show('Product added to cart!');
       this.router.navigate(['/cart']);
       window.scrollTo({top:0,behavior:'smooth'});
-
+      
   }
 
 

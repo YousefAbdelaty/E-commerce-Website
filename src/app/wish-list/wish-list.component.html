@@ -12,7 +12,8 @@
             <div class="card" style="width: 14rem;">
                 <img [src]="product.mainImg" class="card-img-top" (click)="productNavigate(product.id)"
                     alt="{{product.name}}">
-                <button class="addCart"><i class="fa-solid fa-cart-shopping me-2" style="color: white;"></i>Add To
+                <button class="addCart" (click)="addCartHandler(product)"><i class="fa-solid fa-cart-shopping me-2"
+                        style="color: white;"></i>Add To
                     Cart</button>
                 <button class="eye" (click)="removeProduct(product)"><i class="fa-regular fa-trash-can"
                         style="color: #000000;"></i></button>
@@ -30,16 +31,15 @@
                 <div class="reviews">
 
                     <div class="stars">
-
+                        @for (star of getFilledStars(product); track $index) {
                         <i class="fa-solid fa-star" style="color: #ffad33;"></i>
-                        <i class="fa-solid fa-star" style="color: #ffad33;"></i>
-                        <i class="fa-solid fa-star" style="color: #ffad33;"></i>
-                        <i class="fa-solid fa-star" style="color: #ffad33;"></i>
+                        }
+                        @for (star of getEmptyStars(product); track $index) {
                         <i class="fa-solid fa-star" style="color: #bfbfbf;"></i>
-
+                        }
                     </div>
                     <div class="reviewsCount">
-                        <p style="color: #bfbfbf;">(65)</p>
+                        <p style="color: #bfbfbf;">({{ product.ratingsQuantity }})</p>
                     </div>
                 </div>
             </div>

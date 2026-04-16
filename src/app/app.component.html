@@ -4,3 +4,11 @@
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>
+<div class="toast-container">
+    @if (toastService.visible$() ) {
+    <div class="toast-box" [ngClass]="toastService.type$()">
+        <i class="fa-solid" [ngClass]="toastService.type$() === 'success' ? 'fa-circle-check' : 'fa-circle-xmark'"></i>
+        <span>{{ toastService.message$() }}</span>
+    </div>
+    }
+</div>

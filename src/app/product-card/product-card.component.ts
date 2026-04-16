@@ -4,6 +4,7 @@ import { HomePageComponent } from '../home-page/home-page.component';
 import { Router } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from '@angular/common';
+import { ToastService } from '../Services/toast.service';
 
 @Component({
   selector: 'app-product-card',
@@ -19,7 +20,7 @@ export class ProductCardComponent {
   starsArray: any[]=[];
   emptyStarsArray: any[] = [];
   ratingsQuantity: any;
-  constructor(private productSharing:ProductsSharingServiceService , public router:Router){}
+  constructor(private toast: ToastService ,private productSharing:ProductsSharingServiceService , public router:Router){}
 
   @ViewChild('addWishList') addWishList! : ElementRef<HTMLButtonElement>;
 
@@ -38,7 +39,9 @@ export class ProductCardComponent {
       title : this.product.title,
       price : this.product.price,
       prevPrice : this.product.prevPrice,
-      moreImages : this.product.moreImages
+      moreImages : this.product.moreImages,
+      rating:          this.product.rating,     
+      ratingsQuantity: this.product.ratingsQuantity
     }
 
     const wishBtn = this.addWishList.nativeElement;
@@ -49,6 +52,7 @@ export class ProductCardComponent {
 
 
     this.productSharing.setWishProducts(wishProd);
+    this.toast.show('Product added to wishlist!');
   }
 
   addCartHandler(){
@@ -59,6 +63,7 @@ export class ProductCardComponent {
       id: this.product.id,
     }
     this.productSharing.setCartProducts(cartProd);
+    this.toast.show('Product added to cart!');
   }
 
   ngAfterViewInit(){

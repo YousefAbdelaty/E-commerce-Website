@@ -4,17 +4,18 @@ import { FooterComponent } from '../footer/footer.component';
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 // import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { ToastService } from '../Services/toast.service';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent , CommonModule],
+  imports: [NavbarComponent, FooterComponent, CommonModule, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
 
-  constructor(private products:ProductsSharingServiceService , public router:Router){
+  constructor(private toast: ToastService, private products:ProductsSharingServiceService , public router:Router){
 
   }
 
@@ -41,6 +42,9 @@ export class CartComponent {
   }
 
   decreaseQuantity(product : any){
+    if(product.quantity === 1){
+      this.toast.show('Product removed from cart!' , 'error');
+    }
     this.products.decreaseQuantity(product);
   }
   
@@ -70,6 +74,11 @@ export class CartComponent {
 
   productNavigate(id:number){
     this.router.navigate(['/product',id]);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  homeNavigate(){
+    this.router.navigate(['/home']);
     window.scrollTo({top:0,behavior:'smooth'});
   }
   
