@@ -5,7 +5,7 @@
 
         <div class="productImagesWrapper col ">
 
-            <div class="thumbnails" *ngIf="product">
+            <div class="thumbnails" #thumbnails *ngIf="product">
                 <img *ngFor="let img of product.moreImages" [src]="img" (click)="selectImage(img)"
                     [class.active]="img === selectedImage" />
             </div>
@@ -111,9 +111,17 @@
 
     <div class="relatedItems">
 
-        <div class="relatedItemsHeader">
-            <p class="shape"></p>
-            <h6>Related Items</h6>
+        <div class="headerArrowsWrapper">
+
+            <div class="relatedItemsHeader">
+                <p class="shape"></p>
+                <h6>Related Items</h6>
+            </div>
+
+            <div class="arrows">
+                <button id="leftButton"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
+                <button id="rightButton"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
+            </div>
         </div>
 
         <div class="product-container container " id="productsContainer">

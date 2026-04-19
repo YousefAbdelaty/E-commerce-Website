@@ -29,6 +29,7 @@ export class HomePageComponent {
         this.products=res;
       }
     });
+    this.startTimer();
   }
   
   scrollHandler(rightScrollerID:string ,leftScrollerID:string , containerID:string ):any{
@@ -63,8 +64,46 @@ export class HomePageComponent {
   
 
 
+  targetDate = new Date('2026-5-01').getTime();
 
-  
+  days: string = '00';
+  hours: string = '00';
+  minutes: string = '00';
+  seconds: string = '00';
+  private intervalId: any;
+
+  startTimer(): void {
+    this.intervalId = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = this.targetDate - now;
+
+      if (diff <= 0) {
+        clearInterval(this.intervalId);
+        this.days = this.hours = this.minutes = this.seconds = '00';
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      this.days = this.format(d);
+      this.hours = this.format(h);
+      this.minutes = this.format(m);
+      this.seconds = this.format(s);
+
+    }, 1000);
+  }
+
+  format(value: number): string {
+    return value < 10 ? '0' + value : value.toString();
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+  }
+
   
   ngAfterViewInit(): void {
     this.scrollHandler("categoryScrollRightButton","categoryScrollLeftButton","categoriesBoxesWrapper");

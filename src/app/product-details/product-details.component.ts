@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,12 +16,14 @@ import { ToastService } from '../Services/toast.service';
 })
 export class ProductDetailsComponent {
 
+  @ViewChild('thumbnails') thumbnails!:ElementRef;
   product: any = null;         
   productName: any = null;         
   selectedImage: string = '';  
   relatedProducts: any[] = []; 
   quantity: number = 1;
   products :any[]=[];
+  moreImgs :any[]=[];
   mainImage:string='';
   description:string='';
   id:number=0;
@@ -35,44 +37,80 @@ export class ProductDetailsComponent {
   category:string='';
   price:any;
  
+
   constructor(private toast: ToastService ,private prods:ProductsSharingServiceService , private route:ActivatedRoute , private router:Router){}
 
 
+
   ngOnInit() {
-  this.route.paramMap.subscribe(params => {
-    const id = params.get('id');
+    
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
 
-    if (id) {
-      // reset the page state first so old data doesn't flash
-      this.product = null;
-      this.selectedImage = '';
-      this.mainImage = '';
-      this.relatedProducts = [];
-      this.starsArray = [];
-      this.emptyStarsArray = [];
+      if (id) {
+      
+        this.product = null;
+        this.selectedImage = '';
+        this.mainImage = '';
+        this.relatedProducts = [];
+        this.starsArray = [];
+        this.emptyStarsArray = [];
 
-      this.prods.getById(id).subscribe(product => {
-        this.product = product;
-        this.ratingsNum = product.ratingsQuantity;
-        this.description = product.description;
-        this.selectedImage = product.moreImages[0];
-        this.mainImage = product.mainImage;
-        this.category = product.category;
-        this.productName = product.title;
-        this.rating = Math.round(product.rating);
-        this.starsArray = Array(this.rating).fill(0);
-        this.emptyStarsArray = Array(5 - this.rating).fill(0);
-      });
+        this.prods.getById(id).subscribe(product => {
+          this.product = product;
+          this.ratingsNum = product.ratingsQuantity;
+          this.description = product.description;
+          this.selectedImage = product.moreImages[0];
+          this.mainImage = product.mainImage;
+          this.category = product.category;
+          this.productName = product.title;
+          this.rating = Math.round(product.rating);
+          this.starsArray = Array(this.rating).fill(0);
+          this.emptyStarsArray = Array(5 - this.rating).fill(0);
+          this.moreImgs = product.moreImages;
+          setTimeout(() => {
+          this.handleScroll();
+          });
 
-      if (this.prods.getAllProductsSnapshot().length > 0) {
-        this.relatedProducts = this.prods.getAllProductsSnapshot().filter(p => p.id !== id);
-      } else {
-        this.prods.getAllProducts().subscribe(products => {
-          this.relatedProducts = products.filter(p => p.id !== id);
         });
+
+        if (this.prods.getAllProductsSnapshot().length > 0) {
+          this.relatedProducts = this.prods.getAllProductsSnapshot().filter(p => p.id !== id);
+        } else {
+          this.prods.getAllProducts().subscribe(products => {
+            this.relatedProducts = products.filter(p => p.id !== id);
+          });
+        }
+
+
+      }
+    });
+    
+  
+}
+
+
+
+  handleScroll() {
+    if (!this.thumbnails) return;
+
+    const el = this.thumbnails.nativeElement;
+
+    if (this.moreImgs.length > 4) {
+      if (screen.width > 1200) {
+        console.log(this.thumbnails.nativeElement);
+        el.style.overflowY = 'scroll';
+        el.style.overflowX = 'hidden';
+      } else if(screen.width<=1200) {
+        el.style.overflowY = 'hidden';
+        el.style.overflowX = 'scroll';
       }
     }
-  });
+  }
+
+
+ngAfterViewInit():void{
+  this.scrollHandler();
 }
 
   
@@ -136,6 +174,33 @@ export class ProductDetailsComponent {
       
   }
 
-
+scrollHandler():any{
+    
+    const rightScroller = document.getElementById('rightButton') as HTMLButtonElement;
+    const leftScroller = document.getElementById('leftButton') as HTMLButtonElement;
+    const container = document.getElementById('productsContainer') as HTMLDivElement;
+    
+    rightScroller.addEventListener("click" , ()=>{
+      
+      const { scrollLeft, scrollWidth, clientWidth } = container;  
+      if (scrollLeft + clientWidth >= scrollWidth - 5) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: 200, behavior: 'smooth' });
+      }
+      
+    });
+    
+    leftScroller.addEventListener("click" , ()=>{
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      if (scrollLeft <= 5) {
+        container.scrollTo({ left: scrollWidth - clientWidth, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: -200, behavior: 'smooth' });
+      }
+      
+      
+    });
+  }
  
 }

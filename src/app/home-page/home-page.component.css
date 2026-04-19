@@ -93,11 +93,11 @@
     top: 15rem;
     position: absolute; 
     left: -35px; 
-    transition: 0.3s; /* Add transition on hover */
-    text-decoration: none; /* Remove underline */
-    font-size: 20px; /* Increase font size */
-    color: white; /* White text color */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+    transition: 0.3s; 
+    text-decoration: none; 
+    font-size: 20px; 
+    color: white; 
+    border-radius: 0 5px 5px 0;
 }
 
 .hero .smallAside:hover {
@@ -193,33 +193,39 @@
     letter-spacing: 1px;
 }
 
+
+
 .flashSales .flashTimer .time {
     display: flex;
-    flex-direction:column;
     align-items: center;
-
+    gap: 10px;
 }
 
-.flashSales .flashTimer .time p#timeInSeconds{
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-box .label {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.time-box span:last-child {
     font-size: 24px;
     font-weight: 700;
-    word-spacing: 8px;
-    text-align: center;
-    margin-bottom: 0;
 }
-.flashSales .flashTimer .time p#timeInSeconds span{
+
+.colon {
+    font-size: 24px;
     color: #db4444;
+    font-weight: bold;
 }
 
-
-.flashSales .flashTimer .time p#timeSpecifications{
-    /* position: absolute; */
-    font-size: 10px;
-    /* margin-bottom: -10px; */
-    word-spacing: 24px;
-    font-weight: 700;
-    margin-bottom: 0px;
-
+.time-box span:last-child {
+    min-width: 30px;
+    text-align: center;
 }
 
 .exploreProducts .container .timerArrowsWrapper,
@@ -233,11 +239,18 @@
 
 .exploreProducts .container .timerArrowsWrapper .arrows,
 .bestSelling .container .timerArrowsWrapper .arrows,
+.categories .container .categoryArrowsWrapper .arrows{
+    visibility: hidden;
+}
+
+.exploreProducts .container .timerArrowsWrapper .arrows,
+.bestSelling .container .timerArrowsWrapper .arrows,
 .categories .container .categoryArrowsWrapper .arrows,
 .flashSales .container .timerArrowsWrapper .arrows{
     margin-right: 4rem;
     display: flex;
     gap: 10px;
+    /* visibility: hidden; */
 }
 
 .exploreProducts .container .timerArrowsWrapper .arrows button,
@@ -309,6 +322,7 @@
 .categories .container{
     margin-top: 4rem;
 }
+
 .categories .categoriesBoxesWrapper{
     display: flex;
     gap: 1rem;
@@ -317,6 +331,7 @@
     margin-bottom:2rem ;
     overflow: hidden;
 }
+
 .categories .categoriesBoxesWrapper .categoryItem{
     display: flex;
     flex-direction: column;
@@ -343,14 +358,11 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* On hover: fill from bottom to top */
 .categories .categoriesBoxesWrapper .categoryItem:hover::before {
   height: 100%;
 }
 
-/* .categories .categoriesBoxesWrapper .categoryItem:hover{
-    background-color: #db4444;
-} */
+
 .categories .categoriesBoxesWrapper .categoryItem:hover p,
 .categories .categoriesBoxesWrapper .categoryItem:hover i{
     color: white;
@@ -498,6 +510,13 @@
 /* Media query */
 
 @media only screen and (max-width:1400px){
+
+    .exploreProducts .container .timerArrowsWrapper .arrows,
+    .bestSelling .container .timerArrowsWrapper .arrows,
+    .categories .container .categoryArrowsWrapper .arrows{
+        visibility: visible;
+    }
+
     .featured .imgsWrapper {
         gap: 1rem;
     }
