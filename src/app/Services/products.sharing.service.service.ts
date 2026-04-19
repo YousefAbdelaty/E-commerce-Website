@@ -130,7 +130,7 @@ getAllProducts(): Observable<any[]> {
       category : item.category.name,
       prevPrice: item.price+(item.price * 0.4)
     }))),tap(products => {
-      this.productsSnapshot = products; // saved after map runs
+      this.productsSnapshot = products; 
     })
   );
 }

@@ -33,43 +33,49 @@ export class ProductDetailsComponent {
   emptyStarsArray: any[] = [];
   ratingsNum: number = 0;
   category:string='';
-
+  price:any;
+ 
   constructor(private toast: ToastService ,private prods:ProductsSharingServiceService , private route:ActivatedRoute , private router:Router){}
 
-  ngAfterViewInit(){
-   
 
-  }
-
-  ngOnInit(){
-    const id = this.route.snapshot.paramMap.get('id');
+  ngOnInit() {
+  this.route.paramMap.subscribe(params => {
+    const id = params.get('id');
 
     if (id) {
+      // reset the page state first so old data doesn't flash
+      this.product = null;
+      this.selectedImage = '';
+      this.mainImage = '';
+      this.relatedProducts = [];
+      this.starsArray = [];
+      this.emptyStarsArray = [];
+
       this.prods.getById(id).subscribe(product => {
         this.product = product;
-        this.ratingsNum = this.product.ratingsQuantity;
+        this.ratingsNum = product.ratingsQuantity;
         this.description = product.description;
         this.selectedImage = product.moreImages[0];
         this.mainImage = product.mainImage;
         this.category = product.category;
         this.productName = product.title;
-        this.rating = Math.round(this.product.rating);
+        this.rating = Math.round(product.rating);
         this.starsArray = Array(this.rating).fill(0);
         this.emptyStarsArray = Array(5 - this.rating).fill(0);
-        // this.relatedProducts = this.prods.getAllProductsSnapshot().filter((p:any) => p.id !== id);
-        // console.log(this.relatedProducts);
       });
 
-        if (this.prods.getAllProductsSnapshot().length > 0) {
-          this.relatedProducts = this.prods.getAllProductsSnapshot().filter(p => p.id !== id);
-        } else {
-          this.prods.getAllProducts().subscribe(products => {
-         this.relatedProducts = products.filter(p => p.id !== id);
+      if (this.prods.getAllProductsSnapshot().length > 0) {
+        this.relatedProducts = this.prods.getAllProductsSnapshot().filter(p => p.id !== id);
+      } else {
+        this.prods.getAllProducts().subscribe(products => {
+          this.relatedProducts = products.filter(p => p.id !== id);
         });
-  }
+      }
     }
-    
-  }
+  });
+}
+
+  
   
   selectImage(img: string) {
     this.selectedImage = img;

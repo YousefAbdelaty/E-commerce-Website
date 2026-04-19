@@ -12,7 +12,7 @@
 
 
             <div class="mainImage">
-                <img [src]="mainImage" [alt]="product.title" />
+                <img [src]="mainImage" [alt]="productName" />
             </div>
 
         </div>
@@ -20,7 +20,7 @@
         <div class="productTextWrapper col ">
 
             <div class="productDetails">
-                <h2>{{product.title}}</h2>
+                <h2>{{productName}}</h2>
             </div>
 
             <div class="reviews">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="productPrice">
-                <p id="price">{{product.price | currency:'USD'}}</p>
+                <p id="price">{{price | currency:'USD'}}</p>
             </div>
 
             <div class="productDescription">

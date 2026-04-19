@@ -12,47 +12,49 @@
     <div class="billingDetailsWrapper">
 
         <div class="formWrapper">
+            <form action="" [formGroup]="form">
 
-            <div class="inputWrapper">
-                <label for="name">First Name <span>*</span></label>
-                <input type="text" id="name">
-            </div>
+                <div class="inputWrapper">
+                    <label for="name">First Name <span>*</span></label>
+                    <input type="text" id="name" formControlName="fName">
+                </div>
 
-            <div class="inputWrapper">
-                <label for="company">Company Name</label>
-                <input type="text" id="company">
-            </div>
+                <div class="inputWrapper">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company">
+                </div>
 
-            <div class="inputWrapper">
-                <label for="address">Street Address <span>*</span></label>
-                <input type="text" id="address">
-            </div>
+                <div class="inputWrapper">
+                    <label for="address">Street Address <span>*</span></label>
+                    <input type="text" id="address" formControlName="sAddress">
+                </div>
 
-            <div class="inputWrapper">
-                <label for="apartment">Apartment,floor,etc. (optional)</label>
-                <input type="text" id="apartment">
-            </div>
+                <div class="inputWrapper">
+                    <label for="apartment">Apartment,floor,etc. (optional)</label>
+                    <input type="text" id="apartment">
+                </div>
 
-            <div class="inputWrapper">
-                <label for="city">Town/City <span>*</span></label>
-                <input type="text" id="city">
-            </div>
+                <div class="inputWrapper">
+                    <label for="city">Town/City <span>*</span></label>
+                    <input type="text" id="city" formControlName="city">
+                </div>
 
-            <div class="inputWrapper">
-                <label for="phone">Phone Number <span>*</span></label>
-                <input type="text" id="phone">
-            </div>
+                <div class="inputWrapper">
+                    <label for="phone">Phone Number <span>*</span></label>
+                    <input type="text" id="phone" formControlName="phone">
+                </div>
 
-            <div class="inputWrapper">
-                <label for="email">Email Address <span>*</span></label>
-                <input type="text" id="email">
-            </div>
+                <div class="inputWrapper">
+                    <label for="email">Email Address <span>*</span></label>
+                    <input type="text" id="email" formControlName="email">
+                </div>
 
-            <div class="checkWrapper">
-                <input type="checkbox" id="check">
-                <label for="check">Save this information for faster check-out next time</label>
-            </div>
+                <div class="checkWrapper">
+                    <input type="checkbox" id="check">
+                    <label for="check">Save this information for faster check-out next time</label>
+                </div>
 
+            </form>
 
         </div>
 
@@ -132,7 +134,7 @@
                 <button><span>Apply Coupon</span></button>
             </div>
 
-            <button id="placeOrder">Place Order</button>
+            <button id="placeOrder" (click)="formSubmit()">Place Order</button>
 
         </div>
     </div>

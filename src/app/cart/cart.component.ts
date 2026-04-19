@@ -68,8 +68,12 @@ export class CartComponent {
  
   
   checkoutNavigate(){
-    this.router.navigate(['/checkout']);
-    window.scrollTo({top:0 ,behavior:'smooth'});
+    if(this.cartProducts.length>0){
+      this.router.navigate(['/checkout']);
+      window.scrollTo({top:0 ,behavior:'smooth'});
+    }else {
+        this.toast.show('Your cart is empty!' , 'error');
+    }
   }
 
   productNavigate(id:number){
