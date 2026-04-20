@@ -112,10 +112,12 @@
     align-items: center;
     margin-top: 1.5rem;
 }
+
 .cartWrapper .cartBtns button span{
     position: relative;
     z-index: 1;
 }
+
 .cartWrapper .cartBtns button{
     width: 225px;
     height: 60px;

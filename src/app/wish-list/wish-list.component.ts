@@ -47,7 +47,6 @@ export class WishListComponent {
   }
 
   addCartHandler(product : any){
-
       const cartProd = {
         img : product.mainImg,
         title : product.title,
@@ -55,9 +54,9 @@ export class WishListComponent {
         id: product.id,
       }
       this.prods.setCartProducts(cartProd);
-      this.toast.show('Product added to cart!');
-      
+      this.toast.show('Product added to cart!');   
   }
+
   getFilledStars(product: any): any[] {
     const rating = Math.round(product.rating) || 0;
     return Array(rating).fill(0);
@@ -68,11 +67,23 @@ export class WishListComponent {
     return Array(5 - rating).fill(0);
   } 
 
-  // ngAfterViewInit(){
-  //  this.rating = Math.round(this.product.rating);
-  //  this.ratingsQuantity = this.product.ratingsQuantity;
-  //  this.starsArray = Array(this.rating).fill(0);
-  //  this.emptyStarsArray = Array(5 - this.rating).fill(0);
-  // }
+  moveAllToBag(){
+    if(this.wishListProducts.length === 0){
+      this.toast.show('Your wishlist is empty!' , 'error');
+      return;
+    }else {
+      this.wishListProducts.forEach(product =>{
+        const cartProd = {
+          img : product.mainImg,
+          title : product.title,
+          price : product.price,
+          id: product.id,
+        }
+        this.prods.setCartProducts(cartProd);
+        this.productsSharing.removeWishProduct(product);
+      });
+      this.toast.show('All products moved to cart!');
+    }
+  }
 
 } 
