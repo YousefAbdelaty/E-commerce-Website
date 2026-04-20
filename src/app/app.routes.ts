@@ -10,9 +10,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ErrorComponent } from './error/error.component';
 
 
 export const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch: 'full' },
     {path:'home' , component:HomePageComponent},
     {path:'signup' , component:SignUpComponent},
     {path:'wishlist' , component:WishListComponent},
@@ -22,11 +24,12 @@ export const routes: Routes = [
     {path:'profile' , component:ProfileComponent},
     {path:'about' , component:AboutComponent},
     {path:'product/:id' , component:ProductDetailsComponent},
-    {path: '', redirectTo: '/home', pathMatch: 'full' }
+    {path:'**' , loadComponent: () => import('./error/error.component')
+    .then(m => m.ErrorComponent)},
 ];
 
 @NgModule({
-  imports: [BrowserModule,RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

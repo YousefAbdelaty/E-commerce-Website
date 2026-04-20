@@ -1,0 +1,39 @@
+.notFoundWrapper{
+    margin-top: 5rem;
+}
+
+.notFoundWrapper p#location span{
+    color: #9e9e9e;
+}
+
+.notFoundWrapper h1{
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-top: 3rem;
+    font-size: 72px;
+    text-align: center;
+}
+
+.notFoundWrapper p#smallP{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 18px;
+   
+}
+
+.notFoundWrapper button{
+    display: block;
+    margin: 3rem auto;
+    border-radius: 5px;
+    color: white;
+    background-color:#db4444 ;
+    padding: 16px 42px;
+    border: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 5rem;
+}
+
+.notFoundWrapper button:hover{
+    transform: scale(1.04);
+}

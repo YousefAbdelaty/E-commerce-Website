@@ -1,1 +1,6 @@
-<p>error works!</p>
+<div class="notFoundWrapper container">
+    <p id="location"><span>Home &nbsp; / &nbsp; </span> 404 Error</p>
+    <h1>404 Not Found</h1>
+    <p id="smallP">Your visited page not found. You can go to home page.</p>
+    <button [routerLink]="'/home'" (click)="homeNavigate()">Back to home page</button>
+</div>
