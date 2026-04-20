@@ -31,8 +31,8 @@
   flex-direction: column;  
   gap: 12px;
   max-height: 70vh;
-  /* overflow-y: scroll; */
-  /* overflow-x: hidden; */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .thumbnails img {
@@ -446,9 +446,15 @@
     .thumbnails {
         flex-direction: row;
         max-height: fit-content;
-        overflow-x: scroll;
+        overflow-x: auto;
         overflow-y: hidden;
-        max-width: 70vw;
+        max-width: 35vw;
     }
 
+}
+
+@media only screen and (max-width: 827px){
+    .thumbnails{
+        max-width: 80vw;
+    }
 }

@@ -5,8 +5,8 @@
 
         <div class="productImagesWrapper col ">
 
-            <div class="thumbnails" #thumbnails *ngIf="product">
-                <img *ngFor="let img of product.moreImages" [src]="img" (click)="selectImage(img)"
+            <div class="thumbnails" *ngIf="product">
+                <img *ngFor="let img of moreImgs" [src]="img" (click)="selectImage(img)"
                     [class.active]="img === selectedImage" />
             </div>
 

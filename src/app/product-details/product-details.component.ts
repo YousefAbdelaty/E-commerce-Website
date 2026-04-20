@@ -16,7 +16,7 @@ import { ToastService } from '../Services/toast.service';
 })
 export class ProductDetailsComponent {
 
-  @ViewChild('thumbnails') thumbnails!:ElementRef;
+ 
   product: any = null;         
   productName: any = null;         
   selectedImage: string = '';  
@@ -68,9 +68,7 @@ export class ProductDetailsComponent {
           this.starsArray = Array(this.rating).fill(0);
           this.emptyStarsArray = Array(5 - this.rating).fill(0);
           this.moreImgs = product.moreImages;
-          setTimeout(() => {
-          this.handleScroll();
-          });
+         
 
         });
 
@@ -89,24 +87,6 @@ export class ProductDetailsComponent {
   
 }
 
-
-
-  handleScroll() {
-    if (!this.thumbnails) return;
-
-    const el = this.thumbnails.nativeElement;
-
-    if (this.moreImgs.length > 4) {
-      if (screen.width > 1200) {
-        console.log(this.thumbnails.nativeElement);
-        el.style.overflowY = 'scroll';
-        el.style.overflowX = 'hidden';
-      } else if(screen.width<=1200) {
-        el.style.overflowY = 'hidden';
-        el.style.overflowX = 'scroll';
-      }
-    }
-  }
 
 
 ngAfterViewInit():void{

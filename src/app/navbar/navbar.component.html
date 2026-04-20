@@ -37,9 +37,24 @@
 
         </div>
 
-        <div class="searchBar col-lg-2 ms-xxl-4 d-none d-lg-flex">
-            <input type="search" placeholder="What are you looking for?" />
+
+        <div class="searchBar col-lg-2 ms-xxl-4 d-none d-lg-flex" style="position: relative;">
+            <input type="search" placeholder="What are you looking for?" [(ngModel)]="searchTerm"
+                (ngModelChange)="searching()" (keyup.enter)="searching()" (keyup.escape)="clearSearch()"
+                autocomplete="off" />
             <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+
+            <div class="searchDropdown" *ngIf="serarchingArray.length > 0">
+                <ul>
+                    <li *ngFor="let product of serarchingArray | slice:0:6" (click)="navigateToProduct(product.id)">
+                        <img [src]="product.mainImage" [alt]="product.title" />
+                        <div class="searchItemInfo">
+                            <span class="searchItemTitle">{{ product.title }}</span>
+                            <span class="searchItemPrice">${{ product.price }}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <div class="wishCartDropWrapper ">
@@ -52,10 +67,10 @@
                 <i class="fa-solid fa-user " (click)="toggleDropdown()" style="color: #000000;"></i>
 
 
-                <ul class="profile-dropdown" [class.show]="showDropdown" id="profileDropdown">
-                    <li (click)="router.navigate(['/profile'])">Profile</li>
-                    <li (click)="router.navigate(['/orders'])">Orders</li>
-                    <li (click)="logout()">Logout</li>
+                <ul class="profile-dropdown" [class.show]="showDropdown">
+                    <li (click)="onItemClick('/profile')">Profile</li>
+                    <li (click)="onItemClick('/orders')">Orders</li>
+                    <li (click)="logoutAndClose()">Logout</li>
                 </ul>
             </div>
 
@@ -72,9 +87,25 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li>
-                        <input type="search" placeholder="What are you looking for?" />
+                    <li style="position: relative;">
+                        <input type="search" placeholder="What are you looking for?" [(ngModel)]="searchTerm"
+                            (ngModelChange)="searching()" (keyup.enter)="searching()" (keyup.escape)="clearSearch()"
+                            autocomplete="off" />
                         <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+
+                        <!-- same dropdown but for mobile -->
+                        <div class="searchDropdown" *ngIf="serarchingArray.length > 0">
+                            <ul>
+                                <li *ngFor="let product of serarchingArray | slice:0:6"
+                                    (click)="navigateToProduct(product.id)">
+                                    <img [src]="product.mainImage" [alt]="product.title" />
+                                    <div class="searchItemInfo">
+                                        <span class="searchItemTitle">{{ product.title }}</span>
+                                        <span class="searchItemPrice">${{ product.price }}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
