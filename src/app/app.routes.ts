@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ErrorComponent } from './error/error.component';
+import { ProductsComponent } from './products/products.component';
 
 
 export const routes: Routes = [
@@ -23,6 +24,7 @@ export const routes: Routes = [
     {path:'checkout' , component:CheckoutComponent},
     {path:'profile' , component:ProfileComponent},
     {path:'about' , component:AboutComponent},
+    {path:'products' , component:ProductsComponent},
     {path:'product/:id' , component:ProductDetailsComponent},
     {path:'**' , loadComponent: () => import('./error/error.component')
     .then(m => m.ErrorComponent)},

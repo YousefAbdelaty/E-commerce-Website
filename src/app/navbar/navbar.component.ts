@@ -14,7 +14,8 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent  {
   constructor(public router: Router , private auth:AuthServiceService , private productSharing:ProductsSharingServiceService ){}
-  // @ViewChild("wishNumber") wishNumber!: HTMLParagraphElement;
+  
+  @ViewChild("signUpSmall") signUpSmall!: ElementRef;
 
   wishCart!: HTMLDivElement;
   linkList! :HTMLElement;
@@ -93,10 +94,12 @@ ngAfterViewInit(): void {
   this.auth.isLoggedIn$.subscribe(isLogged=>{
     if(isLogged){
       this.wishCart.style.display="flex";
-      this.signLink.style.display="none"
+      this.signLink.style.display="none";
+      this.signUpSmall.nativeElement.style.display="none";
     }else if(!isLogged){
       this.wishCart.style.display="none";
-      this.signLink.style.display="flex"
+      this.signLink.style.display="flex";
+      this.signUpSmall.nativeElement.style.display="block";
     }
   })
   
@@ -159,6 +162,10 @@ aboutNavigate(){
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
 
+productsNavigate(){
+  this.router.navigate(['/products']);
+  window.scrollTo({top:0 ,behavior:'smooth'});
+}
 
 logout(){
   this.auth.logout();

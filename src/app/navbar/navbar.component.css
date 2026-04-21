@@ -376,6 +376,7 @@
     .mainNav .dropdown .dropdown-menu{
         padding: 0.5rem;
     }
+    
     .mainNav .dropdown {
         flex: 1;
         display: flex;
@@ -385,7 +386,9 @@
     
     .mainNav .dropdown li{
         position: relative;
+        cursor: pointer;
     }
+ 
     .mainNav .dropdown li i{
         position: absolute;
         top: 1.2rem;
@@ -419,6 +422,10 @@
         right: 25px;
     }
 
+    .profile-dropdown {
+        right: -70px;
+        top: 35px;
+    }
     
     
     

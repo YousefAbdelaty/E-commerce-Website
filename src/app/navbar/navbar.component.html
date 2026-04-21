@@ -30,7 +30,7 @@
 
             <ul id="linkList">
                 <li class="active" id="link1" (click)="homeNavigate()">Home</li>
-                <li id="link2">Contact</li>
+                <li id="link2" (click)="productsNavigate()">Products</li>
                 <li id="link3" (click)="aboutNavigate()">About</li>
                 <li id="link4" (click)="signUpNavigate()">Sign Up</li>
             </ul>
@@ -79,11 +79,10 @@
                     <i class="fa-solid fa-bars"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end  ">
-                    <li><a class="dropdown-item d-lg-none" href="#">Home</a></li>
-                    <li><a class="dropdown-item d-lg-none" href="#">Shop</a></li>
-                    <li><a class="dropdown-item d-lg-none" href="#">About</a></li>
-                    <li><a class="dropdown-item d-lg-none" href="#">Contact</a></li>
-                    <li (click)="signUpNavigate()"><a class="dropdown-item d-lg-none">Sign Up</a></li>
+                    <li><a class="dropdown-item d-lg-none" (click)="homeNavigate()">Home</a></li>
+                    <li><a class="dropdown-item d-lg-none" (click)="aboutNavigate()">About</a></li>
+                    <li><a class="dropdown-item d-lg-none" (click)="productsNavigate()">Products</a></li>
+                    <li><a class="dropdown-item d-lg-none" #signUpSmall (click)="signUpNavigate()">Sign Up</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
