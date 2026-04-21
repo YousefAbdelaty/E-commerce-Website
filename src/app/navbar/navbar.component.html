@@ -25,14 +25,16 @@
 
     <div class="container-md" id="navContainer">
 
-        <p class="Logo col-lg-2" (click)="homeNavigate()">Exclusive</p>
+        <p class="Logo col-lg-2" (click)="homeNavigate()" routerLink="/home">Exclusive</p>
         <div class="links col-lg-5 col-md-7 d-none d-lg-flex ms-5">
 
             <ul id="linkList">
-                <li class="active" id="link1" (click)="homeNavigate()">Home</li>
-                <li id="link2" (click)="productsNavigate()">Products</li>
-                <li id="link3" (click)="aboutNavigate()">About</li>
-                <li id="link4" (click)="signUpNavigate()">Sign Up</li>
+                <li class="active" id="link1" routerLink="/home" (click)="homeNavigate()" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }">Home</li>
+                <li id="link2" (click)="productsNavigate()" routerLink="/products" routerLinkActive="active">Products
+                </li>
+                <li id="link3" (click)="aboutNavigate()" routerLink="/about" routerLinkActive="active">About</li>
+                <li id="link4" (click)="signUpNavigate()" routerLink="/signup" routerLinkActive="active">Sign Up</li>
             </ul>
 
         </div>

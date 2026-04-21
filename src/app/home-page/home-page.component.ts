@@ -118,8 +118,10 @@ export class HomePageComponent {
     });
   }
 
-  
-
+  productsNavigate(){
+    this.router.navigate(['/products']);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
   
   
 }

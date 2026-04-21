@@ -1,6 +1,6 @@
 <div class="productsWrapper container row">
 
-    <div class="filters col-3">
+    <div class="filters col-xl-3 col-lg-4 col-md-5 ">
 
         <div class="categories">
             <h4>Categories</h4>
@@ -30,23 +30,60 @@
             <h4>Price Range</h4>
 
             <div class="rangeWrapper">
-                <input type="number" id="minPrice" name="minPrice" (click)="priceRangeChange('minPrice')" min="0"
-                    max="1000">
+                <input type="number" [(ngModel)]="minPrice" (input)="onMinChange()" min="0" max="1000">
 
                 <span>to</span>
 
-                <input type="number" id="maxPrice" name="maxPrice" (select)="priceRangeChange('maxPrice')" min="0"
-                    max="1000">
+                <input type="number" [(ngModel)]="maxPrice" (input)="onMaxChange()" min="0" max="1000">
             </div>
 
             <div class="rangeInput">
-                <input type="range" name="" [id]="priceRange" min="0" max="1000">
+                <div class="sliderTrack"></div>
+                <div class="sliderRange" [style.left.%]="minPercent" [style.right.%]="100 - maxPercent"></div>
+
+                <input type="range" min="0" max="1000" [(ngModel)]="minPrice" (input)="onMinChange()">
+
+                <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (input)="onMaxChange()">
             </div>
         </div>
 
+
+        <div class="rating">
+            <h4>Rating</h4>
+            <div class="4Up">
+                <input type="radio" id="4Up" name="rating">
+                <label for="4Up">4 Stars & Up</label>
+            </div>
+
+            <div class="3Up">
+                <input type="radio" id="3Up" name="rating">
+                <label for="3Up">3 Stars & Up</label>
+            </div>
+
+            <div class="2Up">
+                <input type="radio" id="2Up" name="rating">
+                <label for="2Up">2 Stars & Up</label>
+            </div>
+
+            <div class="1Up">
+                <input type="radio" id="1Up" name="rating">
+                <label for="1Up">1 Star & Up</label>
+            </div>
+
+        </div>
+
+        <div class="help">
+            <h4>Need help?</h4>
+            <p>Contact our support team for assistance with product selection, order tracking, or any inquiries you may
+                have.</p>
+            <button>Contact Support</button>
+        </div>
+
+
+
     </div>
 
-    <div class="products col-9">
+    <div class="products col-xl-9 col-lg-8 col-md-7">
         <div class="row">
             <div class="col-3" *ngFor="let product of products">
                 <app-product-card [product]="product"></app-product-card>

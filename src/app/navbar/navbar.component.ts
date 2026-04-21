@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink ,RouterLinkActive  } from '@angular/router';
 import { AuthServiceService } from '../Services/auth.service.service';
 import { ProductsSharingServiceService } from '../Services/products.sharing.service.service';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, FormsModule , CommonModule],
+  imports: [RouterLink, FormsModule , CommonModule , RouterLinkActive ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -54,19 +54,6 @@ ngAfterViewInit(): void {
   this.navContainer=document.getElementById('navContainer') as HTMLElement;
   this.wishNumber = document.getElementById('wishNumber') as HTMLParagraphElement;
   this.cartNumber = document.getElementById('cartNumber') as HTMLParagraphElement;
-  this.linkList.addEventListener('click' ,(event : any) =>{
-
-  if(event.target.tagName ==='LI'){
-    Array.from(this.linkList.children).forEach((el:any)=>{
-      el.classList.remove('active');
-      el.classList.add('inactive');
-
-      });
-
-      event.target.classList.add('active');
-      event.target.classList.remove('inactive');
-    }
-  });
 
 
   window.addEventListener('scroll' , ()=>{
@@ -142,28 +129,28 @@ logoutAndClose() {
 
 
 signUpNavigate():void{
-  this.router.navigate(['/signup']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
+
 homeNavigate(){
-  this.router.navigate(['/home']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
+
 wishNavigate(){
   this.router.navigate(['/wishlist']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
+
 cartNavigate(){
   this.router.navigate(['/cart']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
+
 aboutNavigate(){
-  this.router.navigate(['/about']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
 
 productsNavigate(){
-  this.router.navigate(['/products']);
   window.scrollTo({top:0 ,behavior:'smooth'});
 }
 
