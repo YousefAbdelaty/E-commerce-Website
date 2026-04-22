@@ -16,7 +16,7 @@ export class ProductsComponent {
   constructor(public prods:ProductsSharingServiceService) { }
   products:any[]=[];
   minPrice: number = 0;
-  maxPrice: number = 800;
+  maxPrice: number = 1000;
   minPercent: number = 0;
   maxPercent: number = 100;
 
