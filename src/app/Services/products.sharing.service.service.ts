@@ -127,8 +127,8 @@ getAllProducts(): Observable<any[]> {
       description:      item.description,
       rating:      item.ratingsAverage,
       ratingsQuantity:      item.ratingsQuantity,
-      category : item.category.name,
-      prevPrice: item.price+(item.price * 0.4)
+      category:        item.category?.name ?? item.category ?? '',
+      prevPrice: Number((item.price + (item.price * 0.4)).toFixed(2))
     }))),tap(products => {
       this.productsSnapshot = products; 
     })
@@ -151,8 +151,8 @@ getAllProducts(): Observable<any[]> {
           description:      item.description,
           rating:      item.ratingsAverage,
           ratingsQuantity:      item.ratingsQuantity,
-          category : item.category.name,
-          prevPrice:  item.price + (item.price * 0.4)
+          category:        item.category?.name ?? item.category ?? '',
+          prevPrice: Number((item.price + (item.price * 0.4)).toFixed(2))
         };
       })
     );
@@ -200,7 +200,6 @@ getAllProducts(): Observable<any[]> {
   );
 
   cartCounter = this.cartProductsLength$;
-  // cartTotalCost :number = 0;
 
   setCartTotal(total : number){
     this.cartTotalCost.next(total);

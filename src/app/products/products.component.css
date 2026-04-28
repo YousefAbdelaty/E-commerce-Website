@@ -1,6 +1,14 @@
+
+.productsWrapper .allFiltersWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .productsWrapper .header h1{
     font-size: 28px;
     font-weight: 600;
+    /* margin-bottom: 1rem; */
     color: #db4444;
     text-align: center;
 }
@@ -20,6 +28,37 @@ input[type="radio"] {
 
 .productsWrapper{
     margin-top: 2rem;
+}
+
+.offcanvas {
+    border-left: 4px solid #db4444;
+}
+
+
+.offCanvas .offcanvas-body{
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.offCanvas .btn-close{
+    filter: grayscale(1);
+    opacity: 0.7;
+}
+
+.offCanvas .btn-close:hover {
+    opacity: 1;
+}
+
+
+.offcanvas-header {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+.offcanvas-title {
+    color: #db4444;
+    font-weight: 600;
 }
 
 .offCanvas .offcanvas-body,
@@ -50,6 +89,9 @@ input[type="radio"] {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: #333;
+    border-left: 3px solid #db4444;
+    padding-left: 8px;
 }
 
 
@@ -213,6 +255,7 @@ input[type="radio"] {
     font-size: 14px;
 }
 
+.offCanvas .offcanvas-body .help button:hover,
 .offCanvas button#filtersBtn:hover,
 .filters .help button:hover{
    transform: scale(1.04); 
@@ -228,24 +271,37 @@ input[type="radio"] {
 
 /* Media queries */
 @media only screen and (max-width: 768px) {
-   .productsWrapper .header h1{
+    .productsWrapper .header h1{
         font-size: 24px;
         text-align: left;
     }
-
+    
     .productsWrapper .header  p{
         font-size: 14px;
         text-align: left;
         max-width: 75%;
     }
-
+    
     .productsWrapper .allFiltersWrapper{
         display: flex;
         flex-direction: row;
         align-items: center;
+        
     }
-
     
+   .productsWrapper .smallFilterHeaderWrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+   }
+    
+    
+}
 
-
+@media only screen and (max-width: 576px){
+    .productsWrapper .product {
+        max-width: 300px;
+    }
+    
 }

@@ -1,203 +1,177 @@
-<div class="productsWrapper container row">
+<div class="productsWrapper container-lg ">
+    <div class="row">
 
-    <div class="allFiltersWrapper">
+        <div class="smallFilterHeaderWrapper">
 
-
-        <div class="header">
-            <h1>All Products</h1>
-            <p>Discover our wide range of products at unbeatable prices.</p>
-        </div>
-
-        <div class="filters col-xl-3 col-lg-4 col-md-5 d-none d-md-flex">
-
-            <div class="categories">
-                <h4>Categories</h4>
-                <div class="electronics">
-                    <input type="checkbox" id="electronics">
-                    <label for="electronics">Electronics</label>
-                </div>
-
-                <div class="clothing">
-                    <input type="checkbox" id="clothing">
-                    <label for="clothing">Clothing</label>
-                </div>
-
-                <div class="homeAppliances">
-                    <input type="checkbox" id="homeAppliances">
-                    <label for="homeAppliances">Home Appliances</label>
-                </div>
-
-                <div class="furniture">
-                    <input type="checkbox" id="furniture">
-                    <label for="furniture">Furniture</label>
-                </div>
-
+            <div class="header mb-4">
+                <h1>All Products</h1>
+                <p>Discover our wide range of products at unbeatable prices.</p>
             </div>
 
-            <div class="price">
-                <h4>Price Range</h4>
+            <div class="offCanvas d-flex d-md-none">
+                <button id="filtersBtn" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <i class="fa-solid fa-filter me-2" style="color: rgb(255, 255, 255);"></i> Filters
+                </button>
 
-                <div class="rangeWrapper">
-                    <input type="number" [(ngModel)]="minPrice" (input)="onMinChange()" min="0" max="1000">
-
-                    <span>to</span>
-
-                    <input type="number" [(ngModel)]="maxPrice" (input)="onMaxChange()" min="0" max="1000">
-                </div>
-
-                <div class="rangeInput">
-                    <div class="sliderTrack"></div>
-                    <div class="sliderRange" [style.left.%]="minPercent" [style.right.%]="100 - maxPercent"></div>
-
-                    <input type="range" min="0" max="1000" [(ngModel)]="minPrice" (input)="onMinChange()">
-
-                    <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (input)="onMaxChange()">
-                </div>
-            </div>
-
-
-            <div class="rating">
-                <h4>Rating</h4>
-                <div class="4Up">
-                    <input type="radio" id="4Up" name="rating">
-                    <label for="4Up">4 Stars & Up</label>
-                </div>
-
-                <div class="3Up">
-                    <input type="radio" id="3Up" name="rating">
-                    <label for="3Up">3 Stars & Up</label>
-                </div>
-
-                <div class="2Up">
-                    <input type="radio" id="2Up" name="rating">
-                    <label for="2Up">2 Stars & Up</label>
-                </div>
-
-                <div class="1Up">
-                    <input type="radio" id="1Up" name="rating">
-                    <label for="1Up">1 Star & Up</label>
-                </div>
-
-            </div>
-
-            <div class="help">
-                <h4>Need help?</h4>
-                <p>Contact our support team for assistance with product selection, order tracking, or any inquiries you
-                    may
-                    have.</p>
-                <button>Contact Support</button>
-            </div>
-
-        </div>
-
-        <div class="offCanvas d-block d-md-none">
-            <button id="filtersBtn" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                <i class="fa-solid fa-filter me-2" style="color: rgb(255, 255, 255);"></i> Filters
-            </button>
-
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filters</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-
-                <div class="offcanvas-body">
-                    <div class="categories">
-                        <h4>Categories</h4>
-                        <div class="electronics">
-                            <input type="checkbox" id="electronics">
-                            <label for="electronics">Electronics</label>
-                        </div>
-
-                        <div class="clothing">
-                            <input type="checkbox" id="clothing">
-                            <label for="clothing">Clothing</label>
-                        </div>
-
-                        <div class="homeAppliances">
-                            <input type="checkbox" id="homeAppliances">
-                            <label for="homeAppliances">Home Appliances</label>
-                        </div>
-
-                        <div class="furniture">
-                            <input type="checkbox" id="furniture">
-                            <label for="furniture">Furniture</label>
-                        </div>
-
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                    aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filters</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
 
-                    <div class="price">
-                        <h4>Price Range</h4>
-
-                        <div class="rangeWrapper">
-                            <input type="number" [(ngModel)]="minPrice" (input)="onMinChange()" min="0" max="1000">
-
-                            <span>to</span>
-
-                            <input type="number" [(ngModel)]="maxPrice" (input)="onMaxChange()" min="0" max="1000">
-                        </div>
-
-                        <div class="rangeInput">
-                            <div class="sliderTrack"></div>
-                            <div class="sliderRange" [style.left.%]="minPercent" [style.right.%]="100 - maxPercent">
+                    <div class="offcanvas-body">
+                        <div class="categories">
+                            <h4>Categories</h4>
+                            <div *ngFor="let category of categories">
+                                <input type="checkbox" (change)="onCategoryChange(category, $event)"
+                                    [id]="'mobile-' + getCategoryId(category)"
+                                    [checked]="selectedCategories.includes(category)">
+                                <label [for]="'mobile-' + getCategoryId(category)">{{ category }}</label>
                             </div>
 
-                            <input type="range" min="0" max="1000" [(ngModel)]="minPrice" (input)="onMinChange()">
-
-                            <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (input)="onMaxChange()">
                         </div>
+
+                        <div class="price">
+                            <h4>Price Range</h4>
+
+                            <div class="rangeWrapper">
+                                <input type="number" [(ngModel)]="minPrice" (input)="onMinChange()" min="0" max="1000">
+
+                                <span>to</span>
+
+                                <input type="number" [(ngModel)]="maxPrice" (input)="onMaxChange()" min="0" max="1000">
+                            </div>
+
+                            <div class="rangeInput">
+                                <div class="sliderTrack"></div>
+                                <div class="sliderRange" [style.left.%]="minPercent" [style.right.%]="100 - maxPercent">
+                                </div>
+
+                                <input type="range" min="0" max="1000" [(ngModel)]="minPrice" (input)="onMinChange()">
+
+                                <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (input)="onMaxChange()">
+                            </div>
+                        </div>
+
+
+                        <div class="rating">
+                            <h4>Rating</h4>
+                            <div class="4Up">
+                                <input type="radio" id="mobile-4Up" name="rating" (change)="onRatingChange(4)">
+                                <label for="mobile-4Up">4 Stars & Up</label>
+                            </div>
+                            <div class="3Up">
+                                <input type="radio" id="mobile-3Up" name="rating" (change)="onRatingChange(3)">
+                                <label for="mobile-3Up">3 Stars & Up</label>
+                            </div>
+                            <div class="2Up">
+                                <input type="radio" id="mobile-2Up" name="rating" (change)="onRatingChange(2)">
+                                <label for="mobile-2Up">2 Stars & Up</label>
+                            </div>
+                            <div class="1Up">
+                                <input type="radio" id="mobile-1Up" name="rating" (change)="onRatingChange(1)">
+                                <label for="mobile-1Up">1 Star & Up</label>
+                            </div>
+                        </div>
+
+                        <div class="help">
+                            <h4>Need help?</h4>
+                            <p>Contact our support team for assistance with product selection, order tracking, or any
+                                inquiries
+                                you may
+                                have.</p>
+                            <button>Contact Support</button>
+                        </div>
+
                     </div>
-
-
-                    <div class="rating">
-                        <h4>Rating</h4>
-                        <div class="4Up">
-                            <input type="radio" id="4Up" name="rating">
-                            <label for="4Up">4 Stars & Up</label>
-                        </div>
-
-                        <div class="3Up">
-                            <input type="radio" id="3Up" name="rating">
-                            <label for="3Up">3 Stars & Up</label>
-                        </div>
-
-                        <div class="2Up">
-                            <input type="radio" id="2Up" name="rating">
-                            <label for="2Up">2 Stars & Up</label>
-                        </div>
-
-                        <div class="1Up">
-                            <input type="radio" id="1Up" name="rating">
-                            <label for="1Up">1 Star & Up</label>
-                        </div>
-
-                    </div>
-
-                    <div class="help">
-                        <h4>Need help?</h4>
-                        <p>Contact our support team for assistance with product selection, order tracking, or any
-                            inquiries
-                            you may
-                            have.</p>
-                        <button>Contact Support</button>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="allFiltersWrapper col-xl-3 col-lg-3 col-md-3 ">
+
+            <div class="filters d-none d-md-flex">
+
+                <div class="categories">
+                    <h4>Categories</h4>
+                    <div *ngFor="let category of categories">
+                        <input type="checkbox" (change)="onCategoryChange(category, $event)"
+                            [id]="'desktop-' + getCategoryId(category)"
+                            [checked]="selectedCategories.includes(category)">
+                        <label [for]="'desktop-' + getCategoryId(category)">{{ category }}</label>
+                    </div>
+
+                </div>
+
+                <div class="price">
+                    <h4>Price Range</h4>
+
+                    <div class="rangeWrapper">
+                        <input type="number" [(ngModel)]="minPrice" (input)="onMinChange()" min="0" max="1000">
+
+                        <span>to</span>
+
+                        <input type="number" [(ngModel)]="maxPrice" (input)="onMaxChange()" min="0" max="1000">
+                    </div>
+
+                    <div class="rangeInput">
+                        <div class="sliderTrack"></div>
+                        <div class="sliderRange" [style.left.%]="minPercent" [style.right.%]="100 - maxPercent"></div>
+
+                        <input type="range" min="0" max="1000" [(ngModel)]="minPrice" (input)="onMinChange()">
+
+                        <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (input)="onMaxChange()">
+                    </div>
+                </div>
+
+
+                <div class="rating">
+                    <h4>Rating</h4>
+                    <div class="4Up">
+                        <input type="radio" id="desktop-4Up" name="rating" (change)="onRatingChange(4)">
+                        <label for="desktop-4Up">4 Stars & Up</label>
+                    </div>
+                    <div class="3Up">
+                        <input type="radio" id="desktop-3Up" name="rating" (change)="onRatingChange(3)">
+                        <label for="desktop-3Up">3 Stars & Up</label>
+                    </div>
+                    <div class="2Up">
+                        <input type="radio" id="desktop-2Up" name="rating" (change)="onRatingChange(2)">
+                        <label for="desktop-2Up">2 Stars & Up</label>
+                    </div>
+                    <div class="1Up">
+                        <input type="radio" id="desktop-1Up" name="rating" (change)="onRatingChange(1)">
+                        <label for="desktop-1Up">1 Star & Up</label>
+                    </div>
+                </div>
+
+                <div class="help">
+                    <h4>Need help?</h4>
+                    <p>Contact our support team for assistance with product selection, order tracking, or any inquiries
+                        you
+                        may
+                        have.</p>
+                    <button>Contact Support</button>
+                </div>
+
+            </div>
+
+
+        </div>
 
 
 
 
-    <div class="products col-xl-9 col-lg-8 col-md-7">
-        <div class="row">
-            <div class="col-3" *ngFor="let product of products">
-                <app-product-card [product]="product"></app-product-card>
+        <div class="products col-xl-9 col-lg-9 col-md-9 mb-5 ">
+            <div class="row justify-content-center">
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-5 col-12  product"
+                    *ngFor="let product of filterdProducts">
+                    <app-product-card [product]="product"></app-product-card>
+                </div>
             </div>
         </div>
-    </div>
 
+    </div>
 </div>
