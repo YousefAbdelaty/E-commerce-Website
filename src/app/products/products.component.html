@@ -49,9 +49,11 @@
                                 <div class="sliderRange" [style.left.%]="minPercent" [style.right.%]="100 - maxPercent">
                                 </div>
 
-                                <input type="range" min="0" max="1000" [(ngModel)]="minPrice" (input)="onMinChange()">
+                                <input type="range" min="0" [max]="priceRangeMax" [(ngModel)]="minPrice"
+                                    (input)="onMinChange()">
 
-                                <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (input)="onMaxChange()">
+                                <input type="range" min="0" [max]="priceRangeMax" [(ngModel)]="maxPrice"
+                                    (input)="onMaxChange()">
                             </div>
                         </div>
 
@@ -120,9 +122,11 @@
                         <div class="sliderTrack"></div>
                         <div class="sliderRange" [style.left.%]="minPercent" [style.right.%]="100 - maxPercent"></div>
 
-                        <input type="range" min="0" max="1000" [(ngModel)]="minPrice" (input)="onMinChange()">
+                        <input type="range" min="0" [max]="priceRangeMax" [(ngModel)]="minPrice"
+                            (input)="onMinChange()">
 
-                        <input type="range" min="0" max="1000" [(ngModel)]="maxPrice" (input)="onMaxChange()">
+                        <input type="range" min="0" [max]="priceRangeMax" [(ngModel)]="maxPrice"
+                            (input)="onMaxChange()">
                     </div>
                 </div>
 

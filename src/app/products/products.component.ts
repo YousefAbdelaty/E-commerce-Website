@@ -18,19 +18,32 @@ export class ProductsComponent {
   products: any[] = [];
   filterdProducts: any[] = [];
   selectedCategories: string[] = [];
-  categories = ["Women's Fashion", "Men's Fashion", "Electronics"];
+  categories: string[] = [];
   selectedRating: number = 0;
+
   minPrice: number = 0;
-  maxPrice: number = 1000;
+  maxPrice: number = 0;       // set dynamically after products load
+  priceRangeMax: number = 0;  // the ceiling for the slider — also dynamic
+
   minPercent: number = 0;
   maxPercent: number = 100;
 
   ngOnInit() {
     this.prods.getAllProducts().subscribe(prods => {
-      this.products = prods;
-      this.filterdProducts = prods;
-      console.log('sample category:', prods[0]?.category); // add this
-      console.log('all categories:', [...new Set(prods.map((p:any) => p.category))]); // add this
+      this.products = [...prods];
+      this.filterdProducts = [...prods];
+
+      
+      this.categories = [...new Set(prods.map((p: any) => p.category as string))]
+        .filter(c => !!c)
+        .sort();
+
+     
+      const prices = prods.map((p: any) => p.price);
+      this.minPrice = 0;
+      this.priceRangeMax = Math.ceil(Math.max(...prices) / 100) * 100; // round up to nearest 100
+      this.maxPrice = this.priceRangeMax;
+      this.updateSlider();
     });
   }
 
@@ -39,12 +52,14 @@ export class ProductsComponent {
   }
 
   onMinChange() {
+    if (this.minPrice < 0) this.minPrice = 0;
     if (this.minPrice > this.maxPrice - 10) this.minPrice = this.maxPrice - 10;
     this.updateSlider();
     this.applyFilters();
   }
 
   onMaxChange() {
+    if (this.maxPrice > this.priceRangeMax) this.maxPrice = this.priceRangeMax;
     if (this.maxPrice < this.minPrice + 10) this.maxPrice = this.minPrice + 10;
     this.updateSlider();
     this.applyFilters();
@@ -52,7 +67,7 @@ export class ProductsComponent {
 
   onCategoryChange(category: string, event: any) {
     if (event.target.checked) {
-      this.selectedCategories.push(category);
+      this.selectedCategories = [...this.selectedCategories, category];
     } else {
       this.selectedCategories = this.selectedCategories.filter(c => c !== category);
     }
@@ -69,14 +84,9 @@ export class ProductsComponent {
   }
 
   updateSlider() {
-    this.minPercent = (this.minPrice / 1000) * 100;
-    this.maxPercent = (this.maxPrice / 1000) * 100;
-  }
-
-  private getCategoryName(product: any): string {
-    if (!product.category) return '';
-    if (typeof product.category === 'string') return product.category;
-    return product.category.name ?? '';  
+    if (this.priceRangeMax === 0) return;
+    this.minPercent = (this.minPrice / this.priceRangeMax) * 100;
+    this.maxPercent = (this.maxPrice / this.priceRangeMax) * 100;
   }
 
   applyFilters() {
@@ -88,9 +98,7 @@ export class ProductsComponent {
 
       const matchesCategory =
         this.selectedCategories.length === 0 ||
-        this.selectedCategories.some(c =>
-          product.category?.toLowerCase().trim() === c.toLowerCase().trim()
-        );
+        this.selectedCategories.includes(product.category);
 
       const matchesRating =
         this.selectedRating === 0 ||
@@ -98,5 +106,14 @@ export class ProductsComponent {
 
       return matchesPrice && matchesCategory && matchesRating;
     });
+  }
+
+  clearFilters() {
+    this.minPrice = 0;
+    this.maxPrice = this.priceRangeMax; 
+    this.selectedRating = 0;
+    this.selectedCategories = [];
+    this.updateSlider();
+    this.filterdProducts = [...this.products];
   }
 }
